@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yimouz.github.io/"/>
+  <link href="https://azheng.monster/"/>
   <updated>2020-04-18T12:06:01.116Z</updated>
-  <id>http://yimouz.github.io/</id>
+  <id>https://azheng.monster/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yimouz.github.io/2020/04/18/hello-world/"/>
-    <id>http://yimouz.github.io/2020/04/18/hello-world/</id>
+    <link href="https://azheng.monster/2020/04/18/hello-world/"/>
+    <id>https://azheng.monster/2020/04/18/hello-world/</id>
     <published>2020-04-18T12:06:01.116Z</published>
     <updated>2020-04-18T12:06:01.116Z</updated>
     
