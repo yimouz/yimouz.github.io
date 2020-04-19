@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>心中有杂念</title>
+      <link href="/2020/04/19/xin-zhong-you-za-nian/"/>
+      <url>/2020/04/19/xin-zhong-you-za-nian/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-bash"><code class="language-bash">有时候会在晚上的微风里出门走走，春天这样的雨来的太过绵细，但不妨碍她辗转反侧地冷，说好的吹面不寒杨柳风。如果你足够了解我，就应该知道熬不尽的夜，吃不完的茶，都是一个个sign。难眠的夜啊，思想足够活跃的时候，总是焦虑，想着想着就越发睡不着。  <span class="token comment" spellcheck="true">## 雨夜说心事，但尔尔</span>常常路过小公园，从公园的小路走着跳着雀跃着，可以避开呼啸的红绿灯，嘈杂的人流，好像一切都与自己无关。蜿蜒的路就踩着踩着，从春天到夏天，一下子叶子就没有了，到腊梅开了花，又一下子阳春白雪。念头总在上一秒断去，下一秒就厌仄的情绪所吞没。<span class="token comment" spellcheck="true">## 今宵酒醒何处</span>讲些最近的情话，也不知道有谁在看，给岁月讲点情话吧，毕竟没有爱人，也没有对象。生活，有时候是 <span class="token operator">|</span>山花烂漫的爱，有时候是 <span class="token operator">|</span>赤脚，冰凉袭来的爱，有时候是 <span class="token operator">|</span>突然想起，就眯眼笑的爱，有时候是 <span class="token operator">|</span>长途旅行，累到不行的爱，那爱情，也可以无关风月。总会有一些善良的狗，心中藏着秘密。北方女王</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日志 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/04/18/hello-world/"/>
       <url>/2020/04/18/hello-world/</url>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yimouz.github.io/"/>
-  <updated>2020-04-18T12:06:01.116Z</updated>
+  <updated>2020-04-19T14:09:32.505Z</updated>
   <id>https://yimouz.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>心中有杂念</title>
+    <link href="https://yimouz.github.io/2020/04/19/xin-zhong-you-za-nian/"/>
+    <id>https://yimouz.github.io/2020/04/19/xin-zhong-you-za-nian/</id>
+    <published>2020-04-19T14:00:28.000Z</published>
+    <updated>2020-04-19T14:09:32.505Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot; language-bash&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="https://yimouz.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="心情" scheme="https://yimouz.github.io/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
