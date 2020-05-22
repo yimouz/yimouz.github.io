@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="绿蚁" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="绿蚁" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -588,7 +588,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -616,7 +616,7 @@
 <li>如果你还算比较珍你的部落格,不管是什么情况,都建议进行备份,鸡蛋不在一个篮子里,有备自然无患<br>有些人选择新建一个远程仓来进行拉取上传,有些人选择每次用u盘热拷数据,而我选择在原来远程仓基础上新建一个分支进行源码上传,原因嘛,自然是怎么方便怎么来.</li>
 </ul>
 <h4 id="新建git分支"><a href="#新建git分支" class="headerlink" title="新建git分支"></a>新建git分支</h4><p>终端执行<code>git branch</code><br>查看分支情况,如果没有意外你只有一个<strong>master</strong>分支<br>终端执行<code>git checkout -b dev</code><br>创建并切换到<strong>dev</strong>分支,其中<strong>dev</strong>是你的自定义分支名<br>再次执行<code>git branch</code><br>你可以看到列出的分支包含<strong>dev/master</strong><br>当前分支带有*号</p>
-<h4 id="发布时选择的分支"><a href="#发布时选择的分支" class="headerlink" title="发布时选择的分支"></a>发布时选择的分支</h4><p>github仓库初始化生成一个master分支，这没什么特殊含义,只是init的时候就叫这个而已.<br>不过这对hexo来讲,生成的静态页面也是默认在master分支,如非魔改框架,请务必留着.<br>我这里选择<strong>dev</strong>分支作为我的源码托管分支,<br>你可以在克隆项目的时候指定分支<code>git clone -b dev xxurl</code>如果你正好也感兴趣,我会在后面描述  </p>
+<h4 id="发布时选择的分支"><a href="#发布时选择的分支" class="headerlink" title="发布时选择的分支"></a>发布时选择的分支</h4><p>github仓库初始化生成一个master分支，这没什么特殊含义,只是init的时候就叫这个而已.<br>不过这对hexo来讲,生成的静态页面也是默认在master分支,如非魔改框架,请务必留着.<br>这里选择<strong>dev</strong>分支作为我的源码托管分支,  </p>
 <h4 id="本地与远程仓库关联"><a href="#本地与远程仓库关联" class="headerlink" title="本地与远程仓库关联"></a>本地与远程仓库关联</h4><p>终端执行<code class="shell  language-shell">git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:yimouz/yimouz.github.io.git</code>  </p>
 <blockquote>
 <p>这里的origin只是一个易标识,你可以修改,比如hexo,后面这一串是仓库ssh地址,请不要错误关联到我的仓库,错误关联但没有配对的密钥自然没有用.除了ssh还可以选择http方式,具体看你个人选择.</p>
@@ -644,13 +644,15 @@ git push hexo dev
 npm install hexo-deployer-git -save
 </code></pre><p>是不是又回到了熟悉的环境</p>
 </blockquote>
-<h3 id="好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的"><a href="#好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的" class="headerlink" title="好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的"></a>好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的</h3><p>在公司划水,写写博客 一顿操作在push之后进入贤者模式<br>晚上或者周末在家,心潮澎拜,idea遍及<br>马不停蹄打开git<br><code>`</code><br>/git pull &lt;远程仓ssh&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;   </p>
+<h3 id="好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的"><a href="#好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的" class="headerlink" title="好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的"></a>好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的</h3><blockquote>
+<p>在公司写文档 一顿操作在push之后进入贤者模式<br>晚上或者周末在家,心潮澎拜,idea遍及<br>马不停蹄去书房打开git</p>
+<pre><code>/git pull &lt;远程仓ssh&gt; &lt;远程分支名&gt;:&lt;本地分支名      
+git pull git@github.com:yimouz/yimouz.github.io.git dev:dev   
+/拉取并合并到你的本地环境  
+</code></pre><p>至此就结束了!</p>
+</blockquote>
 </li>
 </ol>
-<p>git pull <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:yimouz/yimouz.github.io.git dev:dev<br>/拉取并合并到你的本地环境<br><code>`</code></p>
-<blockquote>
-<p>至此就结束了!</p>
-</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
