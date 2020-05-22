@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yimouz.github.io/"/>
-  <updated>2020-04-18T12:06:01.116Z</updated>
+  <updated>2020-05-22T08:08:47.875Z</updated>
   <id>https://yimouz.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://yimouz.github.io/2020/04/20/hello-world/"/>
-    <id>https://yimouz.github.io/2020/04/20/hello-world/</id>
-    <published>2020-04-20T00:52:28.877Z</published>
-    <updated>2020-04-18T12:06:01.116Z</updated>
+    <title>使用GIT远程仓管理hexo文档</title>
+    <link href="https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/"/>
+    <id>https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/</id>
+    <published>2020-05-22T00:58:27.000Z</published>
+    <updated>2020-05-22T08:08:47.875Z</updated>
     
     <summary type="html">
     
@@ -29,13 +29,18 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;h3 id=&quot;Hexo简单的命令&quot;&gt;&lt;a href=&quot;#Hexo简单的命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo简单的命令&quot;&gt;&lt;/a&gt;Hexo简单的命令&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;终端执行&lt;code&gt;hexo new
         
       
     
     </summary>
     
     
+      <category term="git" scheme="https://yimouz.github.io/categories/git/"/>
+    
+    
+      <category term="hexo" scheme="https://yimouz.github.io/tags/hexo/"/>
     
   </entry>
   
