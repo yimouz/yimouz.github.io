@@ -5,3 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
+install.sh
+package.json
+package-lock.json
