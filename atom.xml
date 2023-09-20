@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>绿蚁</title>
+  
+  <subtitle>栏杆拍遍</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://yimouz.github.io/"/>
+  <updated>2023-09-18T08:01:30.492Z</updated>
+  <id>https://yimouz.github.io/</id>
+  
+  <author>
+    <name>是阿蓁啊</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java调用get请求</title>
+    <link href="https://yimouz.github.io/2022/10/14/java-diao-yong-get-qing-qiu/"/>
+    <id>https://yimouz.github.io/2022/10/14/java-diao-yong-get-qing-qiu/</id>
+    <published>2022-10-14T01:05:17.000Z</published>
+    <updated>2023-09-18T08:01:30.492Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot; language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; lombok&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Jmeter" scheme="https://yimouz.github.io/categories/Jmeter/"/>
+    
+    
+      <category term="jmeter-java-get" scheme="https://yimouz.github.io/tags/jmeter-java-get/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://yimouz.github.io/2021/10/14/hello-world/"/>
+    <id>https://yimouz.github.io/2021/10/14/hello-world/</id>
+    <published>2021-10-14T01:55:57.552Z</published>
+    <updated>2021-10-14T01:55:57.552Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>win10网络正常，图标异常修复方式</title>
+    <link href="https://yimouz.github.io/2021/10/14/win10-geng-xin-hou-de-xian-shi-wu-wang-luo-dan-shi-ke-yi-shang-wang-wen-ti/"/>
+    <id>https://yimouz.github.io/2021/10/14/win10-geng-xin-hou-de-xian-shi-wu-wang-luo-dan-shi-ke-yi-shang-wang-wen-ti/</id>
+    <published>2021-10-14T01:05:17.000Z</published>
+    <updated>2021-10-14T02:00:24.528Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;注册表有所变化，将他改回去&quot;&gt;&lt;a href=&quot;#注册表有所变化，将他改回去&quot; class=&quot;headerlink&quot; title=&quot;##注册表有所变化，将他改回去&quot;&gt;&lt;/a&gt;##注册表有所变化，将他改回去&lt;/h1&gt;&lt;p&gt;1.crtl+r
+        
+      
+    
+    </summary>
+    
+    
+      <category term="旮旯杂杂" scheme="https://yimouz.github.io/categories/%E6%97%AE%E6%97%AF%E6%9D%82%E6%9D%82/"/>
+    
+    
+      <category term="问题杂记" scheme="https://yimouz.github.io/tags/%E9%97%AE%E9%A2%98%E6%9D%82%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
