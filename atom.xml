@@ -44,6 +44,64 @@
   </entry>
   
   <entry>
+    <title>Jmeter——BeanShell 内置变量vars、props、prev的使用摘录</title>
+    <link href="https://yimouz.github.io/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/"/>
+    <id>https://yimouz.github.io/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/</id>
+    <published>2022-05-14T11:25:21.000Z</published>
+    <updated>2023-10-23T08:39:16.230Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Jmeter——BeanShell-内置变量vars、props、prev的使用&quot;&gt;&lt;a href=&quot;#Jmeter——BeanShell-内置变量vars、props、prev的使用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="性能测试" scheme="https://yimouz.github.io/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="jmeter" scheme="https://yimouz.github.io/tags/jmeter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>py文件服务器搭建</title>
+    <link href="https://yimouz.github.io/2021/10/20/py-wen-jian-fu-wu-qi-da-jian/"/>
+    <id>https://yimouz.github.io/2021/10/20/py-wen-jian-fu-wu-qi-da-jian/</id>
+    <published>2021-10-20T02:01:27.000Z</published>
+    <updated>2023-10-23T07:17:44.723Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;背景：每次从win端上传文件到不同的linux，之前一直使用rz嫌弃麻烦，阅读到python有提供一个简易的文件服务器实现，如此便记录一下。&lt;/p&gt;
+&lt;p&gt;前置条件:本机（win）有python环境，&lt;/p&gt;
+&lt;p&gt;操作过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;选择共享的文件夹,地
+        
+      
+    
+    </summary>
+    
+    
+      <category term="旮旯杂杂" scheme="https://yimouz.github.io/categories/%E6%97%AE%E6%97%AF%E6%9D%82%E6%9D%82/"/>
+    
+    
+      <category term="问题杂记" scheme="https://yimouz.github.io/tags/%E9%97%AE%E9%A2%98%E6%9D%82%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://yimouz.github.io/2021/10/14/hello-world/"/>
     <id>https://yimouz.github.io/2021/10/14/hello-world/</id>
