@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 绿蚁">
+    <meta name="keywords" content="prometheus的node自动发现, 绿蚁">
     <meta name="description" content>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 绿蚁</title>
+    <title>prometheus的node自动发现 | 绿蚁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -417,12 +417,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">prometheus的node自动发现</h1>
                 </div>
             </div>
         </div>
@@ -545,12 +545,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/prometheus/">
+                                <span class="chip bg-color">prometheus</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/性能日记/" class="post-category">
+                                性能日记
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -559,7 +572,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-14
+                    2022-05-16
                 </div>
                 
 
@@ -568,14 +581,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    125
+                    478
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -590,19 +603,86 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+                <h1 id="prometheus的node自动发现"><a href="#prometheus的node自动发现" class="headerlink" title="prometheus的node自动发现"></a>prometheus的node自动发现</h1><h2 id="一、正常安装普罗米修斯之后，默认静态配置有所局限性，官方也贴心提供了许多自动发现服务-记录路径发现方式"><a href="#一、正常安装普罗米修斯之后，默认静态配置有所局限性，官方也贴心提供了许多自动发现服务-记录路径发现方式" class="headerlink" title="一、正常安装普罗米修斯之后，默认静态配置有所局限性，官方也贴心提供了许多自动发现服务,记录路径发现方式"></a>一、正常安装普罗米修斯之后，默认静态配置有所局限性，官方也贴心提供了许多自动发现服务,记录路径发现方式</h2><p>在prometheus.yml同级目录下，创建一个node文件夹，用来存放后续想拉取的node配置信息。</p>
+<p>yml配置里采用通配符，指定node目录的*yml</p>
+<p>1.node节点配套规范如下：</p>
+<p>1.1.文件名称node开头 .yml结尾<br>如：<code>node_serviceFind.yml</code></p>
+<p>1.2.编辑node_serviceFind.yml文件<br>示例：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"192.168.56.234:9098"</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">appName</span><span class="token punctuation">:</span> locahost
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>–完整的prometheus.yml参考–</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># my global config</span>
+<span class="token key atrule">global</span><span class="token punctuation">:</span>
+  <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span> 3s <span class="token comment" spellcheck="true"># Set the scrape interval to every 15 seconds. Default is every 1 minute.</span>
+  <span class="token key atrule">evaluation_interval</span><span class="token punctuation">:</span> 15s <span class="token comment" spellcheck="true"># Evaluate rules every 15 seconds. The default is every 1 minute.</span>
+  <span class="token comment" spellcheck="true"># scrape_timeout is set to the global default (10s).</span>
+
+<span class="token comment" spellcheck="true"># Alertmanager configuration</span>
+<span class="token key atrule">alerting</span><span class="token punctuation">:</span>
+  <span class="token key atrule">alertmanagers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span>
+          <span class="token comment" spellcheck="true"># - alertmanager:9093</span>
+
+<span class="token comment" spellcheck="true"># Load rules once and periodically evaluate them according to the global 'evaluation_interval'.</span>
+<span class="token key atrule">rule_files</span><span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true"># - "first_rules.yml"</span>
+  <span class="token comment" spellcheck="true"># - "second_rules.yml"</span>
+
+<span class="token comment" spellcheck="true"># A scrape configuration containing exactly one endpoint to scrape:</span>
+<span class="token comment" spellcheck="true"># Here it's Prometheus itself.</span>
+<span class="token key atrule">scrape_configs</span><span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true"># The job name is added as a label `job=&lt;job_name>` to any timeseries scraped from this config.</span>
+<span class="token comment" spellcheck="true">#  - job_name: "prometheus"</span>
+
+    <span class="token comment" spellcheck="true"># metrics_path defaults to '/metrics'</span>
+    <span class="token comment" spellcheck="true"># scheme defaults to 'http'.</span>
+
+<span class="token comment" spellcheck="true">#    static_configs:</span>
+<span class="token comment" spellcheck="true">#      - targets: ["localhost:9099"]</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">"nodeTest"</span>
+    <span class="token key atrule">file_sd_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">files</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'node/node*.yml'</span><span class="token punctuation">]</span>
+        <span class="token key atrule">refresh_interval</span><span class="token punctuation">:</span> 5m
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p></p>
+<p>1.3.编辑启动脚本start.sh，指定端口，保留时间</p>
+<pre class=" language-shell"><code class="language-shell">`nohup ./prometheus --web.listen-address=":9099" --storage.tsdb.retention.time=30d &`
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<p>1.4.编辑停止脚本stop.sh</p>
+<pre class=" language-shell"><code class="language-shell">pids=`ps -ef | grep prometheus | grep -v grep| awk '{print $2}'`
+for pid in $pids
+do
+   echo "Kill process prometheus $pid...";
+   kill -9 $pid;
+   rlt=$?;
+   if [ $rlt -eq 0 ]; then
+      echo "Success!!";
+   else
+      echo "Failed!!!";
+   fi
+done
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><strong>二、探针节点上传之后，启动脚本也编辑了方便复用</strong><br>示例如下：<br>文件名 start.sh</p>
+<pre class=" language-shell"><code class="language-shell">nohup ./node_exporter --web.listen-address=":9098" &
+</code></pre>
+<p>文件名 stop.sh</p>
+<pre class=" language-shell"><code class="language-shell">pids=`ps -ef | grep node_exporter | grep -v grep| awk '{print $2}'`
+for pid in $pids
+do
+   echo "Kill process node_exporter $pid...";
+   kill -9 $pid;
+   rlt=$?;
+   if [ $rlt -eq 0 ]; then
+      echo "Success!!";
+   else
+      echo "Failed!!!";
+   fi
+done
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -633,7 +713,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/prometheus/">
+                                    <span class="chip bg-color">prometheus</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -677,31 +761,33 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/20/py-wen-jian-fu-wu-qi-da-jian/">
+                <a href="/2022/10/14/java-diao-yong-get-qing-qiu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="py文件服务器搭建">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="java调用get请求">
                         
-                        <span class="card-title">py文件服务器搭建</span>
+                        <span class="card-title">java调用get请求</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录py实现可下载的文件服务
+                            import lombok.extern.slf4j.Slf4j;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.config.RequestConfig;
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/旮旯杂杂/" class="post-category">
-                                    旮旯杂杂
+                            <a href="/categories/Jmeter/" class="post-category">
+                                    Jmeter
                                 </a>
                             
                             
@@ -711,8 +797,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/问题杂记/">
-                        <span class="chip bg-color">问题杂记</span>
+                    <a href="/tags/jmeter-java-get/">
+                        <span class="chip bg-color">jmeter-java-get</span>
                     </a>
                     
                 </div>
@@ -726,31 +812,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/14/win10-geng-xin-hou-de-xian-shi-wu-wang-luo-dan-shi-ke-yi-shang-wang-wen-ti/">
+                <a href="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="win10网络正常，图标异常修复方式">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Jmeter——BeanShell 内置变量vars、props、prev的使用摘录">
                         
-                        <span class="card-title">win10网络正常，图标异常修复方式</span>
+                        <span class="card-title">Jmeter——BeanShell 内置变量vars、props、prev的使用摘录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            更新win10后，遇到右下网标显示无网络，但仍可上网的问题
+                            Jmeter——BeanShell 内置变量vars、props、prev的使用，摘录备忘
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/旮旯杂杂/" class="post-category">
-                                    旮旯杂杂
+                            <a href="/categories/性能测试/" class="post-category">
+                                    性能测试
                                 </a>
                             
                             
@@ -760,8 +846,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/问题杂记/">
-                        <span class="chip bg-color">问题杂记</span>
+                    <a href="/tags/jmeter/">
+                        <span class="chip bg-color">jmeter</span>
                     </a>
                     
                 </div>
@@ -958,7 +1044,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.6k</span>&nbsp;字
+                class="white-color">6.9k</span>&nbsp;字
             
             
             
