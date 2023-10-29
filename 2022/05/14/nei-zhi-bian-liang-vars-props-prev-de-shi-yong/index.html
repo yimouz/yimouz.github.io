@@ -624,14 +624,14 @@
 
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"threadName:"</span>  <span class="token operator">+</span> threadName<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//1.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/1.png">
 <h3 id="getIteration"><a href="#getIteration" class="headerlink" title="getIteration"></a>getIteration</h3><p>方法声明<br>public int getIteration()</p>
 <p>功能<br>获取线程当前的迭代号</p>
 <pre class=" language-dart"><code class="language-dart">int itNum <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">getIteration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 String num <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>itNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"itNum："</span>  <span class="token operator">+</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><a href="https://img2022.cnblogs.com/blog/1242227/202210/1242227-20221003215135011-1829776070.png" target="_blank" rel="noopener"><img src="/.io//2.png" alt="img"></a></p>
+<p><a href="https://img2022.cnblogs.com/blog/1242227/202210/1242227-20221003215135011-1829776070.png" target="_blank" rel="noopener"><img src="//yimouz.github.io/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/2.png" alt="img"></a></p>
 <p>这里有个注意点，就是在开始时候提到的，数据放到变量中，需要将数据转换成String类型。</p>
 <h3 id="put"><a href="#put" class="headerlink" title="put"></a>put</h3><p>方法声明<br>public void put(String key, String value)</p>
 <p>Parameters:<br>key - the variable name<br>value - the variable value</p>
@@ -652,14 +652,14 @@ log<span class="token punctuation">.</span>info<span class="token punctuation">(
 String varsName <span class="token operator">=</span> vars<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"varsName："</span><span class="token operator">+</span> varsName<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//3.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/3.png">
 <h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><p>方法声明<br>public String get(String key)</p>
 <p>功能<br>获取变量的值并将其转换为字符串，若变量存在则将值转换为字符串，否则返回 null</p>
 <pre class=" language-vbnet"><code class="language-vbnet">String varsSex = vars.get("sex");
 log.info("varsSex："+ varsSex);
 </code></pre>
 <p>在put方法中，已经使用了get的方法，这里列举个获取不到变量的情况，返回null</p>
-<p><img src="/.io//4.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/4.png">
 <h3 id="putObject"><a href="#putObject" class="headerlink" title="putObject"></a>putObject</h3><p>方法声明<br>public void putObject(String key,Object value)</p>
 <p>Parameters:<br>key - the variable name<br>value - the variable value</p>
 <p>功能<br>创建或更新一个非字符串变量。</p>
@@ -672,7 +672,7 @@ log<span class="token punctuation">.</span>info<span class="token punctuation">(
 log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"array："</span><span class="token operator">+</span> vars<span class="token punctuation">.</span>getObject<span class="token punctuation">(</span><span class="token string">"array"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"map："</span><span class="token operator">+</span> vars<span class="token punctuation">.</span>getObject<span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//5.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/5.png">
 <h3 id="getObject"><a href="#getObject" class="headerlink" title="getObject"></a>getObject</h3><p>方法声明<br>public Object getObject(String key)</p>
 <p>功能<br>获取变量的值（不转换为字符串）。若变量不存在则返回null</p>
 <h3 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h3><p>方法声明<br>public Object remove(String key)</p>
@@ -684,7 +684,7 @@ log<span class="token punctuation">.</span><span class="token function">info</sp
 vSex <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"sex"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"vSex："</span><span class="token operator">+</span> vSex<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//6.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/6.png">
 <h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><p>props 映射 java.util 的 Properties 类。java.util.Properties 这个类是线程安全的；多个线程可以共享一个 Properties 对象</p>
 <h3 id="vars跟props的区别"><a href="#vars跟props的区别" class="headerlink" title="vars跟props的区别"></a>vars跟props的区别</h3><ul>
 <li>vars 是对变量进行读写操作， 而 props 主要是对属性进行读写操作</li>
@@ -705,7 +705,7 @@ log<span class="token punctuation">.</span><span class="token function">info</sp
 propsTest <span class="token operator">=</span> props<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"jmeter.save.saveservice.timestamp"</span><span class="token punctuation">,</span><span class="token string">"温一壶清酒 博客园"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"propsTest："</span><span class="token operator">+</span> propsTest<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//7.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/7.png">
 <h3 id="get-1"><a href="#get-1" class="headerlink" title="get"></a>get</h3><p>方法声明<br>public synchronized V get(Object key)</p>
 <p>功能<br>获取属性值，跟 getProperty 类似</p>
 <pre class=" language-csharp"><code class="language-csharp">pTimeFormat <span class="token operator">=</span> props<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"jmeter.save.saveservice.timestamp_format"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -721,7 +721,7 @@ log<span class="token punctuation">.</span><span class="token function">info</sp
 propsName <span class="token operator">=</span> props<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"pName"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"propsName："</span><span class="token operator">+</span> propsName<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//8.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/8.png">
 <h3 id="put-1"><a href="#put-1" class="headerlink" title="put"></a>put</h3><p>方法声明<br>public synchronized V put(Object key)</p>
 <p>功能<br>设置属性值，跟 setProperty 类似</p>
 <pre class=" language-csharp"><code class="language-csharp">props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pName"</span><span class="token punctuation">,</span><span class="token string">"温一壶清酒"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -735,13 +735,13 @@ propsNames<span class="token punctuation">.</span><span class="token function">e
     log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="/.io//9.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/9.png">
 <h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3><p>方法声明<br>public int size()</p>
 <p>功能<br>返回有多少个属性</p>
 <pre class=" language-matlab"><code class="language-matlab">pPropsCount <span class="token operator">=</span> props<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>"pPropsCount："<span class="token operator">+</span> pPropsCount<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//10.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/10.png">
 <h3 id="remove-1"><a href="#remove-1" class="headerlink" title="remove"></a>remove</h3><p>方法声明<br>public synchronized V remove(Object key)</p>
 <p>功能<br>删除一个变量，并返回变量的值，若变量不存在则返回 null</p>
 <pre class=" language-lua"><code class="language-lua">props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pName"</span><span class="token punctuation">,</span><span class="token string">"温一壶清酒"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -751,7 +751,7 @@ log<span class="token punctuation">.</span><span class="token function">info</sp
 rSex <span class="token operator">=</span> props<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"sex"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"rSex："</span><span class="token operator">+</span> rSex<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="/.io//11.png" alt=""></p>
+<img src="/2022/05/14/nei-zhi-bian-liang-vars-props-prev-de-shi-yong/11.png">
 <h2 id="prev"><a href="#prev" class="headerlink" title="prev"></a>prev</h2><p>prev 提供对当前取样器结果的访问能力，映射 org.apache.jmeter.samplers 的 SampleResult 类<br>官方文档： <a href="https://jmeter.apache.org/api/org/apache/jmeter/samplers/SampleResult.html" target="_blank" rel="noopener">https://jmeter.apache.org/api/org/apache/jmeter/samplers/SampleResult.html</a></p>
 <h3 id="getResponseCode"><a href="#getResponseCode" class="headerlink" title="getResponseCode"></a>getResponseCode</h3><p>方法声明<br>public String getResponseCode()</p>
 <p>功能<br>获取响应状态码</p>
