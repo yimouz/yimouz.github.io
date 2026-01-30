@@ -50,281 +50,124 @@ body {
     color: var(--text-primary);
 }
 
-/* ===== 代码块样式 - 高对比度语法高亮 ===== */
+/* ===== 代码块样式 - 专注highlight.js ===== */
 .highlight {
-    position: relative;
     margin: 2rem 0;
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    background: #0d1117;
-    border: 1px solid #30363d;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: #282c34;
 }
 
-/* 代码块语言标签 */
-.highlight figcaption {
-    background: var(--primary-gradient);
-    color: white;
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+/* 代码块表格布局 */
+.highlight table {
     margin: 0;
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
 }
 
-/* 代码块主体 */
-.highlight pre {
-    background: #0d1117 !important;
-    color: #f0f6fc !important;
-    padding: 1.5rem !important;
-    margin: 0 !important;
-    border-radius: 0;
-    overflow-x: auto;
-    font-family: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Consolas', monospace !important;
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
+.highlight table td {
+    padding: 0;
+    border: none;
 }
 
-/* 行号样式 */
+/* 行号列 */
 .highlight .gutter {
-    background: #161b22 !important;
-    color: #7d8590 !important;
-    border-right: 1px solid #30363d !important;
-    padding-right: 0.5rem !important;
-    text-align: right !important;
+    background: #21252b;
+    color: #5c6370;
+    padding: 1rem 0.5rem;
+    text-align: right;
+    user-select: none;
+    border-right: 1px solid #3e4451;
+    width: 3rem;
 }
 
+.highlight .gutter pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+/* 代码列 */
 .highlight .code {
-    background: #0d1117 !important;
-    padding-left: 1rem !important;
+    background: #282c34;
+    padding: 1rem;
 }
 
-/* GitHub Dark 主题语法高亮 */
-.highlight .comment,
-.highlight .quote {
-    color: #7d8590 !important; /* 灰色注释 */
-    font-style: italic;
+.highlight .code pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: #abb2bf;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
 }
 
-.highlight .keyword,
-.highlight .selector-tag,
-.highlight .addition {
-    color: #ff7b72 !important; /* 红色关键字 */
-    font-weight: bold;
+/* highlight.js 语法高亮颜色 - One Dark 主题 */
+.hljs {
+    color: #abb2bf;
+    background: #282c34;
 }
 
-.highlight .number,
-.highlight .string,
-.highlight .meta .meta-string,
-.highlight .variable,
-.highlight .template-variable,
-.highlight .strong,
-.highlight .emphasis,
-.highlight .quote {
-    color: #a5d6ff !important; /* 蓝色字符串和数字 */
-}
-
-.highlight .keyword,
-.highlight .selector-tag,
-.highlight .name,
-.highlight .deletion {
-    color: #ff7b72 !important; /* 红色关键字 */
-}
-
-.highlight .symbol,
-.highlight .bullet,
-.highlight .subst,
-.highlight .meta,
-.highlight .meta .keyword,
-.highlight .selector-attr,
-.highlight .selector-pseudo,
-.highlight .link {
-    color: #a5d6ff !important; /* 蓝色符号 */
-}
-
-.highlight .built_in,
-.highlight .deletion {
-    color: #ffa657 !important; /* 橙色内置函数 */
-}
-
-.highlight .formula {
-    background: #161b22;
-}
-
-.highlight .emphasis {
-    font-style: italic;
-}
-
-.highlight .strong {
-    font-weight: bold;
-}
-
-/* 特定语言高亮 */
-/* JavaScript */
-.highlight.javascript .keyword,
-.highlight.js .keyword {
-    color: #ff7b72 !important; /* const, let, var, function */
-}
-
-.highlight.javascript .string,
-.highlight.js .string {
-    color: #7ee787 !important; /* 绿色字符串 */
-}
-
-.highlight.javascript .function,
-.highlight.js .function {
-    color: #d2a8ff !important; /* 紫色函数名 */
-}
-
-.highlight.javascript .number,
-.highlight.js .number {
-    color: #79c0ff !important; /* 蓝色数字 */
-}
-
-/* Python */
-.highlight.python .keyword {
-    color: #ff7b72 !important; /* def, if, for, import */
-}
-
-.highlight.python .string {
-    color: #7ee787 !important; /* 绿色字符串 */
-}
-
-.highlight.python .function {
-    color: #d2a8ff !important; /* 紫色函数名 */
-}
-
-.highlight.python .built_in {
-    color: #ffa657 !important; /* 橙色内置函数 */
-}
-
-/* Java */
-.highlight.java .keyword {
-    color: #ff7b72 !important; /* public, private, class */
-}
-
-.highlight.java .class {
-    color: #ffa657 !important; /* 橙色类名 */
-}
-
-.highlight.java .string {
-    color: #7ee787 !important; /* 绿色字符串 */
-}
-
-/* CSS */
-.highlight.css .selector-tag,
-.highlight.css .selector-id,
-.highlight.css .selector-class {
-    color: #79c0ff !important; /* 蓝色选择器 */
-}
-
-.highlight.css .attribute {
-    color: #ffa657 !important; /* 橙色属性名 */
-}
-
-.highlight.css .string {
-    color: #7ee787 !important; /* 绿色属性值 */
-}
-
-/* SQL */
-.highlight.sql .keyword {
-    color: #ff7b72 !important; /* SELECT, FROM, WHERE */
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.highlight.sql .string {
-    color: #7ee787 !important; /* 绿色字符串值 */
-}
-
-.highlight.sql .built_in {
-    color: #d2a8ff !important; /* 紫色函数名 */
-}
-
-/* Bash */
-.highlight.bash .meta {
-    color: #7d8590 !important; /* #!/bin/bash */
-}
-
-.highlight.bash .string {
-    color: #7ee787 !important; /* 绿色字符串 */
-}
-
-.highlight.bash .variable {
-    color: #ffa657 !important; /* 橙色变量 */
-}
-
-/* 通用token样式 - 更高对比度 */
 .hljs-comment,
 .hljs-quote {
-    color: #7d8590 !important;
+    color: #5c6370;
     font-style: italic;
 }
 
+.hljs-doctag,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-    color: #ff7b72 !important;
-    font-weight: bold;
+.hljs-formula {
+    color: #c678dd;
 }
 
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-    color: #79c0ff !important;
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+    color: #e06c75;
+}
+
+.hljs-literal {
+    color: #56b6c2;
 }
 
 .hljs-string,
-.hljs-doctag {
-    color: #7ee787 !important;
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-    color: #d2a8ff !important;
-    font-weight: bold;
-}
-
-.hljs-type,
-.hljs-class .hljs-title {
-    color: #ffa657 !important;
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-    color: #ff7b72 !important;
-}
-
 .hljs-regexp,
-.hljs-link {
-    color: #7ee787 !important;
-}
-
-.hljs-symbol,
-.hljs-bullet {
-    color: #79c0ff !important;
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+    color: #98c379;
 }
 
 .hljs-built_in,
-.hljs-builtin-name {
-    color: #ffa657 !important;
+.hljs-class .hljs-title {
+    color: #e6c07b;
 }
 
-.hljs-meta {
-    color: #7d8590 !important;
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+    color: #d19a66;
 }
 
-.hljs-deletion {
-    background: #ffeef0;
-}
-
-.hljs-addition {
-    background: #f0fff4;
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+    color: #61aeee;
 }
 
 .hljs-emphasis {
@@ -333,6 +176,10 @@ body {
 
 .hljs-strong {
     font-weight: bold;
+}
+
+.hljs-link {
+    text-decoration: underline;
 }
 
 /* 代码块复制按钮样式 */
