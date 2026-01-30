@@ -3,10 +3,10 @@ name: Deploy Hexo Blog
 on:
   push:
     branches:
-      - dev  # 这里填你的源码分支名！如果是 dev 就填 dev
+      - dev  # 监听源码分支的变动
 
 permissions:
-  contents: write # 必须赋予写权限，否则无法推送到 master
+  contents: write # 必须赋予写权限
 
 jobs:
   build:
@@ -16,33 +16,30 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
         with:
-          ref: dev          # 保持你原来的 dev
-          submodules: true
+          ref: dev          # 拉取源码
+          submodules: true  # 兼容主题 submodule
           fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '14' # 使用Node 14，兼容Hexo 5.x
 
-      # --- 增强部分开始 ---
-      - name: Upgrade npm
-        run: npm install -g npm@latest
-
-      - name: Install Hexo CLI Globally
-        run: npm install -g hexo-cli
+      - name: Install Hexo 5.x
+        run: |
+          npm install -g hexo-cli@4.3.0
+          npm install hexo@5.4.2 --save
 
       - name: Install Dependencies
-        run: npm install --no-optional # 加上 no-optional 可以减少一些不必要的编译错误
-      # --- 增强部分结束 ---
+        run: npm install --no-optional
 
       - name: Build Hexo
-        run: hexo generate # 现在可以直接用 hexo 命令了，不需要 npx
+        run: hexo generate
 
       - name: Deploy to Master
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: master
+          publish_branch: master  # 发布到 master 分支
           commit_message: "Auto deploy: ${{ github.event.head_commit.message }}"
