@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用GIT远程仓管理hexo文档, 绿蚁">
+    <meta name="keywords" content="代码块渲染测试, 绿蚁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>使用GIT远程仓管理hexo文档 | 绿蚁</title>
+    <title>代码块渲染测试 | 绿蚁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用GIT远程仓管理hexo文档</h1>
+                    <h1 class="description center-align post-title">代码块渲染测试</h1>
                 </div>
             </div>
         </div>
@@ -550,8 +550,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">测试</span>
                             </a>
                         
                     </div>
@@ -562,8 +562,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/git/" class="post-category">
-                                git
+                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
+                                测试
                             </a>
                         
                     </div>
@@ -575,7 +575,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-22
+                    2026-01-30
                 </div>
                 
 
@@ -584,14 +584,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    136
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -606,44 +606,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Hexo简单的命令"><a href="#Hexo简单的命令" class="headerlink" title="Hexo简单的命令"></a>Hexo简单的命令</h3><ol>
-<li>终端执行<code>hexo new 新文章</code>命令，此时本地<code>source/_post</code>目录下会新建<code>新文章.md</code>文件</li>
-<li>打开 <code>新文章.md</code>编写完成后，终端执行<code>hexo g</code>编译</li>
-<li>终端执行<code>hexo s</code>本地预览</li>
-<li>终端执行<code>hexo d</code>推送到远程仓<strong>master</strong>分支</li>
-</ol>
-<h3 id="场景备份的建议"><a href="#场景备份的建议" class="headerlink" title="场景备份的建议"></a>场景备份的建议</h3><ul>
-<li>个人pc比较多,有时候不是专门用一台机器来做一件事,公司家庭暂住地等等等等,多台pc的使用场景</li>
-<li>硬盘损坏,</li>
-<li>电脑丢失</li>
-<li>如果你还算比较珍你的部落格,不管是什么情况,都建议进行备份,鸡蛋不在一个篮子里,有备自然无患<br>有些人选择新建一个远程仓来进行拉取上传,有些人选择每次用u盘热拷数据,而我选择在原来远程仓基础上新建一个分支进行源码上传,原因嘛,自然是怎么方便怎么来.</li>
-</ul>
-<h4 id="新建git分支"><a href="#新建git分支" class="headerlink" title="新建git分支"></a>新建git分支</h4><p>终端执行<code>git branch</code><br>查看分支情况,如果没有意外你只有一个<strong>master</strong>分支<br>终端执行<code>git checkout -b dev</code><br>创建并切换到<strong>dev</strong>分支,其中<strong>dev</strong>是你的自定义分支名<br>再次执行<code>git branch</code><br>你可以看到列出的分支包含<strong>dev/master</strong><br>当前分支带有*号</p>
-<h4 id="发布时选择的分支"><a href="#发布时选择的分支" class="headerlink" title="发布时选择的分支"></a>发布时选择的分支</h4><p>github仓库初始化生成一个master分支，这没什么特殊含义,只是init的时候就叫这个而已.<br>不过这对hexo来讲,生成的静态页面也是默认在master分支,如非魔改框架,请务必留着.<br>我这里选择<strong>dev</strong>分支作为我的源码托管分支,<br>你可以在克隆项目的时候指定分支<code>git clone -b dev xxurl</code>如果你正好也感兴趣,我会在后面描述  </p>
-<h4 id="本地与远程仓库关联"><a href="#本地与远程仓库关联" class="headerlink" title="本地与远程仓库关联"></a>本地与远程仓库关联</h4><p>终端执行<code class="shell  language-shell">git remote add origin <a href="mailto:git@github.com">git@github.com</a>:yimouz/yimouz.github.io.git</code>  </p>
-<blockquote>
-<p>这里的origin只是一个易标识,你可以修改,比如hexo,后面这一串是仓库ssh地址,请不要错误关联到我的仓库,错误关联但没有配对的密钥自然没有用.除了ssh还可以选择http方式,具体看你个人选择.</p>
-</blockquote>
-<h4 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h4><p>推送到dev分支。<br>本地有许多文件,保留文章跟一些你觉得重要的，其他无关的文件并不希望推送，<br>使用<code>.gitignore</code>文件吧<br>把这些不想要的推送的保存到你ignore,比如如下一些:<br>.DS_Store<br>Thumbs.db<br>db.json<br><em>.log<br>node_modules/<br>public/<br>.deploy</em>/<br>添加完就可以试一下推送了<br>终端执行：<br> </p><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m '你的提交信息'</span><br><span class="line">git push hexo dev</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h4 id="删除dev分支的某些文件"><a href="#删除dev分支的某些文件" class="headerlink" title="删除dev分支的某些文件"></a>删除dev分支的某些文件</h4><p>dev继承自master会带上master已经存在的分支内容<br>类似public<br>如果你跟我一样看着他们常常难受<br>不要犹豫,本地环境.<br>按下你的delete fireout it<br>删除完,终端执行<br>当然不删也可以<br> </p><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m '同样填写你的注释信息'</span><br><span class="line">git push hexo dev</span><br></pre></td></tr></tbody></table></figure><br>你会发现.ignore里携带的都没有带上去了.<br>这就是ignore<p></p>
-<h3 id="多pc"><a href="#多pc" class="headerlink" title="多pc"></a>多pc</h3><p>回到这个问题,新电脑了怎么办,硬盘坏了怎么办  </p>
-<ol>
-<li>下载git </li>
-<li>安装node npm </li>
-<li>克隆你的分支<code>git clone -b dev 你的url</code>   </li>
-<li>初始化init</li>
-<li>密钥</li>
-<li>关联到你的远程仓</li>
-</ol>
-<blockquote>
-<p>当然不要忘记<br> </p><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">npm install hexo   </span><br><span class="line">npm install hexo-deployer-git -save</span><br></pre></td></tr></tbody></table></figure><br>是不是又回到了熟悉的环境<p></p>
-</blockquote>
-<h3 id="好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的"><a href="#好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的" class="headerlink" title="好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的"></a>好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的</h3><p>在公司划水,写写博客 一顿操作在push之后进入贤者模式<br>晚上或者周末在家,心潮澎拜,idea遍及<br>马不停蹄打开git</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">/git pull &lt;远程仓ssh&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;   </span><br><span class="line"></span><br><span class="line">git pull git@github.com:yimouz/yimouz.github.io.git dev:dev</span><br><span class="line">/拉取并合并到你的本地环境  </span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>至此就结束了!</p>
-</blockquote>
+                <h1 id="代码块渲染测试"><a href="#代码块渲染测试" class="headerlink" title="代码块渲染测试"></a>代码块渲染测试</h1><h2 id="JavaScript-代码块"><a href="#JavaScript-代码块" class="headerlink" title="JavaScript 代码块"></a>JavaScript 代码块</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"Hello World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="title function_">hello</span>();</span><br></pre></td></tr></tbody></table></figure>
 
+<h2 id="Python-代码块"><a href="#Python-代码块" class="headerlink" title="Python 代码块"></a>Python 代码块</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fibonacci</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">return</span> fibonacci(n-<span class="number">1</span>) + fibonacci(n-<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算斐波那契数列</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"F(<span class="subst">{i}</span>) = <span class="subst">{fibonacci(i)}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="YAML-配置"><a href="#YAML-配置" class="headerlink" title="YAML 配置"></a>YAML 配置</h2><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h2><p>这是一个 <code>inline code</code> 示例，还有 <code>npm install</code> 命令。</p>
+<h2 id="无语言标识的代码块"><a href="#无语言标识的代码块" class="headerlink" title="无语言标识的代码块"></a>无语言标识的代码块</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">这是一个没有指定语言的代码块</span><br><span class="line">应该使用默认样式渲染</span><br></pre></td></tr></tbody></table></figure>
             </div>
             <hr/>
 
@@ -658,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yimouz.github.io" rel="external nofollow noreferrer">是啊蓁阿</a>
+                    <a href="https://yimouz.github.io" rel="external nofollow noreferrer">是阿蓁啊</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -668,7 +638,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/">https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/</a>
+                    <a href="https://yimouz.github.io/2026/01/30/dai-ma-kuai-ce-shi/">https://yimouz.github.io/2026/01/30/dai-ma-kuai-ce-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -681,7 +651,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://yimouz.github.io" target="_blank">是啊蓁阿</a>
+                    <a href="https://yimouz.github.io" target="_blank">是阿蓁啊</a>
                     !
                 </span>
             </div>
@@ -706,8 +676,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">测试</span>
                                 </a>
                             
                         </div>
@@ -875,35 +845,88 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/">
+                <a href="/2026/01/30/dai-ma-kuai-ce-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="性能笔记-几个瓶颈">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="代码块渲染测试">
                         
-                        <span class="card-title">性能笔记-几个瓶颈</span>
+                        <span class="card-title">代码块渲染测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            瓶颈可能来自哪里,水一下笔记就算了
+                            代码块渲染测试JavaScript 代码块function hello() {    console.log("Hello World!");    return "success";}// 调用函数hello();
+
+Python 代码块
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-01-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="post-category">
-                                    性能测试
+                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    测试
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">测试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hexo 单仓库双分支 配合action">
+                        
+                        <span class="card-title">Hexo 单仓库双分支 配合action</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Hexo 单仓库双分支：摆脱本地hexo、node
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-01-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9D%82%E8%AE%B0/" class="post-category">
+                                    杂记
                                 </a>
                             
                             
@@ -915,56 +938,6 @@
                     
                     <a href="/tags/%E6%9D%82%E8%AE%B0/">
                         <span class="chip bg-color">杂记</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="使用GIT远程仓管理hexo文档">
-                        
-                        <span class="card-title">使用GIT远程仓管理hexo文档</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            以hexo为例,使用git从配置到切换分支策略跟拉取的简单演示
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/git/" class="post-category">
-                                    git
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>

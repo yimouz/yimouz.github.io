@@ -32,7 +32,8 @@
 <meta name="generator" content="Hexo 7.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="绿蚁" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -608,7 +609,7 @@
                 <h1 id="线程包括哪些状态，状态之间是如何变化"><a href="#线程包括哪些状态，状态之间是如何变化" class="headerlink" title="线程包括哪些状态，状态之间是如何变化?"></a>线程包括哪些状态，状态之间是如何变化?</h1><h2 id="1-线程状态-六种状态"><a href="#1-线程状态-六种状态" class="headerlink" title="1. 线程状态-六种状态"></a>1. 线程状态-六种状态</h2><blockquote>
 <p>线程的状态可以参考JDK中的Thread类中的枚举State,存在<strong>六种状态</strong></p>
 </blockquote>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">State</span> {</span><br><span class="line"><span class="comment">//尚未启动的线程的线程状态</span></span><br><span class="line">  NEW,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//可运行线程的线程状态</span></span><br><span class="line">  RUNNABLE,</span><br><span class="line"></span><br><span class="line"><span class="comment">//线程阻塞等待监视器锁的线程状态</span></span><br><span class="line">  BLOCKED,</span><br><span class="line"></span><br><span class="line"><span class="comment">//等待线程的线程状态</span></span><br><span class="line">  WAITING,</span><br><span class="line"></span><br><span class="line"><span class="comment">//具有指定等待时间的等待线程的线程状态（有限等待）</span></span><br><span class="line">  TIMED_WAITING,</span><br><span class="line"></span><br><span class="line"> <span class="comment">//已终止线程的线程状态。线程已完成执行</span></span><br><span class="line">  TERMINATED;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">State</span> {</span><br><span class="line"><span class="comment">//尚未启动的线程的线程状态</span></span><br><span class="line">  NEW,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//可运行线程的线程状态</span></span><br><span class="line">  RUNNABLE,</span><br><span class="line"></span><br><span class="line"><span class="comment">//线程阻塞等待监视器锁的线程状态</span></span><br><span class="line">  BLOCKED,</span><br><span class="line"></span><br><span class="line"><span class="comment">//等待线程的线程状态</span></span><br><span class="line">  WAITING,</span><br><span class="line"></span><br><span class="line"><span class="comment">//具有指定等待时间的等待线程的线程状态（有限等待）</span></span><br><span class="line">  TIMED_WAITING,</span><br><span class="line"></span><br><span class="line"> <span class="comment">//已终止线程的线程状态。线程已完成执行</span></span><br><span class="line">  TERMINATED;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/fx1lx9ichONbR49V8p5731F4qVmNnVV2qoZzCfRibH4YDLa4kiaJ0rRYUyHhfTGahLUjRib5ocBvIvcibL095iab4Csw/640?wx_fmt=png&amp;from=appmsg" alt="img"></p>
 <p><strong>六种状态介绍:</strong><img src="https://mmbiz.qpic.cn/mmbiz_png/fx1lx9ichONbR49V8p5731F4qVmNnVV2qhxZb2B0EeqsP1jMa3biaDuGb6XIfibBmwKaNqDP5wpxMpFMhPkSrciaHg/640?wx_fmt=png&amp;from=appmsg" alt="img"></p>
@@ -1235,7 +1236,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.5k</span>&nbsp;字
+                class="white-color">3.6k</span>&nbsp;字
             
             
             
