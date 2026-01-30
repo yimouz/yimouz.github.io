@@ -56,3 +56,209 @@
         transform: translate(0, 0.5px) rotate(1.5deg);
     }
 }
+
+/* ===== 代码块样式优化 ===== */
+/* 代码块整体样式 */
+.highlight {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 代码块背景 */
+pre {
+    background: #2d3748 !important;
+    padding: 1rem !important;
+    margin: 0 !important;
+    border-radius: 0 0 8px 8px;
+    overflow-x: auto;
+}
+
+/* 代码块头部（语言标签） */
+.code-header {
+    background: #1a202c;
+    color: #a0aec0;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 8px 8px 0 0;
+}
+
+/* 行号样式 */
+.line-numbers-rows {
+    border-right: 1px solid #4a5568 !important;
+    padding-right: 0.5rem !important;
+    margin-right: 1rem !important;
+}
+
+/* 行内代码样式 */
+code {
+    background: #f7fafc !important;
+    color: #e53e3e !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 4px !important;
+    font-size: 0.875em !important;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace !important;
+}
+
+/* 代码块内的代码不应用行内样式 */
+pre code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* ===== 文章内容样式优化 ===== */
+/* 文章标题层级 */
+.post-content h1 {
+    font-size: 2rem;
+    margin: 2rem 0 1rem 0;
+    color: #2d3748;
+    border-bottom: 2px solid #4299e1;
+    padding-bottom: 0.5rem;
+}
+
+.post-content h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem 0;
+    color: #2d3748;
+    border-left: 4px solid #4299e1;
+    padding-left: 1rem;
+}
+
+.post-content h3 {
+    font-size: 1.25rem;
+    margin: 1.25rem 0 0.75rem 0;
+    color: #4a5568;
+}
+
+/* 段落间距 */
+.post-content p {
+    margin: 1rem 0;
+    line-height: 1.8;
+}
+
+/* 列表样式 */
+.post-content ul, .post-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+/* 引用块样式 */
+.post-content blockquote {
+    border-left: 4px solid #4299e1;
+    background: #f7fafc;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* 表格样式 */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-content th {
+    background: #4299e1;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.post-content td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.post-content tr:nth-child(even) {
+    background: #f7fafc;
+}
+
+/* ===== 响应式优化 ===== */
+@media (max-width: 768px) {
+    .post-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .post-content h2 {
+        font-size: 1.25rem;
+    }
+    
+    .highlight {
+        margin: 1rem -1rem;
+        border-radius: 0;
+    }
+    
+    pre {
+        padding: 0.75rem !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* ===== 滚动条美化 ===== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 代码块滚动条 */
+pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: #1a202c;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+}
+
+/* ===== 动画效果 ===== */
+.post-content img {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.post-content img:hover {
+    transform: scale(1.02);
+}
+
+/* 链接悬停效果 */
+.post-content a {
+    color: #4299e1;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.post-content a:hover {
+    border-bottom-color: #4299e1;
+}
