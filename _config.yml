@@ -46,11 +46,6 @@ highlight:
   hljs: true
 prismjs:
   enable: false
-prism_plugin:
-  mode: 'preprocess'
-  theme: 'default'
-  line_number: true
-  custom_css:
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
