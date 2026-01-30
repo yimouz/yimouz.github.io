@@ -16,27 +16,33 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
         with:
-          ref: dev         # 明确拉取源码分支
-          submodules: true  # 兼容 submodule 类型的主题
+          ref: dev          # 保持你原来的 dev
+          submodules: true
           fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-        # cache: 'npm'
+
+      # --- 增强部分开始 ---
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
+      - name: Install Hexo CLI Globally
+        run: npm install -g hexo-cli
 
       - name: Install Dependencies
-        run: npm install
-        # 如果 npm ci 报错，可以改用：npm install
+        run: npm install --no-optional # 加上 no-optional 可以减少一些不必要的编译错误
+      # --- 增强部分结束 ---
 
       - name: Build Hexo
-        run: npx hexo generate
+        run: hexo generate # 现在可以直接用 hexo 命令了，不需要 npx
 
       - name: Deploy to Master
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: master  # 发布到 master 分支供 Pages 展示
+          publish_branch: master
           commit_message: "Auto deploy: ${{ github.event.head_commit.message }}"
