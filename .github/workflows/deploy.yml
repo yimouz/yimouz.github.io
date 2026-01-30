@@ -1,0 +1,42 @@
+name: Deploy Hexo Blog
+
+on:
+  push:
+    branches:
+      - dev  # 这里填你的源码分支名！如果是 dev 就填 dev
+
+permissions:
+  contents: write # 必须赋予写权限，否则无法推送到 master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+        with:
+          ref: hexo         # 明确拉取源码分支
+          submodules: true  # 兼容 submodule 类型的主题
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+        # 如果 npm ci 报错，可以改用：npm install
+
+      - name: Build Hexo
+        run: npx hexo generate
+
+      - name: Deploy to Master
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master  # 发布到 master 分支供 Pages 展示
+          commit_message: "Auto deploy: ${{ github.event.head_commit.message }}"
