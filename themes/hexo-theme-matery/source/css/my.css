@@ -1,1 +1,43 @@
 /* Here is your custom css styles. */
+
+/* ===== 轮播图优化 ===== */
+/* 轮播图动画速度调整 - 更加平缓 */
+.bg-cover:after {
+    -webkit-animation: rainbow 45s infinite ease-in-out !important;
+    animation: rainbow 45s infinite ease-in-out !important;
+}
+
+/* 轮播图文字阴影优化 */
+.bg-cover .title {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+    font-weight: 600 !important;
+}
+
+.bg-cover .description {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+}
+
+/* 轮播图指示器优化 */
+.carousel .indicators .indicator-item {
+    background-color: rgba(255,255,255,0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: rgba(255,255,255,0.9) !important;
+}
+
+/* 轮播图导航按钮优化 */
+.carousel .carousel-fixed-item .prev,
+.carousel .carousel-fixed-item .next {
+    background: rgba(255,255,255,0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease !important;
+}
+
+.carousel .carousel-fixed-item .prev:hover,
+.carousel .carousel-fixed-item .next:hover {
+    background: rgba(255,255,255,0.2) !important;
+    transform: scale(1.1) !important;
+}
