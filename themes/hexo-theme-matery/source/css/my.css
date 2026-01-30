@@ -50,209 +50,289 @@ body {
     color: var(--text-primary);
 }
 
-/* ===== 代码块样式 - VS Code Dark+ 主题风格 ===== */
+/* ===== 代码块样式 - 高对比度语法高亮 ===== */
 .highlight {
     position: relative;
     margin: 2rem 0;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    background: linear-gradient(145deg, #1e1e1e, #252526);
-    border: 1px solid #3c3c3c;
+    background: #0d1117;
+    border: 1px solid #30363d;
 }
 
-/* 代码块头部 */
-.highlight::before {
-    content: attr(data-lang);
-    position: absolute;
-    top: 0;
-    right: 0;
+/* 代码块语言标签 */
+.highlight figcaption {
     background: var(--primary-gradient);
     color: white;
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-radius: 0 var(--border-radius) 0 8px;
-    z-index: 2;
+    margin: 0;
 }
 
 /* 代码块主体 */
-pre {
-    background: #1e1e1e !important;
-    color: #d4d4d4 !important;
+.highlight pre {
+    background: #0d1117 !important;
+    color: #f0f6fc !important;
     padding: 1.5rem !important;
     margin: 0 !important;
-    border-radius: var(--border-radius);
+    border-radius: 0;
     overflow-x: auto;
     font-family: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Consolas', monospace !important;
     font-size: 0.9rem !important;
     line-height: 1.6 !important;
-    position: relative;
 }
 
-/* Prism.js 语法高亮颜色 */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-    color: #6a9955 !important; /* 绿色注释 */
+/* 行号样式 */
+.highlight .gutter {
+    background: #161b22 !important;
+    color: #7d8590 !important;
+    border-right: 1px solid #30363d !important;
+    padding-right: 0.5rem !important;
+    text-align: right !important;
+}
+
+.highlight .code {
+    background: #0d1117 !important;
+    padding-left: 1rem !important;
+}
+
+/* GitHub Dark 主题语法高亮 */
+.highlight .comment,
+.highlight .quote {
+    color: #7d8590 !important; /* 灰色注释 */
     font-style: italic;
 }
 
-.token.punctuation {
-    color: #d4d4d4 !important; /* 标点符号 */
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-    color: #b5cea8 !important; /* 浅绿色 */
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-    color: #ce9178 !important; /* 橙色字符串 */
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-    color: #d4d4d4 !important; /* 操作符 */
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-    color: #569cd6 !important; /* 蓝色关键字 */
+.highlight .keyword,
+.highlight .selector-tag,
+.highlight .addition {
+    color: #ff7b72 !important; /* 红色关键字 */
     font-weight: bold;
 }
 
-.token.function,
-.token.class-name {
-    color: #dcdcaa !important; /* 黄色函数名 */
+.highlight .number,
+.highlight .string,
+.highlight .meta .meta-string,
+.highlight .variable,
+.highlight .template-variable,
+.highlight .strong,
+.highlight .emphasis,
+.highlight .quote {
+    color: #a5d6ff !important; /* 蓝色字符串和数字 */
 }
 
-.token.regex,
-.token.important,
-.token.variable {
-    color: #d16969 !important; /* 红色变量 */
+.highlight .keyword,
+.highlight .selector-tag,
+.highlight .name,
+.highlight .deletion {
+    color: #ff7b72 !important; /* 红色关键字 */
 }
 
-.token.important,
-.token.bold {
-    font-weight: bold;
+.highlight .symbol,
+.highlight .bullet,
+.highlight .subst,
+.highlight .meta,
+.highlight .meta .keyword,
+.highlight .selector-attr,
+.highlight .selector-pseudo,
+.highlight .link {
+    color: #a5d6ff !important; /* 蓝色符号 */
 }
 
-.token.italic {
+.highlight .built_in,
+.highlight .deletion {
+    color: #ffa657 !important; /* 橙色内置函数 */
+}
+
+.highlight .formula {
+    background: #161b22;
+}
+
+.highlight .emphasis {
     font-style: italic;
 }
 
-.token.entity {
-    cursor: help;
+.highlight .strong {
+    font-weight: bold;
 }
 
-/* JavaScript 特定高亮 */
-.language-javascript .token.keyword {
-    color: #569cd6 !important; /* const, let, var, function */
+/* 特定语言高亮 */
+/* JavaScript */
+.highlight.javascript .keyword,
+.highlight.js .keyword {
+    color: #ff7b72 !important; /* const, let, var, function */
 }
 
-.language-javascript .token.string {
-    color: #ce9178 !important; /* 字符串 */
+.highlight.javascript .string,
+.highlight.js .string {
+    color: #7ee787 !important; /* 绿色字符串 */
 }
 
-.language-javascript .token.function {
-    color: #dcdcaa !important; /* 函数名 */
+.highlight.javascript .function,
+.highlight.js .function {
+    color: #d2a8ff !important; /* 紫色函数名 */
 }
 
-.language-javascript .token.number {
-    color: #b5cea8 !important; /* 数字 */
+.highlight.javascript .number,
+.highlight.js .number {
+    color: #79c0ff !important; /* 蓝色数字 */
 }
 
-/* Python 特定高亮 */
-.language-python .token.keyword {
-    color: #569cd6 !important; /* def, if, for, import */
+/* Python */
+.highlight.python .keyword {
+    color: #ff7b72 !important; /* def, if, for, import */
 }
 
-.language-python .token.string {
-    color: #ce9178 !important; /* 字符串 */
+.highlight.python .string {
+    color: #7ee787 !important; /* 绿色字符串 */
 }
 
-.language-python .token.function {
-    color: #dcdcaa !important; /* 函数名 */
+.highlight.python .function {
+    color: #d2a8ff !important; /* 紫色函数名 */
 }
 
-.language-python .token.decorator {
-    color: #4ec9b0 !important; /* 装饰器 */
+.highlight.python .built_in {
+    color: #ffa657 !important; /* 橙色内置函数 */
 }
 
-/* Java 特定高亮 */
-.language-java .token.keyword {
-    color: #569cd6 !important; /* public, private, class */
+/* Java */
+.highlight.java .keyword {
+    color: #ff7b72 !important; /* public, private, class */
 }
 
-.language-java .token.class-name {
-    color: #4ec9b0 !important; /* 类名 */
+.highlight.java .class {
+    color: #ffa657 !important; /* 橙色类名 */
 }
 
-.language-java .token.annotation {
-    color: #dcdcaa !important; /* 注解 */
+.highlight.java .string {
+    color: #7ee787 !important; /* 绿色字符串 */
 }
 
-/* CSS 特定高亮 */
-.language-css .token.selector {
-    color: #d7ba7d !important; /* 选择器 */
+/* CSS */
+.highlight.css .selector-tag,
+.highlight.css .selector-id,
+.highlight.css .selector-class {
+    color: #79c0ff !important; /* 蓝色选择器 */
 }
 
-.language-css .token.property {
-    color: #9cdcfe !important; /* 属性名 */
+.highlight.css .attribute {
+    color: #ffa657 !important; /* 橙色属性名 */
 }
 
-.language-css .token.string,
-.language-css .token.url {
-    color: #ce9178 !important; /* 属性值 */
+.highlight.css .string {
+    color: #7ee787 !important; /* 绿色属性值 */
 }
 
-/* SQL 特定高亮 */
-.language-sql .token.keyword {
-    color: #569cd6 !important; /* SELECT, FROM, WHERE */
+/* SQL */
+.highlight.sql .keyword {
+    color: #ff7b72 !important; /* SELECT, FROM, WHERE */
     text-transform: uppercase;
+    font-weight: bold;
 }
 
-.language-sql .token.string {
-    color: #ce9178 !important; /* 字符串值 */
+.highlight.sql .string {
+    color: #7ee787 !important; /* 绿色字符串值 */
 }
 
-.language-sql .token.function {
-    color: #dcdcaa !important; /* 函数名 */
+.highlight.sql .built_in {
+    color: #d2a8ff !important; /* 紫色函数名 */
 }
 
-/* Bash 特定高亮 */
-.language-bash .token.shebang {
-    color: #6a9955 !important; /* #!/bin/bash */
+/* Bash */
+.highlight.bash .meta {
+    color: #7d8590 !important; /* #!/bin/bash */
 }
 
-.language-bash .token.function {
-    color: #dcdcaa !important; /* 函数名 */
+.highlight.bash .string {
+    color: #7ee787 !important; /* 绿色字符串 */
 }
 
-.language-bash .token.string {
-    color: #ce9178 !important; /* 字符串 */
+.highlight.bash .variable {
+    color: #ffa657 !important; /* 橙色变量 */
 }
 
-.language-bash .token.variable {
-    color: #9cdcfe !important; /* 变量 */
+/* 通用token样式 - 更高对比度 */
+.hljs-comment,
+.hljs-quote {
+    color: #7d8590 !important;
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+    color: #ff7b72 !important;
+    font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+    color: #79c0ff !important;
+}
+
+.hljs-string,
+.hljs-doctag {
+    color: #7ee787 !important;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+    color: #d2a8ff !important;
+    font-weight: bold;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+    color: #ffa657 !important;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+    color: #ff7b72 !important;
+}
+
+.hljs-regexp,
+.hljs-link {
+    color: #7ee787 !important;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+    color: #79c0ff !important;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+    color: #ffa657 !important;
+}
+
+.hljs-meta {
+    color: #7d8590 !important;
+}
+
+.hljs-deletion {
+    background: #ffeef0;
+}
+
+.hljs-addition {
+    background: #f0fff4;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
 }
 
 /* 代码块复制按钮样式 */
