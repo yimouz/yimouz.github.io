@@ -1,104 +1,142 @@
-/* Here is your custom css styles. */
+/* ===== 自定义CSS样式 - 现代化博客主题 ===== */
+
+/* CSS变量定义 - 方便统一管理颜色 */
+:root {
+    --primary-color: #667eea;
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-color: #f093fb;
+    --accent-color: #4facfe;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7fafc;
+    --bg-tertiary: #edf2f7;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /* hexo-filter-github-emojis */
-.github-emoji{
-    height: 2em;
-    width: 2em;
+.github-emoji {
+    height: 1.8em;
+    width: 1.8em;
     display: inline-block !important;
     position: relative;
-    margin: 0 3px !important;
+    margin: 0 0.2em !important;
     padding: 0;
-}
-.github-emoji:hover{
-    animation: emoji-face 5s infinite ease-in-out;
-}
-@keyframes emoji-face {
-    2% {
-        transform: translate(0, 1.5px) rotate(1.5deg);
-    }
-    4% {
-        transform: translate(0, -1.5px) rotate(-0.5deg);
-    }
-    6% {
-        transform: translate(0, 1.5px) rotate(-1.5deg);
-    }
-    8% {
-        transform: translate(0, -1.5px) rotate(-1.5deg);
-    }
-    10% {
-        transform: translate(0, 2.5px) rotate(1.5deg);
-    }
-    12% {
-        transform: translate(0, -0.5px) rotate(1.5deg);
-    }
-    14% {
-        transform: translate(0, -1.5px) rotate(1.5deg);
-    }
-    16% {
-        transform: translate(0, -0.5px) rotate(-1.5deg);
-    }
-    18% {
-        transform: translate(0, 0.5px) rotate(-1.5deg);
-    }
-    20% {
-        transform: translate(0, -1.5px) rotate(2.5deg);
-    }
-    22% {
-        transform: translate(0, 0.5px) rotate(-1.5deg);
-    }
-    24% {
-        transform: translate(0, 1.5px) rotate(1.5deg);
-    }
-    26% {
-        transform: translate(0, 0.5px) rotate(0.5deg);
-    }
-    28% {
-        transform: translate(0, 0.5px) rotate(1.5deg);
-    }
+    vertical-align: middle;
+    transition: var(--transition);
 }
 
-/* ===== 代码块样式优化 ===== */
-/* 代码块整体样式 */
+.github-emoji:hover {
+    transform: scale(1.2) rotate(10deg);
+    animation: emoji-bounce 0.6s ease-in-out;
+}
+
+@keyframes emoji-bounce {
+    0%, 20%, 60%, 100% { transform: translateY(0) scale(1.2); }
+    40% { transform: translateY(-10px) scale(1.3); }
+    80% { transform: translateY(-5px) scale(1.25); }
+}
+
+/* ===== 全局字体优化 ===== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+/* ===== 代码块样式 - VS Code Dark+ 主题风格 ===== */
 .highlight {
-    margin: 1.5rem 0;
-    border-radius: 8px;
+    position: relative;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(145deg, #1e1e1e, #252526);
+    border: 1px solid #3c3c3c;
 }
 
-/* 代码块背景 */
+/* 代码块头部 */
+.highlight::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 0 var(--border-radius) 0 8px;
+    z-index: 2;
+}
+
+/* 代码块主体 */
 pre {
-    background: #2d3748 !important;
-    padding: 1rem !important;
+    background: #1e1e1e !important;
+    color: #d4d4d4 !important;
+    padding: 1.5rem !important;
     margin: 0 !important;
-    border-radius: 0 0 8px 8px;
+    border-radius: var(--border-radius);
     overflow-x: auto;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Consolas', monospace !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    position: relative;
 }
 
-/* 代码块头部（语言标签） */
-.code-header {
-    background: #1a202c;
-    color: #a0aec0;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    border-radius: 8px 8px 0 0;
+/* 代码块复制按钮样式 */
+.code-copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #d4d4d4;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.code-copy-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
 }
 
 /* 行号样式 */
 .line-numbers-rows {
-    border-right: 1px solid #4a5568 !important;
-    padding-right: 0.5rem !important;
+    border-right: 1px solid #3c3c3c !important;
+    padding-right: 1rem !important;
     margin-right: 1rem !important;
+    color: #858585 !important;
 }
 
 /* 行内代码样式 */
 code {
-    background: #f7fafc !important;
-    color: #e53e3e !important;
-    padding: 0.2rem 0.4rem !important;
-    border-radius: 4px !important;
-    font-size: 0.875em !important;
+    background: linear-gradient(135deg, #ff6b6b, #feca57) !important;
+    color: white !important;
+    padding: 0.2rem 0.6rem !important;
+    border-radius: 6px !important;
+    font-size: 0.85em !important;
     font-family: 'Fira Code', 'Monaco', 'Consolas', monospace !important;
+    font-weight: 500 !important;
+    box-shadow: 0 2px 4px rgba(255,107,107,0.3);
+    transition: var(--transition);
+}
+
+code:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255,107,107,0.4);
 }
 
 /* 代码块内的代码不应用行内样式 */
@@ -107,103 +145,247 @@ pre code {
     color: inherit !important;
     padding: 0 !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
-/* ===== 文章内容样式优化 ===== */
-/* 文章标题层级 */
+/* ===== 文章内容样式 ===== */
+.post-content {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+/* 标题样式 - 渐变色彩 */
 .post-content h1 {
-    font-size: 2rem;
-    margin: 2rem 0 1rem 0;
-    color: #2d3748;
-    border-bottom: 2px solid #4299e1;
-    padding-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 3rem 0 1.5rem 0;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.post-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
 }
 
 .post-content h2 {
-    font-size: 1.5rem;
-    margin: 1.5rem 0 1rem 0;
-    color: #2d3748;
-    border-left: 4px solid #4299e1;
-    padding-left: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1rem 0;
+    color: var(--text-primary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.post-content h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 3px;
 }
 
 .post-content h3 {
-    font-size: 1.25rem;
-    margin: 1.25rem 0 0.75rem 0;
-    color: #4a5568;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    color: var(--text-secondary);
+    position: relative;
 }
 
-/* 段落间距 */
+.post-content h3::before {
+    content: '▶';
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-size: 0.8em;
+}
+
+/* 段落样式 */
 .post-content p {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     line-height: 1.8;
+    text-align: justify;
 }
 
 /* 列表样式 */
 .post-content ul, .post-content ol {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     padding-left: 2rem;
 }
 
 .post-content li {
-    margin: 0.5rem 0;
-    line-height: 1.6;
+    margin: 0.8rem 0;
+    line-height: 1.7;
+    position: relative;
 }
 
-/* 引用块样式 */
-.post-content blockquote {
-    border-left: 4px solid #4299e1;
-    background: #f7fafc;
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 0 8px 8px 0;
+.post-content ul li::marker {
+    color: var(--primary-color);
 }
 
-/* 表格样式 */
-.post-content table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.post-content th {
-    background: #4299e1;
-    color: white;
-    padding: 0.75rem;
-    text-align: left;
+.post-content ol li::marker {
+    color: var(--primary-color);
     font-weight: 600;
 }
 
+/* 引用块样式 - 现代卡片风格 */
+.post-content blockquote {
+    position: relative;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: none;
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: var(--shadow-md);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.post-content blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+/* 表格样式 - 现代数据表格 */
+.post-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: white;
+}
+
+.post-content th {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .post-content td {
-    padding: 0.75rem;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
 }
 
-.post-content tr:nth-child(even) {
-    background: #f7fafc;
+.post-content tr:nth-child(even) td {
+    background: var(--bg-secondary);
 }
 
-/* ===== 响应式优化 ===== */
+.post-content tr:hover td {
+    background: #e6fffa;
+    transform: scale(1.01);
+}
+
+/* 链接样式 - 渐变下划线 */
+.post-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.post-content a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+.post-content a:hover::after {
+    width: 100%;
+}
+
+.post-content a:hover {
+    color: var(--accent-color);
+}
+
+/* 图片样式 - 现代画廊效果 */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    margin: 1.5rem 0;
+}
+
+.post-content img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+/* 分割线样式 */
+.post-content hr {
+    border: none;
+    height: 2px;
+    background: var(--primary-gradient);
+    margin: 3rem 0;
+    border-radius: 1px;
+}
+
+/* ===== 响应式设计 ===== */
 @media (max-width: 768px) {
     .post-content h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     
     .post-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .post-content h3 {
         font-size: 1.25rem;
     }
     
     .highlight {
-        margin: 1rem -1rem;
+        margin: 1.5rem -1rem;
         border-radius: 0;
     }
     
     pre {
-        padding: 0.75rem !important;
+        padding: 1rem !important;
         border-radius: 0 !important;
+    }
+    
+    .post-content blockquote {
+        margin: 1.5rem -1rem;
+        border-radius: 0;
+        padding: 1rem 1.5rem;
     }
 }
 
@@ -214,17 +396,18 @@ pre code {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--bg-tertiary);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
+    background: var(--primary-gradient);
     border-radius: 4px;
+    transition: var(--transition);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
 }
 
 /* 代码块滚动条 */
@@ -233,32 +416,60 @@ pre::-webkit-scrollbar {
 }
 
 pre::-webkit-scrollbar-track {
-    background: #1a202c;
+    background: #2d2d2d;
 }
 
 pre::-webkit-scrollbar-thumb {
-    background: #4a5568;
+    background: linear-gradient(90deg, #667eea, #764ba2);
     border-radius: 3px;
 }
 
-/* ===== 动画效果 ===== */
-.post-content img {
-    transition: transform 0.3s ease;
-    border-radius: 8px;
+/* ===== 加载动画 ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.post-content img:hover {
-    transform: scale(1.02);
+.post-content > * {
+    animation: fadeInUp 0.6s ease-out;
 }
 
-/* 链接悬停效果 */
-.post-content a {
-    color: #4299e1;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
+/* ===== 选中文本样式 ===== */
+::selection {
+    background: var(--primary-color);
+    color: white;
 }
 
-.post-content a:hover {
-    border-bottom-color: #4299e1;
+::-moz-selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ===== 焦点样式 ===== */
+*:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+    .post-content {
+        color: black !important;
+    }
+    
+    .post-content a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+    
+    .highlight {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
 }
