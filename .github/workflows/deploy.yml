@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
         with:
-          ref: hexo         # 明确拉取源码分支
+          ref: dev         # 明确拉取源码分支
           submodules: true  # 兼容 submodule 类型的主题
           fetch-depth: 0
 
