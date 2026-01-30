@@ -27,7 +27,7 @@ jobs:
         # cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
         # 如果 npm ci 报错，可以改用：npm install
 
       - name: Build Hexo
