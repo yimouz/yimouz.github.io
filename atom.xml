@@ -6,7 +6,7 @@
   <link href="https://yimouz.github.io/atom.xml" rel="self"/>
   
   <link href="https://yimouz.github.io/"/>
-  <updated>2026-01-30T06:42:56.212Z</updated>
+  <updated>2026-01-30T06:55:10.795Z</updated>
   <id>https://yimouz.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo 单仓库双分支 配合action</title>
+    <link href="https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/"/>
+    <id>https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/</id>
+    <published>2026-01-30T14:00:21.000Z</published>
+    <updated>2026-01-30T06:55:10.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Hexo-单仓库双分支：摆脱本地hexo、node&quot;&gt;&lt;a href=&quot;#Hexo-单仓库双分支：摆脱本地hexo、node&quot; class=&quot;headerlink&quot; title=&quot;Hexo 单仓库双分支：摆脱本地hexo、node&quot;&gt;&lt;/a&gt;Hexo</summary>
+        
+      
+    
+    
+    
+    <category term="杂记" scheme="https://yimouz.github.io/categories/%E6%9D%82%E8%AE%B0/"/>
+    
+    
+    <category term="杂记" scheme="https://yimouz.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>线程包括哪些状态，状态之间是如何变化</title>
     <link href="https://yimouz.github.io/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/"/>
     <id>https://yimouz.github.io/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/</id>
     <published>2021-01-06T14:12:36.000Z</published>
-    <updated>2026-01-30T06:42:56.212Z</updated>
+    <updated>2026-01-30T06:55:10.795Z</updated>
     
     
       
@@ -46,7 +71,7 @@
     <link href="https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/"/>
     <id>https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/</id>
     <published>2020-05-26T16:12:36.000Z</published>
-    <updated>2026-01-30T06:42:56.212Z</updated>
+    <updated>2026-01-30T06:55:10.795Z</updated>
     
     
       
@@ -71,7 +96,7 @@
     <link href="https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/"/>
     <id>https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/</id>
     <published>2020-05-22T08:58:27.000Z</published>
-    <updated>2026-01-30T06:42:56.212Z</updated>
+    <updated>2026-01-30T06:55:10.795Z</updated>
     
     
       
