@@ -45,14 +45,11 @@ highlight:
   wrap: true
   hljs: false
 prismjs:
-  enable: true
-  preprocess: true
-  line_number: true
-  tab_replace: ''
+  enable: false
 prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'tomorrow'
-  line_number: true     # 启用行号
+  mode: 'preprocess'
+  theme: 'default'
+  line_number: true
   custom_css:
 
 # Home page setting

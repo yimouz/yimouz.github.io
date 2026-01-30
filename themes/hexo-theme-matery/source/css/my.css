@@ -92,6 +92,169 @@ pre {
     position: relative;
 }
 
+/* Prism.js 语法高亮颜色 */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6a9955 !important; /* 绿色注释 */
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: #d4d4d4 !important; /* 标点符号 */
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #b5cea8 !important; /* 浅绿色 */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #ce9178 !important; /* 橙色字符串 */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #d4d4d4 !important; /* 操作符 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #569cd6 !important; /* 蓝色关键字 */
+    font-weight: bold;
+}
+
+.token.function,
+.token.class-name {
+    color: #dcdcaa !important; /* 黄色函数名 */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d16969 !important; /* 红色变量 */
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+/* JavaScript 特定高亮 */
+.language-javascript .token.keyword {
+    color: #569cd6 !important; /* const, let, var, function */
+}
+
+.language-javascript .token.string {
+    color: #ce9178 !important; /* 字符串 */
+}
+
+.language-javascript .token.function {
+    color: #dcdcaa !important; /* 函数名 */
+}
+
+.language-javascript .token.number {
+    color: #b5cea8 !important; /* 数字 */
+}
+
+/* Python 特定高亮 */
+.language-python .token.keyword {
+    color: #569cd6 !important; /* def, if, for, import */
+}
+
+.language-python .token.string {
+    color: #ce9178 !important; /* 字符串 */
+}
+
+.language-python .token.function {
+    color: #dcdcaa !important; /* 函数名 */
+}
+
+.language-python .token.decorator {
+    color: #4ec9b0 !important; /* 装饰器 */
+}
+
+/* Java 特定高亮 */
+.language-java .token.keyword {
+    color: #569cd6 !important; /* public, private, class */
+}
+
+.language-java .token.class-name {
+    color: #4ec9b0 !important; /* 类名 */
+}
+
+.language-java .token.annotation {
+    color: #dcdcaa !important; /* 注解 */
+}
+
+/* CSS 特定高亮 */
+.language-css .token.selector {
+    color: #d7ba7d !important; /* 选择器 */
+}
+
+.language-css .token.property {
+    color: #9cdcfe !important; /* 属性名 */
+}
+
+.language-css .token.string,
+.language-css .token.url {
+    color: #ce9178 !important; /* 属性值 */
+}
+
+/* SQL 特定高亮 */
+.language-sql .token.keyword {
+    color: #569cd6 !important; /* SELECT, FROM, WHERE */
+    text-transform: uppercase;
+}
+
+.language-sql .token.string {
+    color: #ce9178 !important; /* 字符串值 */
+}
+
+.language-sql .token.function {
+    color: #dcdcaa !important; /* 函数名 */
+}
+
+/* Bash 特定高亮 */
+.language-bash .token.shebang {
+    color: #6a9955 !important; /* #!/bin/bash */
+}
+
+.language-bash .token.function {
+    color: #dcdcaa !important; /* 函数名 */
+}
+
+.language-bash .token.string {
+    color: #ce9178 !important; /* 字符串 */
+}
+
+.language-bash .token.variable {
+    color: #9cdcfe !important; /* 变量 */
+}
+
 /* 代码块复制按钮样式 */
 .code-copy-btn {
     position: absolute;
