@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>绿蚁</title>
+  
+  <subtitle>栏杆拍遍</subtitle>
+  <link href="https://yimouz.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://yimouz.github.io/"/>
+  <updated>2026-01-30T15:54:18.796Z</updated>
+  <id>https://yimouz.github.io/</id>
+  
+  <author>
+    <name>是阿蓁啊</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>代码高亮测试</title>
+    <link href="https://yimouz.github.io/2026/01/30/dai-ma-gao-liang-ce-shi/"/>
+    <id>https://yimouz.github.io/2026/01/30/dai-ma-gao-liang-ce-shi/</id>
+    <published>2026-01-30T23:30:00.000Z</published>
+    <updated>2026-01-30T15:54:18.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;代码高亮测试&quot;&gt;&lt;a href=&quot;#代码高亮测试&quot; class=&quot;headerlink&quot; title=&quot;代码高亮测试&quot;&gt;&lt;/a&gt;代码高亮测试&lt;/h1&gt;&lt;h2 id=&quot;JavaScript-代码&quot;&gt;&lt;a href=&quot;#JavaScript-代码&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="测试" scheme="https://yimouz.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="测试" scheme="https://yimouz.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 单仓库双分支 配合action</title>
+    <link href="https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/"/>
+    <id>https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/</id>
+    <published>2026-01-30T14:00:21.000Z</published>
+    <updated>2026-01-30T15:54:18.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Hexo-单仓库双分支：摆脱本地hexo、node&quot;&gt;&lt;a href=&quot;#Hexo-单仓库双分支：摆脱本地hexo、node&quot; class=&quot;headerlink&quot; title=&quot;Hexo 单仓库双分支：摆脱本地hexo、node&quot;&gt;&lt;/a&gt;Hexo</summary>
+        
+      
+    
+    
+    
+    <category term="杂记" scheme="https://yimouz.github.io/categories/%E6%9D%82%E8%AE%B0/"/>
+    
+    
+    <category term="杂记" scheme="https://yimouz.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程包括哪些状态，状态之间是如何变化</title>
+    <link href="https://yimouz.github.io/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/"/>
+    <id>https://yimouz.github.io/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/</id>
+    <published>2021-01-06T14:12:36.000Z</published>
+    <updated>2026-01-30T15:54:18.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;线程包括哪些状态，状态之间是如何变化&quot;&gt;&lt;a href=&quot;#线程包括哪些状态，状态之间是如何变化&quot; class=&quot;headerlink&quot; title=&quot;线程包括哪些状态，状态之间是如何变化?&quot;&gt;&lt;/a&gt;线程包括哪些状态，状态之间是如何变化?&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="性能笔记" scheme="https://yimouz.github.io/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="线程池" scheme="https://yimouz.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>性能笔记-几个瓶颈</title>
+    <link href="https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/"/>
+    <id>https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/</id>
+    <published>2020-05-26T16:12:36.000Z</published>
+    <updated>2026-01-30T15:54:18.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;性能测试的几个瓶颈术语&quot;&gt;&lt;a href=&quot;#性能测试的几个瓶颈术语&quot; class=&quot;headerlink&quot; title=&quot;性能测试的几个瓶颈术语&quot;&gt;&lt;/a&gt;性能测试的几个瓶颈术语&lt;/h1&gt;&lt;h2 id=&quot;软件瓶颈&quot;&gt;&lt;a href=&quot;#软件瓶颈&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="性能测试" scheme="https://yimouz.github.io/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="杂记" scheme="https://yimouz.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用GIT远程仓管理hexo文档</title>
+    <link href="https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/"/>
+    <id>https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/</id>
+    <published>2020-05-22T08:58:27.000Z</published>
+    <updated>2026-01-30T15:54:18.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Hexo简单的命令&quot;&gt;&lt;a href=&quot;#Hexo简单的命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo简单的命令&quot;&gt;&lt;/a&gt;Hexo简单的命令&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt; 终端执行&lt;code&gt;hexo new</summary>
+        
+      
+    
+    
+    
+    <category term="git" scheme="https://yimouz.github.io/categories/git/"/>
+    
+    
+    <category term="hexo" scheme="https://yimouz.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
