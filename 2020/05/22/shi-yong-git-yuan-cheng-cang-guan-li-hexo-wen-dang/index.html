@@ -413,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    1k
                 </div>
                 
 
@@ -453,8 +453,8 @@
 <blockquote>
 <p>这里的origin只是一个易标识,你可以修改,比如hexo,后面这一串是仓库ssh地址,请不要错误关联到我的仓库,错误关联但没有配对的密钥自然没有用.除了ssh还可以选择http方式,具体看你个人选择.</p>
 </blockquote>
-<h4 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h4><p>推送到dev分支。<br>本地有许多文件,保留文章跟一些你觉得重要的，其他无关的文件并不希望推送，<br>使用<code>.gitignore</code>文件吧<br>把这些不想要的推送的保存到你ignore,比如如下一些:<br>.DS_Store<br>Thumbs.db<br>db.json<br><em>.log<br>node_modules/<br>public/<br>.deploy</em>/<br>添加完就可以试一下推送了<br>终端执行：<br> </p><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m '你的提交信息'</span><br><span class="line">git push hexo dev</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h4 id="删除dev分支的某些文件"><a href="#删除dev分支的某些文件" class="headerlink" title="删除dev分支的某些文件"></a>删除dev分支的某些文件</h4><p>dev继承自master会带上master已经存在的分支内容<br>类似public<br>如果你跟我一样看着他们常常难受<br>不要犹豫,本地环境.<br>按下你的delete fireout it<br>删除完,终端执行<br>当然不删也可以<br> </p><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m '同样填写你的注释信息'</span><br><span class="line">git push hexo dev</span><br></pre></td></tr></tbody></table></figure><br>你会发现.ignore里携带的都没有带上去了.<br>这就是ignore<p></p>
+<h4 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h4><p>推送到dev分支。<br>本地有许多文件,保留文章跟一些你觉得重要的，其他无关的文件并不希望推送，<br>使用<code>.gitignore</code>文件吧<br>把这些不想要的推送的保存到你ignore,比如如下一些:<br>.DS_Store<br>Thumbs.db<br>db.json<br><em>.log<br>node_modules/<br>public/<br>.deploy</em>/<br>添加完就可以试一下推送了<br>终端执行：<br> </p><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m <span class="hljs-string"><code class="language-hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m <span class="hljs-string">'你的提交信息'</span><br>git push hexo dev<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure><p></p>
+<h4 id="删除dev分支的某些文件"><a href="#删除dev分支的某些文件" class="headerlink" title="删除dev分支的某些文件"></a>删除dev分支的某些文件</h4><p>dev继承自master会带上master已经存在的分支内容<br>类似public<br>如果你跟我一样看着他们常常难受<br>不要犹豫,本地环境.<br>按下你的delete fireout it<br>删除完,终端执行<br>当然不删也可以<br> </p><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m <span class="hljs-string"><code class="language-hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m <span class="hljs-string">'同样填写你的注释信息'</span><br>git push hexo dev<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure><br>你会发现.ignore里携带的都没有带上去了.<br>这就是ignore<p></p>
 <h3 id="多pc"><a href="#多pc" class="headerlink" title="多pc"></a>多pc</h3><p>回到这个问题,新电脑了怎么办,硬盘坏了怎么办  </p>
 <ol>
 <li>下载git </li>
@@ -465,10 +465,10 @@
 <li>关联到你的远程仓</li>
 </ol>
 <blockquote>
-<p>当然不要忘记<br> </p><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">npm install hexo   </span><br><span class="line">npm install hexo-deployer-git -save</span><br></pre></td></tr></tbody></table></figure><br>是不是又回到了熟悉的环境<p></p>
+<p>当然不要忘记<br> </p><figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs cmake">npm <span class="hljs-keyword">install</span> hexo   <br>npm <span class="hljs-keyword"><code class="language-hljs cmake">npm <span class="hljs-keyword">install</span> hexo   <br>npm <span class="hljs-keyword">install</span> hexo-deployer-git -save<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure><br>是不是又回到了熟悉的环境<p></p>
 </blockquote>
 <h3 id="好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的"><a href="#好了知道你有多pc使用习惯了-git就非常适合这种多端协作的场景-你要知道他是干嘛的" class="headerlink" title="好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的"></a>好了知道你有多pc使用习惯了,git就非常适合这种多端协作的场景,你要知道他是干嘛的</h3><p>在公司划水,写写博客 一顿操作在push之后进入贤者模式<br>晚上或者周末在家,心潮澎拜,idea遍及<br>马不停蹄打开git</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">/git pull &lt;远程仓ssh&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;   </span><br><span class="line"></span><br><span class="line">git pull git@github.com:yimouz/yimouz.github.io.git dev:dev</span><br><span class="line">/拉取并合并到你的本地环境  </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight gherkin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gherkin">/git pull <span class="hljs-variable">&lt;远程仓ssh&gt;</span> <span class="hljs-variable">&lt;远程分支名&gt;</span>:<span class="hljs-variable">&lt;本地分支名&gt;</span>   <br><br>git pull git<span class="hljs-meta"><code class="language-hljs gherkin">/git pull <span class="hljs-variable">&lt;远程仓ssh&gt;</span> <span class="hljs-variable">&lt;远程分支名&gt;</span>:<span class="hljs-variable">&lt;本地分支名&gt;</span>   <br><br>git pull git<span class="hljs-meta">@github.com:yimouz/yimouz.github.io.git</span> dev:dev<br>/拉取并合并到你的本地环境  <br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>至此就结束了!</p>
 </blockquote>
@@ -816,7 +816,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.2k</span>&nbsp;字
             
             
             
