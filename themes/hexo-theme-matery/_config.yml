@@ -66,8 +66,8 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 杂记随笔
-  text: 占尽风情向小园
+  title: 随笔记
+  text: 众芳摇落独暄妍，占尽风情向小园。
 
 # Whether to display the musics.
 music:
@@ -78,7 +78,7 @@ music:
   autoHide: true    # hide automaticaly
   server: netease   #require	music platform: netease, tencent, kugou, xiami, baidu
   type: playlist    #require song, playlist, album, search, artist
-  id: 503838841     #require	song id / playlist id / album id / search keyword
+  id: 542298108     #require	song id / playlist id / album id / search keyword
   fixed: true       # 开启吸底模�?
   autoplay: false   # 是否自动播放
   theme: '#42b983'
@@ -160,7 +160,7 @@ code:
 # 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以�?
 reward:
   enable: false
-  title: 你的赏识是我前进的动�?
+  title: 你的赏识是我前进的动力
   wechat: /medias/reward/wechat.png
   alipay: /medias/reward/alipay.jpg
 
@@ -189,7 +189,7 @@ mathjax:
 postInfo:
   date: true # 发布日期
   update: false # 更新日期
-  wordCount: false # 文章字数统计
+  wordCount: true # 文章字数统计
   totalCount: false # 站点总文章字�?
   min2read: false # 文章阅读时长
   readCount: false # 文章阅读次数
@@ -204,7 +204,7 @@ clicklove:
 profile:
   avatar: /medias/avatar.jpg
   career: Software TE
-  introduction: 渗透 自动化 性能 业务型选手发展
+  introduction: 自动化 性能 AI 小工具开发
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -236,22 +236,22 @@ mySkills:
   data:
     Python:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
-      percent: 85%
+      percent: 80%
     Selenium:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
-      percent: 80%
+      percent: 60%
     Linux:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 80%
-    LoadRunner:
+    JMeter:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
-      percent: 70%
+      percent: 80%
     SQL:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
-      percent: 90%
+      percent: 75%
     程序设计:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 75%
+      percent: 70%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
@@ -413,7 +413,7 @@ baiduAnalytics:
   id:
 
 # 百度搜索资源平台提交链接
-baiduPush: true
+baiduPush: false
 
 # The used front-end library can be replaced with the corresponding CDN address as needed,
 # If the specific version is not specified below, you can use the latest version.
@@ -535,7 +535,7 @@ canvas_nest:
 
 # 背景静止彩带.
 ribbon:
-  enable: false
+  enable: true
   size: 150 # 彩带大小, 默认: 90.
   alpha: 0.6 # 彩带透明�?(0 ~ 1), 默认: 0.6.
   zIndex: -1 # 背景的z-index属性，css属性用于控制所在层的位�? 默认: -1.
@@ -543,12 +543,12 @@ ribbon:
 
 # 背景动态彩�?
 ribbon_dynamic:
-  enable: false
+  enable: true
 
 # sharejs文章分享模块.
 # 支持顺序，可选项目为twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
 sharejs:
-  enable: true
+  enable: false
   sites: twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin
 
 # addthis文章分享模块.
@@ -565,8 +565,9 @@ subtitle:
   startDelay: 300 # 开始延�?
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
-  sub1: 从来没有真正的绝�? 只有心灵的迷�?
-  sub2: Never really desperate, only the lost of the soul
+  sub1: 当年明月在，曾照彩云归。
+  sub2: 抬举二字，何其难解。
+  sub3: 哪个时代都很悲哀。
 
 # 手机二级菜单.
 navMenu:
