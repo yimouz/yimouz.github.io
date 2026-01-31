@@ -62,7 +62,7 @@ cover:
   # useConfig 使用方式: 将主�?hexo-theme-matery/source/_data/covers.json 移动�?my-blog/source/_data/下修改配置即�?
 
 # index page dream text,
-# 配置首页显示"梦想"的语�?
+# 配置首页显示
 dream:
   enable: true
   showTitle: true
@@ -70,10 +70,9 @@ dream:
   text: 占尽风情向小园
 
 # Whether to display the musics.
-# 是否在首页显示音�?
 music:
   enable: true
-  title: #非吸底模式有�?
+  title: #非吸底模式
     enable: true
     show: 听听音乐
   autoHide: true    # hide automaticaly
@@ -204,14 +203,14 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: Software Engineer
-  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
+  career: Software TE
+  introduction: 渗透 自动化 性能 业务型选手发展
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配�?我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删�?
 myProjects:
-  enable: true
+  enable: false
   data:
     hexo-theme-matery:
       icon: fas fa-file-alt
@@ -235,16 +234,16 @@ myProjects:
 mySkills:
   enable: true
   data:
-    Java:
+    Python:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
       percent: 85%
-    JavaScript:
+    Selenium:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
       percent: 80%
-    HTML5:
+    Linux:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 80%
-    CSS:
+    LoadRunner:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
     SQL:
@@ -612,20 +611,8 @@ artitalk:
   appId: # xxxxx
   appKey: # xxxxxx
 
-# 哔哔功能配置
-# 登陆leancloud创建应用。进入应用后，点击创�?Class，将�?Class 名称」命名为 content
-# 点击刚刚创建的content Class，点击添加列并创建名称为content的列，类型为String，注意列注释也要填写（随意填�?
-# 记录appid，masterkey，api域名
-# 输入:hexo new page bb
-# hexo就在source文件夹下创建了bb/index.md�?
-# 修改index.md的frontmater下的layout为bb�?
+
 # ---
-# title: 黑石�?
-# layout: bb
-# ---
-# 里面的文字可以自己随意加，会显示在哔哔的上方�?
-# 关注公众�?"黑石哔哔"，发�? //bindCurrentUser:你的APPID,你的MASTERKEY,你的RESTAPI
-# 可用leancloud国际版，国际版api�?https://appid前八�?api.lncldglobal.com
 bbtime:
  enable: false
  appId: # 你的appId
