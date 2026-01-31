@@ -16,16 +16,38 @@
 <ul class="right nav-menu">
   <% Object.keys(theme.menu).forEach(function(key) { %>
   <li class="hide-on-med-and-down nav-item">
-    <% if(!theme.menu[key].children) { %>
+    <% if(!theme.menu[key].children && key !== 'Categories') { %>
     <a href="<%- url_for(theme.menu[key].url) %>" class="waves-effect waves-light">
       <% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
       <i class="<%- theme.menu[key].icon %>" style="zoom: 0.6;"></i>
       <% } %>
       <span><%- (config.language === 'zh-CN' && menuMap.has(key)) ? menuMap.get(key) : key %></span>
     </a>
+    <% } else if (key === 'Categories') { %>
+    <!-- 动态生成分类下拉菜单 -->
+    <a href="<%- url_for(theme.menu[key].url) %>" class="waves-effect waves-light">
+      <% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
+      <i class="<%- theme.menu[key].icon %>" style="zoom: 0.6;"></i>
+      <% } %>
+      <span><%- (config.language === 'zh-CN' && menuMap.has(key)) ? menuMap.get(key) : key %></span>
+      <% if (site.categories && site.categories.length > 0) { %>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+      <% } %>
+    </a>
+    <% if (site.categories && site.categories.length > 0) { %>
+    <ul class="sub-nav menus_item_child">
+      <% site.categories.forEach(function(category) { %>
+      <li>
+        <a href="<%- url_for(category.path) %>">
+          <i class="fas fa-folder" style="margin-top: -20px; zoom: 0.6;"></i>
+          <span><%- category.name %> (<%- category.posts.length %>)</span>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+    <% } %>
     <% } else { %>
     <a href="<%- theme.menu[key].url %>" class="waves-effect waves-light">
-
       <% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
       <i class="<%- theme.menu[key].icon %>" style="zoom: 0.6;"></i>
       <% } %>
@@ -46,7 +68,7 @@
     </ul>
     <% } %>
   </li>
-  <% }); %>
+  <% }); %> %>
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="<%= __('search') %>" style="zoom: 0.85;"></i>
