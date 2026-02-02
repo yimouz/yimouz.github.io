@@ -2,7 +2,7 @@
 title: 使用GIT远程仓管理hexo文档
 date: 2020-05-22 08:58:27
 tags: hexo
-categories: git 
+categories: 杂记
 author: 是啊蓁阿
 summary: 以hexo为例,使用git从配置到切换分支策略跟拉取的简单演示
   
