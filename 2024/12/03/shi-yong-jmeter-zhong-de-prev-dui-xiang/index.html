@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="线程包括哪些状态，状态之间是如何变化, 绿蚁">
+    <meta name="keywords" content="JMeter-prev, 绿蚁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>线程包括哪些状态，状态之间是如何变化 | 绿蚁</title>
+    <title>JMeter-prev | 绿蚁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -280,12 +280,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">线程包括哪些状态，状态之间是如何变化</h1>
+                    <h1 class="description center-align post-title">JMeter-prev</h1>
                 </div>
             </div>
         </div>
@@ -401,8 +401,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
-                                <span class="chip bg-color">线程池</span>
+                            <a href="/tags/JMeter/">
+                                <span class="chip bg-color">JMeter</span>
                             </a>
                         
                     </div>
@@ -426,7 +426,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-06
+                    2024-12-03
                 </div>
                 
 
@@ -435,7 +435,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    516
                 </div>
                 
 
@@ -455,139 +455,88 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="线程包括哪些状态，状态之间是如何变化"><a href="#线程包括哪些状态，状态之间是如何变化" class="headerlink" title="线程包括哪些状态，状态之间是如何变化?"></a>线程包括哪些状态，状态之间是如何变化?</h1><h2 id="1-线程状态-六种状态"><a href="#1-线程状态-六种状态" class="headerlink" title="1. 线程状态-六种状态"></a>1. 线程状态-六种状态</h2><blockquote>
-<p>线程的状态可以参考JDK中的Thread类中的枚举State,存在<strong>六种状态</strong></p>
-</blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">  <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
-<span class="token comment">//尚未启动的线程的线程状态</span>
-  <span class="token constant">NEW</span><span class="token punctuation">,</span>
-
-  <span class="token comment">//可运行线程的线程状态</span>
-  <span class="token constant">RUNNABLE</span><span class="token punctuation">,</span>
-
-<span class="token comment">//线程阻塞等待监视器锁的线程状态</span>
-  <span class="token constant">BLOCKED</span><span class="token punctuation">,</span>
-
-<span class="token comment">//等待线程的线程状态</span>
-  <span class="token constant">WAITING</span><span class="token punctuation">,</span>
-
-<span class="token comment">//具有指定等待时间的等待线程的线程状态（有限等待）</span>
-  <span class="token constant">TIMED_WAITING</span><span class="token punctuation">,</span>
-
- <span class="token comment">//已终止线程的线程状态。线程已完成执行</span>
-  <span class="token constant">TERMINATED</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="https://r2.022032.xyz/yimouz/2026/01/2fdb8ef77376eb11c1cce6076e62efc7.png" alt="线程状态转换图"></p>
-<p><strong>六种状态介绍:</strong></p>
-<p><img src="https://r2.022032.xyz/yimouz/2026/01/839854b08e1175a7e13158bf2ec28662.png" alt="线程状态介绍"></p>
-<p><strong>新建(NEW)</strong></p>
-<blockquote>
-<ul>
-<li>当一个线程对象被创建，但还未调用 start 方法时处于<strong>新建</strong>状态</li>
-<li>此时未与操作系统底层线程关联</li>
-</ul>
-</blockquote>
-<p><strong>可运行(RUNNABLE)</strong>:</p>
-<blockquote>
-<ul>
-<li>调用了 start 方法，就会由<strong>新建</strong>进入<strong>可运行</strong></li>
-<li>此时与底层线程关联，由操作系统调度执行</li>
-</ul>
-</blockquote>
-<p><strong>终结(TERMINATED)</strong></p>
-<blockquote>
-<ul>
-<li>线程内代码已经执行完毕，由<strong>可运行</strong>进入<strong>终结</strong></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>-此时会取消与底层线程关联</p>
-</blockquote>
-<p><strong>阻塞(BLOCKED)</strong></p>
-<blockquote>
-<ul>
-<li>当获取锁失败后，由<strong>可运行</strong>进入 Monitor 的阻塞队列<strong>阻塞</strong>，此时不占用 cpu 时间</li>
-<li>当持锁线程释放锁时，会按照一定规则唤醒阻塞队列中的<strong>阻塞</strong>线程，唤醒后的线程进入<strong>可运行</strong>状态</li>
-</ul>
-</blockquote>
-<p><strong>等待(WAITING)</strong></p>
-<blockquote>
-<ul>
-<li>当获取锁成功后，但由于条件不满足，调用了 wait() 方法，此时从<strong>可运行</strong>状态释放锁进入 Monitor 等待集合<strong>等待</strong>，同样不占用 cpu 时间</li>
-<li>当其它持锁线程调用 notify() 或 notifyAll() 方法，会按照一定规则唤醒等待集合中的<strong>等待</strong>线程，恢复为<strong>可运行</strong>状态</li>
-</ul>
-</blockquote>
-<p><strong>有时限等待(TIMED_WAITING)</strong></p>
-<blockquote>
-<ul>
-<li>当获取锁成功后，但由于条件不满足，调用了 wait(long) 方法，此时从<strong>可运行</strong>状态释放锁进入 Monitor 等待集合进行<strong>有时限等待</strong>，同样不占用 cpu 时间</li>
-<li>当其它持锁线程调用 notify() 或 notifyAll() 方法，会按照一定规则唤醒等待集合中的<strong>有时限等待</strong>线程，恢复为<strong>可运行</strong>状态，并重新去竞争锁</li>
-<li>如果等待超时，也会从<strong>有时限等待</strong>状态恢复为<strong>可运行</strong>状态，并重新去竞争锁</li>
-<li>还有一种情况是调用 sleep(long) 方法也会从<strong>可运行</strong>状态进入<strong>有时限等待</strong>状态，但与 Monitor 无关，不需要主动唤醒，超时时间到自然恢复为<strong>可运行</strong>状态</li>
-</ul>
-</blockquote>
-<p><em><strong>其它情况（只需了解）</strong></em></p>
-<blockquote>
-<ul>
-<li>可以用 interrupt() 方法打断<strong>等待</strong>、<strong>有时限等待</strong>的线程，让它们恢复为<strong>可运行</strong>状态</li>
-<li>park，unpark 等方法也可以让线程等待和唤醒</li>
-</ul>
-</blockquote>
-<h2 id="2-线程状态-五种状态"><a href="#2-线程状态-五种状态" class="headerlink" title="2. 线程状态-五种状态"></a>2. 线程状态-五种状态</h2><p><strong>五种状态的说法来自于操作系统层面的划分</strong></p>
-<p><img src="https://r2.022032.xyz/yimouz/2026/01/b3acf16e360c62b80baaefbc49e9097b.png" alt="操作系统线程状态图"></p>
-<blockquote>
-<ul>
-<li><p><strong>运行态</strong>：分到 cpu 时间，能真正执行线程内代码的</p>
-</li>
-<li><p><strong>就绪态</strong>：有资格分到 cpu 时间，但还未轮到它的</p>
-</li>
-<li><p><strong>阻塞态</strong>：没资格分到 cpu 时间的</p>
-</li>
-<li><ul>
-<li>涵盖了 java 状态中提到的<strong>阻塞</strong>、<strong>等待</strong>、<strong>有时限等待</strong></li>
-<li>多出了阻塞 I/O，指线程在调用阻塞 I/O 时，实际活由 I/O 设备完成，此时线程无事可做，只能干等</li>
-</ul>
-</li>
-<li><p><strong>新建与终结态</strong>：与 java 中同名状态类似，不再啰嗦</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="3-wait和sleep方法的不同？"><a href="#3-wait和sleep方法的不同？" class="headerlink" title="3. wait和sleep方法的不同？"></a>3. wait和sleep方法的不同？</h2><p><strong>共同点</strong></p>
-<blockquote>
-<p>wait() ，wait(long) 和 sleep(long) 的效果都是让当前线程暂时放弃 CPU 的使用权，进入阻塞状态</p>
-</blockquote>
-<p><strong>不同点</strong></p>
-<p>1.方法归属不同</p>
-<blockquote>
-<ul>
-<li>sleep(long) 是 Thread 的静态方法</li>
-<li>而 wait()，wait(long) 都是 Object 的成员方法，每个对象都有 2.醒来时机不同</li>
-<li>执行 sleep(long) 和 wait(long) 的线程都会在等待相应毫秒后醒来</li>
-<li>wait(long) 和 wait() 还可以被 notify 唤醒，wait() 如果不唤醒就一直等下去</li>
-<li>它们都可以被打断唤醒</li>
-</ul>
-</blockquote>
+                <p> JMeter 中，<code>prev</code> 对象是一个非常重要的变量，通常用于在 JSR223 Sampler 或者 BeanShell Sampler 中获取上一个 Sampler 的结果。记录下 <code>prev</code> 对象的常用 API。</p>
+<h3 id="什么是-prev-对象？"><a href="#什么是-prev-对象？" class="headerlink" title="什么是 prev 对象？"></a>什么是 <code>prev</code> 对象？</h3><p><code>prev</code> 对象是一个 <code>SampleResult</code> 类型的实例，它包含了上一个 Sampler 的所有信息和结果。通过使用 <code>prev</code> 对象，我们可以访问上一个请求的响应数据、响应时间、响应代码等信息。</p>
+<h3 id="常用的-prev-API"><a href="#常用的-prev-API" class="headerlink" title="常用的 prev API"></a>常用的 <code>prev</code> API</h3><p>下面是 <code>prev</code> 对象的一些常用 API 和属性：</p>
 <ol>
-<li>锁特性不同（重点）</li>
-</ol>
-<blockquote>
+<li><p><strong>getTime()</strong></p>
 <ul>
-<li>wait 方法的调用必须先获取 wait 对象的锁，而 sleep 则无此限制</li>
-<li>wait 方法执行后会释放对象锁，允许其它线程获得该对象锁（我放弃 cpu，但你们还可以用）</li>
-<li>而 sleep 如果在 synchronized 代码块中执行，并不会释放对象锁（我放弃 cpu，你们也用不了）</li>
+<li>返回采样器的响应时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> responseTime <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-</blockquote>
-<h2 id="3-线程状态面试题"><a href="#3-线程状态面试题" class="headerlink" title="3. 线程状态面试题"></a>3. 线程状态面试题</h2><p><strong>面试官</strong>：线程包括哪些状态，状态之间是如何变化的？</p>
-<p><strong>候选人：</strong></p>
-<blockquote>
-<p>在JDK中的Thread类中的枚举State里面定义了6中线程的状态分别是：新建、可运行、终结、阻塞、等待和有时限等待六种。</p>
-<p>关于线程的状态切换情况比较多。我分别介绍一下</p>
-<p>当一个线程对象被创建，但还未调用 start 方法时处于<strong>新建</strong>状态，调用了 start 方法，就会由<strong>新建</strong>进入<strong>可运行</strong>状态。如果线程内代码已经执行完毕，由<strong>可运行</strong>进入<strong>终结</strong>状态。当然这些是一个线程正常执行情况。</p>
-<p>如果线程获取锁失败后，由<strong>可运行</strong>进入 Monitor 的阻塞队列<strong>阻塞</strong>，只有当持锁线程释放锁时，会按照一定规则唤醒阻塞队列中的<strong>阻塞</strong>线程，唤醒后的线程进入<strong>可运行</strong>状态</p>
-<p>如果线程获取锁成功后，但由于条件不满足，调用了 wait() 方法，此时从<strong>可运行</strong>状态释放锁<strong>等待</strong>状态，当其它持锁线程调用 notify() 或 notifyAll() 方法，会恢复为<strong>可运行</strong>状态</p>
-<p>还有一种情况是调用 sleep(long) 方法也会从<strong>可运行</strong>状态进入<strong>有时限等待</strong>状态，不需要主动唤醒，超时时间到自然恢复为<strong>可运行</strong>状态</p>
-</blockquote>
+</li>
+<li><p><strong>getResponseCode()</strong></p>
+<ul>
+<li>返回采样器的响应代码（通常是 HTTP 状态码）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseCode <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getResponseMessage()</strong></p>
+<ul>
+<li>返回采样器的响应消息。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseMessage <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getResponseDataAsString()</strong></p>
+<ul>
+<li>以字符串形式返回响应数据。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseData <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseDataAsString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getResponseHeaders()</strong></p>
+<ul>
+<li>返回响应头信息。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseHeaders <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getRequestHeaders()</strong></p>
+<ul>
+<li>返回请求头信息。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> requestHeaders <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getRequestHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getSamplerData()</strong></p>
+<ul>
+<li>返回采样器的请求数据。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> samplerData <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getSamplerData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getSampleLabel()</strong></p>
+<ul>
+<li>返回采样器的标签。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> sampleLabel <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getSampleLabel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>isSuccessful()</strong></p>
+<ul>
+<li>返回采样器的执行结果是否成功。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">boolean</span> isSuccess <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">isSuccessful</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getURL()</strong></p>
+<ul>
+<li>返回采样器的请求 URL。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> url <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getStartTime()</strong></p>
+<ul>
+<li>返回采样器开始时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> startTime <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getStartTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>getEndTime()</strong></p>
+<ul>
+<li>返回采样器结束时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> endTime <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getEndTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>假设我们在测试一个 RESTful API，并且需要在每个请求之后检查响应数据是否包含特定的字符串。我们可以使用 JSR223 Sampler 来实现这个功能。以下是一个示例脚本：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 获取上一个采样器的响应数据</span>
+<span class="token class-name">String</span> responseData <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseDataAsString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 检查响应数据是否包含特定字符串</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>responseData<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 如果包含，记录日志并继续</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Response contains the expected string."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 如果不包含，记录日志并标记测试失败</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Response does not contain the expected string."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">AssertionResult</span><span class="token punctuation">.</span><span class="token function">setFailure</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">AssertionResult</span><span class="token punctuation">.</span><span class="token function">setFailureMessage</span><span class="token punctuation">(</span><span class="token string">"Response does not contain the expected string."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>就算是随便记录也希望能够帮助我们更好理解，不要健忘。</p>
 
                 
             </div>
@@ -602,8 +551,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
-                                    <span class="chip bg-color">线程池</span>
+                                <a href="/tags/JMeter/">
+                                    <span class="chip bg-color">JMeter</span>
                                 </a>
                             
                         </div>
@@ -648,31 +597,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/">
+                <a href="/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JMeter-prev">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hexo 单仓库双分支 配合action">
                         
-                        <span class="card-title">JMeter-prev</span>
+                        <span class="card-title">Hexo 单仓库双分支 配合action</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            `prev` 对象是一个非常重要的变量，通常用于在 JSR223 Sampler 或者 BeanShell Sampler 中获取上一个 Sampler 的结果
+                            Hexo 单仓库双分支：摆脱本地hexo、node
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-01-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    性能笔记
+                            <a href="/categories/%E6%9D%82%E8%AE%B0/" class="post-category">
+                                    杂记
                                 </a>
                             
                             
@@ -682,8 +631,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JMeter/">
-                        <span class="chip bg-color">JMeter</span>
+                    <a href="/tags/%E6%9D%82%E8%AE%B0/">
+                        <span class="chip bg-color">杂记</span>
                     </a>
                     
                 </div>
@@ -697,24 +646,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/">
+                <a href="/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="性能笔记-几个瓶颈">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="线程包括哪些状态，状态之间是如何变化">
                         
-                        <span class="card-title">性能笔记-几个瓶颈</span>
+                        <span class="card-title">线程包括哪些状态，状态之间是如何变化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            瓶颈可能来自哪里,水一下笔记就算了
+                            线程包括哪些状态，状态之间是如何变化
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
                             </span>
                         <span class="publish-author">
                             
@@ -731,8 +680,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9D%82%E8%AE%B0/">
-                        <span class="chip bg-color">杂记</span>
+                    <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+                        <span class="chip bg-color">线程池</span>
                     </a>
                     
                 </div>

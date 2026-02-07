@@ -6,7 +6,7 @@
   <link href="https://yimouz.github.io/atom.xml" rel="self"/>
   
   <link href="https://yimouz.github.io/"/>
-  <updated>2026-02-04T16:13:00.304Z</updated>
+  <updated>2026-02-07T16:30:49.973Z</updated>
   <id>https://yimouz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://yimouz.github.io/2026/02/03/jmetervars.put/"/>
     <id>https://yimouz.github.io/2026/02/03/jmetervars.put/</id>
     <published>2026-02-03T00:00:00.000Z</published>
-    <updated>2026-02-04T16:13:00.304Z</updated>
+    <updated>2026-02-07T16:30:49.973Z</updated>
     
     
       
@@ -50,7 +50,7 @@
     <link href="https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/"/>
     <id>https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/</id>
     <published>2026-01-30T14:00:21.000Z</published>
-    <updated>2026-02-04T16:13:00.304Z</updated>
+    <updated>2026-02-07T16:30:49.973Z</updated>
     
     
       
@@ -71,11 +71,36 @@
   </entry>
   
   <entry>
+    <title>JMeter-prev</title>
+    <link href="https://yimouz.github.io/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/"/>
+    <id>https://yimouz.github.io/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/</id>
+    <published>2024-12-03T11:10:30.000Z</published>
+    <updated>2026-02-07T16:30:49.973Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt; JMeter 中，&lt;code&gt;prev&lt;/code&gt; 对象是一个非常重要的变量，通常用于在 JSR223 Sampler 或者 BeanShell Sampler 中获取上一个 Sampler 的结果。记录下 &lt;code&gt;prev&lt;/code&gt; 对象的常用</summary>
+        
+      
+    
+    
+    
+    <category term="性能笔记" scheme="https://yimouz.github.io/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="JMeter" scheme="https://yimouz.github.io/tags/JMeter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>线程包括哪些状态，状态之间是如何变化</title>
     <link href="https://yimouz.github.io/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/"/>
     <id>https://yimouz.github.io/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/</id>
     <published>2021-01-06T14:12:36.000Z</published>
-    <updated>2026-02-04T16:13:00.305Z</updated>
+    <updated>2026-02-07T16:30:49.973Z</updated>
     
     
       
@@ -100,7 +125,7 @@
     <link href="https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/"/>
     <id>https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/</id>
     <published>2020-05-26T16:12:36.000Z</published>
-    <updated>2026-02-04T16:13:00.304Z</updated>
+    <updated>2026-02-07T16:30:49.973Z</updated>
     
     
       
@@ -125,7 +150,7 @@
     <link href="https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/"/>
     <id>https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/</id>
     <published>2020-05-22T08:58:27.000Z</published>
-    <updated>2026-02-04T16:13:00.304Z</updated>
+    <updated>2026-02-07T16:30:49.973Z</updated>
     
     
       
