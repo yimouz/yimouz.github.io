@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JMeter POST 请求缺失 Header 需要手动添加, 绿蚁">
+    <meta name="keywords" content="JMeter 启动脚本 (jmeter.bat) 详解, 绿蚁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JMeter POST 请求缺失 Header 需要手动添加 | 绿蚁</title>
+    <title>JMeter 启动脚本 (jmeter.bat) 详解 | 绿蚁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JMeter POST 请求缺失 Header 需要手动添加</h1>
+                    <h1 class="description center-align post-title">JMeter 启动脚本 (jmeter.bat) 详解</h1>
                 </div>
             </div>
         </div>
@@ -412,8 +412,12 @@
                                 <span class="chip bg-color">JMeter</span>
                             </a>
                         
-                            <a href="/tags/HTTP-Header/">
-                                <span class="chip bg-color">HTTP Header</span>
+                            <a href="/tags/jmeter-bat/">
+                                <span class="chip bg-color">jmeter.bat</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">性能测试</span>
                             </a>
                         
                     </div>
@@ -437,7 +441,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2026-02-09
                 </div>
                 
 
@@ -446,7 +450,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1k
                 </div>
                 
 
@@ -466,144 +470,155 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JMeter-POST-请求缺失-Header-的解决方案"><a href="#JMeter-POST-请求缺失-Header-的解决方案" class="headerlink" title="JMeter POST 请求缺失 Header 的解决方案"></a>JMeter POST 请求缺失 Header 的解决方案</h1><h2 id="1-问题背景"><a href="#1-问题背景" class="headerlink" title="1. 问题背景"></a>1. 问题背景</h2><p>在进行接口测试（特别是 POST 请求）时，如果没有显式添加 <code>Content-Type</code> 头，服务端往往无法正确解析请求体，从而返回 <code>415 Unsupported Media Type</code> 或 <code>400 Bad Request</code> 错误。<br>最常见的场景是发送 JSON 数据，但未设置 <code>Content-Type: application/json</code>。</p>
-<h2 id="2-核心解决方案：使用-HTTP-Header-Manager"><a href="#2-核心解决方案：使用-HTTP-Header-Manager" class="headerlink" title="2. 核心解决方案：使用 HTTP Header Manager"></a>2. 核心解决方案：使用 HTTP Header Manager</h2><p>这是解决该问题最标准、最灵活的方法，适用于 JSON、XML 等各种数据格式。</p>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
-<li><strong>添加组件</strong>：<ul>
-<li>  选中 <strong>Test Plan (测试计划)</strong> 或 **Thread Group (线程组)**。</li>
-<li>  右键菜单选择：<code>Add</code> -&gt; <code>Config Element</code> -&gt; <code>HTTP Header Manager</code> (HTTP信息头管理器)。</li>
-</ul>
-</li>
-<li><strong>配置参数</strong>：<ul>
-<li>  点击底部的 <code>Add</code> 按钮新增一行。</li>
-<li>  <strong>Name</strong>: <code>Content-Type</code></li>
-<li>  <strong>Value</strong>: <code>application/json</code> (如果是其他格式，填写对应的值，如 <code>application/xml</code>)</li>
-</ul>
-</li>
-</ol>
-<h3 id="作用范围说明"><a href="#作用范围说明" class="headerlink" title="作用范围说明"></a>作用范围说明</h3><ul>
-<li>  <strong>全局生效</strong>：如果在 Test Plan 根节点下添加，所有请求都会默认带上该 Header。</li>
-<li>  <strong>局部生效</strong>：如果在某个 Thread Group 或具体的 HTTP Request 下添加，仅对该范围内的请求生效。</li>
-</ul>
-<h2 id="3-常见误区：修改-jmeter-properties"><a href="#3-常见误区：修改-jmeter-properties" class="headerlink" title="3. 常见误区：修改 jmeter.properties"></a>3. 常见误区：修改 jmeter.properties</h2><p><strong>注意</strong>：修改配置文件中的 <code>post_add_content_type_if_missing</code> 无法解决 JSON 格式的 Header 缺失问题。</p>
-<ul>
-<li>  <strong>局限性</strong>：该配置项开启后，<strong>只能</strong> 自动补全 <code>application/x-www-form-urlencoded</code>。</li>
-<li>  <strong>无效操作</strong>：将该配置项的值改为 <code>json</code> 或 <code>true</code> 都无法让 JMeter 自动添加 <code>application/json</code>。</li>
-<li>  <strong>结论</strong>：请完全忽略此配置项，始终使用 <strong>HTTP Header Manager</strong> 来管理请求头。</li>
-</ul>
-<h3 id="补充说明：隐式行为-Implicit-Behavior"><a href="#补充说明：隐式行为-Implicit-Behavior" class="headerlink" title="补充说明：隐式行为 (Implicit Behavior)"></a>补充说明：隐式行为 (Implicit Behavior)</h3><p>如果开启了该配置 (<code>true</code>)，其补全行为是 <strong>隐式的</strong>：</p>
+                <h1 id="JMeter-启动脚本-jmeter-bat-详解"><a href="#JMeter-启动脚本-jmeter-bat-详解" class="headerlink" title="JMeter 启动脚本 (jmeter.bat) 详解"></a>JMeter 启动脚本 (jmeter.bat) 详解</h1><p>本文档基于 <code>jmeter.bat</code>  整理，详细解析了 JMeter Windows 启动脚本的核心逻辑、关键环境变量及配置实践。</p>
+<h2 id="1-核心功能概述"><a href="#1-核心功能概述" class="headerlink" title="1. 核心功能概述"></a>1. 核心功能概述</h2><p><code>jmeter.bat</code> 是 JMeter 在 Windows 环境下的主启动脚本。它的主要职责包括：</p>
 <ol>
-<li> <strong>GUI 不可见</strong>：你<strong>不会</strong>在测试计划界面看到任何自动生成的 Header Manager 组件。</li>
-<li> <strong>结果可见</strong>：只有在运行测试后，查看 <strong>View Results Tree (查看结果树)</strong> -&gt; <strong>Request</strong> -&gt; <strong>Request Headers</strong> 时，才会发现 <code>Content-Type: application/x-www-form-urlencoded</code> 被默默添加到了请求中。</li>
+<li> <strong>环境检测</strong>：自动定位 <code>JMETER_HOME</code> 和 Java 运行环境。</li>
+<li> <strong>加载配置</strong>：加载用户自定义配置 (<code>setenv.bat</code>)默认没有这个文件，按需添加。</li>
+<li> <strong>参数组装</strong>：设置 JVM 内存 (<code>HEAP</code>)、垃圾回收 (<code>GC_ALGO</code>) 和其他启动参数 (<code>JVM_ARGS</code>)。</li>
+<li> <strong>启动程序</strong>：最终调用 <code>java.exe</code> 启动 <code>ApacheJMeter.jar</code>。</li>
 </ol>
-<h3 id="补充说明：优先级与冲突-Priority"><a href="#补充说明：优先级与冲突-Priority" class="headerlink" title="补充说明：优先级与冲突 (Priority)"></a>补充说明：优先级与冲突 (Priority)</h3><p>如果开启了自动补全，同时你又手动设置了 Header，结果是：<strong>以你的手动设置为准</strong>。<br>该配置项的名称 <code>..._if_missing</code> 揭示了其逻辑：</p>
+<hr>
+<h2 id="2-关键环境变量"><a href="#2-关键环境变量" class="headerlink" title="2. 关键环境变量"></a>2. 关键环境变量</h2><p>以下变量可以在系统环境变量中设置，或者更推荐在 <code>bin/setenv.bat</code> 中定义：</p>
+<table>
+<thead>
+<tr>
+<th align="left">变量名</th>
+<th align="left">默认值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>HEAP</code></strong></td>
+<td align="left"><code>-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m</code></td>
+<td align="left"><strong>最常用</strong>。JVM 堆内存设置。生产环境压测建议调大（如 4G+）。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>JVM_ARGS</code></strong></td>
+<td align="left"><code>-Duser.language="en" -Duser.region="EN"</code></td>
+<td align="left">Java 启动参数。常用于设置界面语言、代理服务器等。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>GC_ALGO</code></strong></td>
+<td align="left"><code>-XX:+UseG1GC ...</code></td>
+<td align="left">垃圾回收算法。默认使用 G1GC，通常无需修改。</td>
+</tr>
+<tr>
+<td align="left"><code>JMETER_HOME</code></td>
+<td align="left">自动猜测</td>
+<td align="left">JMeter 安装根目录。</td>
+</tr>
+<tr>
+<td align="left"><code>JMETER_BIN</code></td>
+<td align="left"><code>%JMETER_HOME%\bin</code></td>
+<td align="left">JMeter bin 目录。</td>
+</tr>
+<tr>
+<td align="left"><code>JM_LAUNCH</code></td>
+<td align="left"><code>java.exe</code></td>
+<td align="left">Java 执行程序路径。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-脚本执行流程解析"><a href="#3-脚本执行流程解析" class="headerlink" title="3. 脚本执行流程解析"></a>3. 脚本执行流程解析</h2><h3 id="3-1-初始化与路径探测"><a href="#3-1-初始化与路径探测" class="headerlink" title="3.1 初始化与路径探测"></a>3.1 初始化与路径探测</h3><p>脚本首先尝试自动定位安装目录：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">if</span> not <span class="token string">"%JMETER_HOME%"</span> == <span class="token string">""</span> goto gotHome</span>
+<span class="token command"><span class="token keyword">set</span> <span class="token string">"JMETER_HOME=%CURRENT_DIR%"</span></span>
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">exist</span> <span class="token string">"%JMETER_HOME%\bin\jmeter.bat"</span></span> <span class="token command"><span class="token keyword">goto</span> okHome</span>
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-2-加载用户自定义配置-关键"><a href="#3-2-加载用户自定义配置-关键" class="headerlink" title="3.2 加载用户自定义配置 (关键)"></a>3.2 加载用户自定义配置 (关键)</h3><p>这是配置 JMeter 的<strong>入口</strong>。脚本会检查是否存在 <code>setenv.bat</code> 并调用它：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token comment">rem 获取标准环境变量</span>
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">exist</span> <span class="token string">"%JMETER_HOME%\bin\setenv.bat"</span></span> <span class="token command"><span class="token keyword">call</span> <span class="token string">"%JMETER_HOME%\bin\setenv.bat"</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>提示</strong>：不要直接修改 <code>jmeter.bat</code>，而是创建 <code>setenv.bat</code> 来覆盖变量。这样升级 JMeter 时配置不会丢失。</p>
+</blockquote>
+<h3 id="3-3-语言设置"><a href="#3-3-语言设置" class="headerlink" title="3.3 语言设置"></a>3.3 语言设置</h3><p>如果未定义 <code>JMETER_LANGUAGE</code>，默认强制为英文环境：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> JMETER_LANGUAGE</span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">JMETER_LANGUAGE</span><span class="token operator">=</span><span class="token operator">-</span>Duser.<span class="token variable">language</span><span class="token operator">=</span><span class="token string">"en"</span> <span class="token operator">-</span>Duser.<span class="token variable">region</span><span class="token operator">=</span><span class="token string">"EN"</span></span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><em>在 <code>setenv.bat</code> 中设置 <code>JVM_ARGS</code> 可覆盖此行为。</em></p>
+<h3 id="3-4-Java-版本检查"><a href="#3-4-Java-版本检查" class="headerlink" title="3.4 Java 版本检查"></a>3.4 Java 版本检查</h3><p>脚本包含复杂的逻辑来解析 <code>java -version</code> 输出，确保 Java 版本符合要求（最低 1.8.0）：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">for</span> <span class="token parameter attr-name">/f</span> <span class="token string">"tokens=3"</span> <span class="token variable">%%g</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token punctuation">'</span>java -version <span class="token number">2</span>^&gt;^&amp;<span class="token number">1</span> ^| findstr <span class="token parameter attr-name">/i</span> <span class="token string">"version"</span><span class="token punctuation">'</span><span class="token punctuation">)</span> <span class="token keyword">do</span></span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">JAVAVER</span><span class="token operator">=</span><span class="token variable">%%g</span></span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-5-内存与-GC-配置"><a href="#3-5-内存与-GC-配置" class="headerlink" title="3.5 内存与 GC 配置"></a>3.5 内存与 GC 配置</h3><p>如果用户未在 <code>setenv.bat</code> 中定义，脚本将使用默认值：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> HEAP</span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">HEAP</span><span class="token operator">=</span><span class="token operator">-</span>Xms1g <span class="token operator">-</span>Xmx1g <span class="token operator">-</span>XX:<span class="token variable">MaxMetaspaceSize</span><span class="token operator">=</span>256m</span>
+<span class="token punctuation">)</span>
+
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> GC_ALGO</span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">GC_ALGO</span><span class="token operator">=</span><span class="token operator">-</span>XX:<span class="token operator">+</span>UseG1GC ...</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="4-最终启动命令"><a href="#4-最终启动命令" class="headerlink" title="4. 最终启动命令"></a>4. 最终启动命令</h2><p>脚本最后构建完整的启动命令：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">%JM_START% "%JM_LAUNCH%" %ARGS% %JVM_ARGS% -jar "%JMETER_BIN%ApacheJMeter.jar" %JMETER_CMD_LINE_ARGS%<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
-<li><strong>检查机制</strong>：JMeter 发送请求前会检查是否已有 <code>Content-Type</code>。</li>
-<li><strong>用户优先</strong>：只要检测到你设置了该 Header（无论值是 json、xml 还是其他），隐式补全行为就<strong>直接跳过</strong>。</li>
-<li><strong>最终结果</strong>：<strong>不会覆盖</strong>，也<strong>不会出现两个 Header</strong>。你的设置完全生效，隐式行为完全失效。</li>
+<li>  <code>%ARGS%</code>：包含 <code>HEAP</code> + <code>GC_ALGO</code> + <code>DDRAW</code> 等核心参数。</li>
+<li>  <code>%JVM_ARGS%</code>：包含用户自定义的额外 Java 参数。</li>
+<li>  <code>%JMETER_CMD_LINE_ARGS%</code>：透传用户在命令行输入的参数（如 <code>-n -t test.jmx</code>）。</li>
 </ul>
-<h2 id="4-常见-HTTP-Header-及使用场景指南"><a href="#4-常见-HTTP-Header-及使用场景指南" class="headerlink" title="4. 常见 HTTP Header 及使用场景指南"></a>4. 常见 HTTP Header 及使用场景指南</h2><p>在接口测试中，正确设置 Header 是请求成功的关键。以下是高频使用的 Header 及其对应值。</p>
-<h3 id="4-1-数据格式类-Content-Type"><a href="#4-1-数据格式类-Content-Type" class="headerlink" title="4.1 数据格式类 (Content-Type)"></a>4.1 数据格式类 (Content-Type)</h3><p>告诉服务端<strong>你发送的数据是什么格式</strong>。</p>
-<table>
+<hr>
+<h2 id="5-常见配置场景"><a href="#5-常见配置场景" class="headerlink" title="5. 常见配置场景"></a>5. 常见配置场景</h2><h3 id="场景一：增加内存防止-OOM"><a href="#场景一：增加内存防止-OOM" class="headerlink" title="场景一：增加内存防止 OOM"></a>场景一：增加内存防止 OOM</h3><p>在 <code>setenv.bat</code> 中添加：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">set</span> <span class="token variable">HEAP</span><span class="token operator">=</span><span class="token operator">-</span>Xms2g <span class="token operator">-</span>Xmx4g <span class="token operator">-</span>XX:<span class="token variable">MaxMetaspaceSize</span><span class="token operator">=</span>512m</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="场景二：设置中文界面"><a href="#场景二：设置中文界面" class="headerlink" title="场景二：设置中文界面"></a>场景二：设置中文界面</h3><p>在 <code>setenv.bat</code> 中添加：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">set</span> <span class="token variable">JVM_ARGS</span><span class="token operator">=</span><span class="token variable">%JVM_ARGS%</span> <span class="token operator">-</span>Duser.<span class="token variable">language</span><span class="token operator">=</span>zh <span class="token operator">-</span>Duser.<span class="token variable">region</span><span class="token operator">=</span>CN</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="场景三：配置-HTTP-代理"><a href="#场景三：配置-HTTP-代理" class="headerlink" title="场景三：配置 HTTP 代理"></a>场景三：配置 HTTP 代理</h3><p>在 <code>setenv.bat</code> 中添加：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">set</span> <span class="token variable">JVM_ARGS</span><span class="token operator">=</span><span class="token variable">%JVM_ARGS%</span> <span class="token operator">-</span>Dhttp.<span class="token variable">proxyHost</span><span class="token operator">=</span><span class="token number">127</span>.<span class="token number">0</span>.<span class="token number">0</span>.<span class="token number">1</span> <span class="token operator">-</span>Dhttp.<span class="token variable">proxyPort</span><span class="token operator">=</span><span class="token number">8888</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="场景四：指定特定-JDK-版本"><a href="#场景四：指定特定-JDK-版本" class="headerlink" title="场景四：指定特定 JDK 版本"></a>场景四：指定特定 JDK 版本</h3><p>如果需要使用特定版本的 JDK 运行 JMeter（而非系统默认的 <code>JAVA_HOME</code>），可以在 <code>setenv.bat</code> 中临时修改环境变量：</p>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token comment">rem 设置特定的 JDK 路径</span>
+<span class="token command"><span class="token keyword">set</span> <span class="token variable">JAVA_HOME</span><span class="token operator">=</span>C:\Program Files\Java\jdk<span class="token number">-17</span></span>
+
+<span class="token comment">rem 将该 JDK 的 bin 目录添加到 PATH 最前面，确保优先使用</span>
+<span class="token command"><span class="token keyword">set</span> <span class="token variable">PATH</span><span class="token operator">=</span><span class="token variable">%JAVA_HOME%</span>\bin;<span class="token variable">%PATH%</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>(注：这种修改仅对当前 JMeter 启动过程生效，不会影响系统的全局环境变量。)</em></p>
+<hr>
+<h2 id="6-附录：Linux-macOS-配置指南-setenv-sh"><a href="#6-附录：Linux-macOS-配置指南-setenv-sh" class="headerlink" title="6. 附录：Linux/macOS 配置指南 (setenv.sh)"></a>6. 附录：Linux/macOS 配置指南 (setenv.sh)</h2><p>在 Linux 或 macOS 环境下，对应的启动脚本是 <code>jmeter</code> (Shell 脚本)，且配套的配置文件为 <code>bin/setenv.sh</code>。</p>
+<h3 id="6-1-关键差异对照表"><a href="#6-1-关键差异对照表" class="headerlink" title="6.1 关键差异对照表"></a>6.1 关键差异对照表</h3><table>
 <thead>
 <tr>
-<th align="left">场景</th>
-<th align="left">Header 值</th>
-<th align="left">说明</th>
+<th align="left">配置项</th>
+<th align="left">Windows (<code>setenv.bat</code>)</th>
+<th align="left">Linux/macOS (<code>setenv.sh</code>)</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>JSON 接口</strong> (最常见)</td>
-<td align="left"><code>application/json</code></td>
-<td align="left">RESTful API 标准格式</td>
+<td align="left"><strong>赋值语法</strong></td>
+<td align="left"><code>set VAR=VAL</code></td>
+<td align="left"><code>export VAR="VAL"</code></td>
 </tr>
 <tr>
-<td align="left"><strong>表单提交</strong></td>
-<td align="left"><code>application/x-www-form-urlencoded</code></td>
-<td align="left">类似 HTML <code>&lt;form&gt;</code> 提交，键值对形式</td>
+<td align="left"><strong>变量引用</strong></td>
+<td align="left"><code>%VAR%</code></td>
+<td align="left"><code>$VAR</code></td>
 </tr>
 <tr>
-<td align="left"><strong>文件上传</strong></td>
-<td align="left"><code>multipart/form-data</code></td>
-<td align="left"><strong>注意</strong>：通常不需要手动设置，勾选 JMeter “Use multipart/form-data” 即可自动处理</td>
+<td align="left"><strong>路径分隔符</strong></td>
+<td align="left">反斜杠 <code>\</code></td>
+<td align="left">正斜杠 <code>/</code></td>
 </tr>
 <tr>
-<td align="left"><strong>XML 接口</strong></td>
-<td align="left"><code>application/xml</code> 或 <code>text/xml</code></td>
-<td align="left">旧式 SOAP 或 XML API</td>
+<td align="left"><strong>路径列表分隔符</strong></td>
+<td align="left">分号 <code>;</code></td>
+<td align="left">冒号 <code>:</code></td>
 </tr>
 </tbody></table>
-<h3 id="4-2-认证鉴权类-Authorization"><a href="#4-2-认证鉴权类-Authorization" class="headerlink" title="4.2 认证鉴权类 (Authorization)"></a>4.2 认证鉴权类 (Authorization)</h3><p>告诉服务端<strong>你是谁</strong>。</p>
-<table>
-<thead>
-<tr>
-<th align="left">场景</th>
-<th align="left">Header 值示例</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Token 认证</strong> (JWT/OAuth)</td>
-<td align="left"><code>Bearer &lt;your_token_string&gt;</code></td>
-<td align="left">最通用的现代 API 认证方式</td>
-</tr>
-<tr>
-<td align="left"><strong>Basic 认证</strong></td>
-<td align="left"><code>Basic &lt;base64_user_pass&gt;</code></td>
-<td align="left">较旧，用户名密码 Base64 编码</td>
-</tr>
-<tr>
-<td align="left"><strong>自定义 Key</strong></td>
-<td align="left"><code>X-API-KEY: abc12345</code></td>
-<td align="left">部分服务商特定的 Header 名称</td>
-</tr>
-</tbody></table>
-<h3 id="4-3-客户端协商类"><a href="#4-3-客户端协商类" class="headerlink" title="4.3 客户端协商类"></a>4.3 客户端协商类</h3><p>告诉服务端<strong>你想要什么</strong>或<strong>你用什么设备</strong>。</p>
-<table>
-<thead>
-<tr>
-<th align="left">Header 名称</th>
-<th align="left">常见值</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Accept</strong></td>
-<td align="left"><code>application/json</code></td>
-<td align="left">期望服务端返回 JSON 格式数据</td>
-</tr>
-<tr>
-<td align="left"><strong>User-Agent</strong></td>
-<td align="left"><code>Mozilla/5.0 ...</code></td>
-<td align="left">模拟浏览器（Chrome/Safari）或手机（Android/iOS），防止被识别为爬虫/机器人</td>
-</tr>
-<tr>
-<td align="left"><strong>Referer</strong></td>
-<td align="left"><code>https://www.example.com/login</code></td>
-<td align="left">来源页面，防盗链检查常需要此字段</td>
-</tr>
-</tbody></table>
-<h3 id="4-4-必备-Header-清单-Checklist"><a href="#4-4-必备-Header-清单-Checklist" class="headerlink" title="4.4 必备 Header 清单 (Checklist)"></a>4.4 必备 Header 清单 (Checklist)</h3><h4 id="针对-REST-API-接口测试："><a href="#针对-REST-API-接口测试：" class="headerlink" title="针对 REST API 接口测试："></a>针对 REST API 接口测试：</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> <strong>Content-Type</strong>: <code>application/json</code> (如果是 POST/PUT)</li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Authorization</strong>: <code>Bearer ...</code> (如果需要登录)</li>
-<li><input disabled="" type="checkbox"> <strong>Accept</strong>: <code>application/json</code> (推荐加上)</li>
-</ul>
-<h4 id="针对-模拟浏览器行为："><a href="#针对-模拟浏览器行为：" class="headerlink" title="针对 模拟浏览器行为："></a>针对 模拟浏览器行为：</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> <strong>User-Agent</strong>: 必须模拟真实浏览器字符串</li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Referer/Origin</strong>: 涉及跨域或安全检查时必须</li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Cookie</strong>: 详见下方说明（推荐使用 Cookie Manager，但也支持手动添加）</li>
-</ul>
-<h3 id="4-5-特殊-Header：Cookie-的处理"><a href="#4-5-特殊-Header：Cookie-的处理" class="headerlink" title="4.5 特殊 Header：Cookie 的处理"></a>4.5 特殊 Header：Cookie 的处理</h3><p>虽然 Cookie 本质上也是 Header (<code>Cookie: name=value</code>)，但 JMeter 提供了两种处理方式：</p>
-<h4 id="方式一：使用-HTTP-Cookie-Manager-强烈推荐"><a href="#方式一：使用-HTTP-Cookie-Manager-强烈推荐" class="headerlink" title="方式一：使用 HTTP Cookie Manager (强烈推荐)"></a>方式一：使用 HTTP Cookie Manager (强烈推荐)</h4><p>这是最接近真实浏览器行为的方式。</p>
-<ul>
-<li>  <strong>自动维护</strong>：自动解析服务端返回的 <code>Set-Cookie</code> 并在后续请求中携带，无需人工干预。</li>
-<li>  <strong>手动添加</strong>：支持在组件界面下方 “User-Defined Cookies” 表格中添加自定义 Cookie（如预埋 Token）。</li>
-</ul>
-<h4 id="方式二：使用-HTTP-Header-Manager-手动强注"><a href="#方式二：使用-HTTP-Header-Manager-手动强注" class="headerlink" title="方式二：使用 HTTP Header Manager (手动强注)"></a>方式二：使用 HTTP Header Manager (手动强注)</h4><ul>
-<li>  <strong>操作</strong>：直接添加 Name=<code>Cookie</code>, Value=<code>session_id=xyz123</code>。</li>
-<li>  <strong>特点</strong>：简单粗暴，强制生效。</li>
-<li>  <strong>缺点</strong>：<strong>不会</strong>自动更新服务端下发的新 Cookie，<strong>不会</strong>自动维护 Session 上下文。仅适用于简单的单次请求调试或固定 Cookie 场景。</li>
-</ul>
+<h3 id="6-2-常用配置示例-Linux"><a href="#6-2-常用配置示例-Linux" class="headerlink" title="6.2 常用配置示例 (Linux)"></a>6.2 常用配置示例 (Linux)</h3><p><strong>1. 增加内存</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">HEAP</span><span class="token operator">=</span><span class="token string">"-Xms4g -Xmx4g -XX:MaxMetaspaceSize=512m"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>2. 设置中文界面</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">JVM_ARGS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$JVM_ARGS</span> -Duser.language=zh -Duser.region=CN"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>3. 指定特定 JDK 版本</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置特定的 JDK 路径</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/lib/jvm/java-17-openjdk-amd64
+
+<span class="token comment"># 将该 JDK 的 bin 目录添加到 PATH 最前面</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -622,8 +637,12 @@
                                     <span class="chip bg-color">JMeter</span>
                                 </a>
                             
-                                <a href="/tags/HTTP-Header/">
-                                    <span class="chip bg-color">HTTP Header</span>
+                                <a href="/tags/jmeter-bat/">
+                                    <span class="chip bg-color">jmeter.bat</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">性能测试</span>
                                 </a>
                             
                         </div>
@@ -664,46 +683,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/">
+                <a href="/2026/02/09/jmeter-qi-dong-jiao-ben-jmeter.bat-xiang-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JMeter-prev">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="JMeter 启动脚本 (jmeter.bat) 详解">
                         
-                        <span class="card-title">JMeter-prev</span>
+                        <span class="card-title">JMeter 启动脚本 (jmeter.bat) 详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            `prev` 对象是一个非常重要的变量，通常用于在 JSR223 Sampler 或者 BeanShell Sampler 中获取上一个 Sampler 的结果
+                            详细解析了 JMeter Windows 启动脚本的核心逻辑、关键环境变量及配置实践
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-02-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    性能笔记
+                            <a href="/categories/JMeter/" class="post-category">
+                                    JMeter
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/JMeter/">
                         <span class="chip bg-color">JMeter</span>
+                    </a>
+                    
+                    <a href="/tags/jmeter-bat/">
+                        <span class="chip bg-color">jmeter.bat</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">性能测试</span>
                     </a>
                     
                 </div>
@@ -717,31 +746,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/08/jmeter-xiang-ying-zhong-wen-luan-ma-jie-jue-fang-an/">
+                <a href="/2026/02/03/jmeter-zhong-de-vars-dui-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JMeter响应中文乱码解决方案">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JMeter vars.put 操作详细指南">
                         
-                        <span class="card-title">JMeter响应中文乱码解决方案</span>
+                        <span class="card-title">JMeter vars.put 操作详细指南</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决JMeter响应数据中文乱码的四种方法：修改配置文件、强制编码、BeanShell后置处理等。
+                            本文详细介绍了 JMeter 中 vars.put() 方法的使用方法、相关函数、常见场景及注意事项，帮助测试工程师更高效地管理线程级变量。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-02-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JMeter/" class="post-category">
-                                    JMeter
+                            <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    性能测试
                                 </a>
                             
                             
@@ -759,8 +788,8 @@
                         <span class="chip bg-color">性能测试</span>
                     </a>
                     
-                    <a href="/tags/%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86/">
-                        <span class="chip bg-color">乱码处理</span>
+                    <a href="/tags/%E5%8F%98%E9%87%8F%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">变量操作</span>
                     </a>
                     
                 </div>
