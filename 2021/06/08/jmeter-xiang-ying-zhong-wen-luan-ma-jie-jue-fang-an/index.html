@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 性能笔记, 绿蚁">
+    <meta name="keywords" content="JMeter响应中文乱码解决方案, 绿蚁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类: 性能笔记 | 绿蚁</title>
+    <title>JMeter响应中文乱码解决方案 | 绿蚁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -283,249 +283,507 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                栏杆拍遍
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['当年明月在，曾照彩云归。','抬举二字，何其难解，你好 在张江假装悲伤。'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JMeter响应中文乱码解决方案</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
 
-    </div>
-</div>
-
-<main class="content">
+<main class="post-container content">
 
     
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
 
-<div id="category-cloud" class="container chip-container">
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
-            </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/%E6%9D%82%E8%AE%B0/" title="杂记: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">杂记
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="性能测试: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">性能测试
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/JMeter/" title="JMeter: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">JMeter
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" title="性能笔记: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #E8F8F5;">性能笔记
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JMeter-prev">
-                            
-                            <span class="card-title">JMeter-prev</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                `prev` 对象是一个非常重要的变量，通常用于在 JSR223 Sampler 或者 BeanShell Sampler 中获取上一个 Sampler 的结果
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    性能笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
                     
-                    <div class="card-action article-tags">
+                    <div class="article-tag">
                         
-                        <a href="/tags/JMeter/">
-                            <span class="chip bg-color">JMeter</span>
-                        </a>
+                            <a href="/tags/JMeter/">
+                                <span class="chip bg-color">JMeter</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">性能测试</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86/">
+                                <span class="chip bg-color">乱码处理</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JMeter/" class="post-category">
+                                JMeter
+                            </a>
                         
                     </div>
                     
                 </div>
             </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-08
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    404
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="JMeter-响应中文乱码解决方案"><a href="#JMeter-响应中文乱码解决方案" class="headerlink" title="JMeter 响应中文乱码解决方案"></a>JMeter 响应中文乱码解决方案</h1><p>JMeter 响应数据出现中文乱码，通常是因为 JMeter 默认使用 <code>ISO-8859-1</code> 编码，而接口返回的数据是 <code>UTF-8</code> 编码。</p>
+<p>以下是几种常用的解决方案，按<strong>推荐程度</strong>排序：</p>
+<h3 id="1-修改配置文件（全局生效，最推荐）"><a href="#1-修改配置文件（全局生效，最推荐）" class="headerlink" title="1. 修改配置文件（全局生效，最推荐）"></a>1. 修改配置文件（全局生效，最推荐）</h3><p>这是最彻底的解决方法，修改一次后对所有脚本生效。</p>
+<ol>
+<li> 进入 JMeter 安装目录的 <code>bin</code> 文件夹。</li>
+<li> 找到并打开 <code>jmeter.properties</code> 文件。</li>
+<li> 搜索关键字 <code>sampleresult.default.encoding</code>。</li>
+<li>找到该行，去掉行首的 <code>#</code> 号，并将值修改为 <code>UTF-8</code>： <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 修改前</span>
+<span class="token comment">#sampleresult.default.encoding=ISO-8859-1</span>
+
+<span class="token comment"># 修改后</span>
+<span class="token key attr-name">sampleresult.default.encoding</span><span class="token punctuation">=</span><span class="token value attr-value">UTF-8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li> <strong>保存文件并重启 JMeter</strong>。</li>
+</ol>
+<hr>
+<h3 id="2-在-HTTP-请求中指定编码（局部生效）"><a href="#2-在-HTTP-请求中指定编码（局部生效）" class="headerlink" title="2. 在 HTTP 请求中指定编码（局部生效）"></a>2. 在 HTTP 请求中指定编码（局部生效）</h3><p>如果你没有权限修改配置文件，或者只想针对某个特定接口生效：</p>
+<ol>
+<li> 在 JMeter 界面中选中你的 **HTTP Request (HTTP 请求)**。</li>
+<li> 找到 <strong>Content encoding (内容编码)</strong> 字段。</li>
+<li> 手动输入 <code>utf-8</code>（不区分大小写）。</li>
+</ol>
+<hr>
+<h3 id="3-使用-BeanShell-后置处理器（脚本强制转换）"><a href="#3-使用-BeanShell-后置处理器（脚本强制转换）" class="headerlink" title="3. 使用 BeanShell 后置处理器（脚本强制转换）"></a>3. 使用 BeanShell 后置处理器（脚本强制转换）</h3><p>如果以上方法都无效，可以使用脚本强制修改响应数据的编码：</p>
+<ol>
+<li> 在对应的 HTTP 请求节点上右键，选择 <strong>Add (添加)</strong> -&gt; <strong>Post Processors (后置处理器)</strong> -&gt; <strong>BeanShell PostProcessor</strong>。</li>
+<li>在 <strong>Script</strong> 区域输入以下代码： <pre class="line-numbers language-java" data-language="java"><code class="language-java">prev<span class="token punctuation">.</span><span class="token function">setDataEncoding</span><span class="token punctuation">(</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<hr>
+<h3 id="4-针对请求体（Body）乱码"><a href="#4-针对请求体（Body）乱码" class="headerlink" title="4. 针对请求体（Body）乱码"></a>4. 针对请求体（Body）乱码</h3><p>如果是你发送给服务器的中文变成乱码（而不是接收乱码），请检查：</p>
+<ul>
+<li>  <strong>HTTP 请求头</strong>：确保添加了 <code>Content-Type: application/json;charset=UTF-8</code>。</li>
+<li>  <strong>勾选编码</strong>：在 HTTP 请求的 Parameters 中，勾选 “URL Encode”。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/">
-                        <div class="card-image tag-image">
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
                             
+                                <a href="/tags/JMeter/">
+                                    <span class="chip bg-color">JMeter</span>
+                                </a>
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="线程包括哪些状态，状态之间是如何变化">
+                                <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">性能测试</span>
+                                </a>
                             
-                            <span class="card-title">线程包括哪些状态，状态之间是如何变化</span>
+                                <a href="/tags/%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86/">
+                                    <span class="chip bg-color">乱码处理</span>
+                                </a>
+                            
                         </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JMeter-prev">
+                        
+                        <span class="card-title">JMeter-prev</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            `prev` 对象是一个非常重要的变量，通常用于在 JSR223 Sampler 或者 BeanShell Sampler 中获取上一个 Sampler 的结果
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    性能笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JMeter/">
+                        <span class="chip bg-color">JMeter</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                线程包括哪些状态，状态之间是如何变化
-                            
-                        </div>
-                        <div class="publish-info">
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="线程包括哪些状态，状态之间是如何变化">
+                        
+                        <span class="card-title">线程包括哪些状态，状态之间是如何变化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            线程包括哪些状态，状态之间是如何变化
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
                                     性能笔记
                                 </a>
-                                
-                                
-                            </span>
-                        </div>
+                            
+                            
+                        </span>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
-                            <span class="chip bg-color">线程池</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="性能笔记-几个瓶颈">
-                            
-                            <span class="card-title">性能笔记-几个瓶颈</span>
-                        </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+                        <span class="chip bg-color">线程池</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                瓶颈可能来自哪里,水一下笔记就算了
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%80%A7%E8%83%BD%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    性能笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%9D%82%E8%AE%B0/">
-                            <span class="chip bg-color">杂记</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
+                
             </div>
-            
         </div>
-    </article>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 

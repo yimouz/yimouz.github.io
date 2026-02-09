@@ -83,6 +83,35 @@
     
     
     <entry>
+      <title>JMeter响应中文乱码解决方案</title>
+      <link href="/2021/06/08/jmeter-xiang-ying-zhong-wen-luan-ma-jie-jue-fang-an/"/>
+      <url>/2021/06/08/jmeter-xiang-ying-zhong-wen-luan-ma-jie-jue-fang-an/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JMeter-响应中文乱码解决方案"><a href="#JMeter-响应中文乱码解决方案" class="headerlink" title="JMeter 响应中文乱码解决方案"></a>JMeter 响应中文乱码解决方案</h1><p>JMeter 响应数据出现中文乱码，通常是因为 JMeter 默认使用 <code>ISO-8859-1</code> 编码，而接口返回的数据是 <code>UTF-8</code> 编码。</p><p>以下是几种常用的解决方案，按<strong>推荐程度</strong>排序：</p><h3 id="1-修改配置文件（全局生效，最推荐）"><a href="#1-修改配置文件（全局生效，最推荐）" class="headerlink" title="1. 修改配置文件（全局生效，最推荐）"></a>1. 修改配置文件（全局生效，最推荐）</h3><p>这是最彻底的解决方法，修改一次后对所有脚本生效。</p><ol><li> 进入 JMeter 安装目录的 <code>bin</code> 文件夹。</li><li> 找到并打开 <code>jmeter.properties</code> 文件。</li><li> 搜索关键字 <code>sampleresult.default.encoding</code>。</li><li>找到该行，去掉行首的 <code>#</code> 号，并将值修改为 <code>UTF-8</code>： <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 修改前</span><span class="token comment">#sampleresult.default.encoding=ISO-8859-1</span><span class="token comment"># 修改后</span><span class="token key attr-name">sampleresult.default.encoding</span><span class="token punctuation">=</span><span class="token value attr-value">UTF-8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li> <strong>保存文件并重启 JMeter</strong>。</li></ol><hr><h3 id="2-在-HTTP-请求中指定编码（局部生效）"><a href="#2-在-HTTP-请求中指定编码（局部生效）" class="headerlink" title="2. 在 HTTP 请求中指定编码（局部生效）"></a>2. 在 HTTP 请求中指定编码（局部生效）</h3><p>如果你没有权限修改配置文件，或者只想针对某个特定接口生效：</p><ol><li> 在 JMeter 界面中选中你的 **HTTP Request (HTTP 请求)**。</li><li> 找到 <strong>Content encoding (内容编码)</strong> 字段。</li><li> 手动输入 <code>utf-8</code>（不区分大小写）。</li></ol><hr><h3 id="3-使用-BeanShell-后置处理器（脚本强制转换）"><a href="#3-使用-BeanShell-后置处理器（脚本强制转换）" class="headerlink" title="3. 使用 BeanShell 后置处理器（脚本强制转换）"></a>3. 使用 BeanShell 后置处理器（脚本强制转换）</h3><p>如果以上方法都无效，可以使用脚本强制修改响应数据的编码：</p><ol><li> 在对应的 HTTP 请求节点上右键，选择 <strong>Add (添加)</strong> -&gt; <strong>Post Processors (后置处理器)</strong> -&gt; <strong>BeanShell PostProcessor</strong>。</li><li>在 <strong>Script</strong> 区域输入以下代码： <pre class="line-numbers language-java" data-language="java"><code class="language-java">prev<span class="token punctuation">.</span><span class="token function">setDataEncoding</span><span class="token punctuation">(</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><hr><h3 id="4-针对请求体（Body）乱码"><a href="#4-针对请求体（Body）乱码" class="headerlink" title="4. 针对请求体（Body）乱码"></a>4. 针对请求体（Body）乱码</h3><p>如果是你发送给服务器的中文变成乱码（而不是接收乱码），请检查：</p><ul><li>  <strong>HTTP 请求头</strong>：确保添加了 <code>Content-Type: application/json;charset=UTF-8</code>。</li><li>  <strong>勾选编码</strong>：在 HTTP 请求的 Parameters 中，勾选 “URL Encode”。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JMeter </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JMeter </tag>
+            
+            <tag> 性能测试 </tag>
+            
+            <tag> 乱码处理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>线程包括哪些状态，状态之间是如何变化</title>
       <link href="/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/"/>
       <url>/2021/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/</url>
