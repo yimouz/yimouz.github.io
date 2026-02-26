@@ -241,6 +241,25 @@
     
     
     <entry>
+      <title></title>
+      <link href="/2024/04/22/kuai-su-kai-shi-yi-ge-xin-de-xui-mian-ban/"/>
+      <url>/2024/04/22/kuai-su-kai-shi-yi-ge-xin-de-xui-mian-ban/</url>
+      
+        <content type="html"><![CDATA[<p><code>yum update -y</code><br>等待结束<br><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>交互下等待结束<br><code>x-ui</code><br>面板可以更新下bbr<br>centos开放面板端口<br><code>firewall-cmd --zone=public --add-port=18000/tcp --permanent</code><br><code>firewall-cmd --reload</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 养鸡技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JMeter POST 请求缺失 Header 需要手动添加</title>
       <link href="/2021/06/10/jmeter-post-qing-qiu-que-shi-header-de-jie-jue-fang-an/"/>
       <url>/2021/06/10/jmeter-post-qing-qiu-que-shi-header-de-jie-jue-fang-an/</url>
