@@ -6,7 +6,7 @@
   <link href="https://yimouz.github.io/atom.xml" rel="self"/>
   
   <link href="https://yimouz.github.io/"/>
-  <updated>2026-02-25T02:04:08.758Z</updated>
+  <updated>2026-02-26T01:30:19.506Z</updated>
   <id>https://yimouz.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://yimouz.github.io/2026/02/26/linux-xing-neng-ping-jing-da-gai-fen-xi/"/>
+    <id>https://yimouz.github.io/2026/02/26/linux-xing-neng-ping-jing-da-gai-fen-xi/</id>
+    <published>2026-02-26T01:30:19.506Z</published>
+    <updated>2026-02-26T01:30:19.506Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux-性能瓶颈诊断&quot;&gt;&lt;a href=&quot;#Linux-性能瓶颈诊断&quot; class=&quot;headerlink&quot; title=&quot;Linux 性能瓶颈诊断&quot;&gt;&lt;/a&gt;Linux 性能瓶颈诊断&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>JMeter Bin 目录结构详解与配置指南</title>
     <link href="https://yimouz.github.io/2026/02/10/jmeter-bin-mu-lu-jie-gou-xiang-jie-yu-pei-zhi/"/>
     <id>https://yimouz.github.io/2026/02/10/jmeter-bin-mu-lu-jie-gou-xiang-jie-yu-pei-zhi/</id>
     <published>2026-02-10T00:00:00.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
     <summary type="html">Apache JMeter bin 目录文件作用解析，含启动脚本、配置文件、调试工具及修改建议。</summary>
@@ -40,7 +61,7 @@
     <link href="https://yimouz.github.io/2026/02/09/jmeter-qi-dong-jiao-ben-jmeter.bat-xiang-jie/"/>
     <id>https://yimouz.github.io/2026/02/09/jmeter-qi-dong-jiao-ben-jmeter.bat-xiang-jie/</id>
     <published>2026-02-09T00:00:00.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -69,7 +90,7 @@
     <link href="https://yimouz.github.io/2026/02/03/jmeter-zhong-de-vars-dui-xiang/"/>
     <id>https://yimouz.github.io/2026/02/03/jmeter-zhong-de-vars-dui-xiang/</id>
     <published>2026-02-03T00:00:00.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -98,7 +119,7 @@
     <link href="https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/"/>
     <id>https://yimouz.github.io/2026/01/30/hexo-dan-cang-ku-shuang-fen-zhi-yun-xiao-ji/</id>
     <published>2026-01-30T14:00:21.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -123,7 +144,7 @@
     <link href="https://yimouz.github.io/2025/11/25/jmeter-cli-can-shu-xiang-jie/"/>
     <id>https://yimouz.github.io/2025/11/25/jmeter-cli-can-shu-xiang-jie/</id>
     <published>2025-11-25T00:00:00.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -150,7 +171,7 @@
     <link href="https://yimouz.github.io/2025/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/"/>
     <id>https://yimouz.github.io/2025/01/06/xian-cheng-bao-gua-na-xie-zhuang-tai-zhuang-tai-zhi-jian-shi-ru-he-bian-hua/</id>
     <published>2025-01-06T14:12:36.000Z</published>
-    <updated>2026-02-25T02:04:08.759Z</updated>
+    <updated>2026-02-26T01:30:19.507Z</updated>
     
     
       
@@ -175,7 +196,7 @@
     <link href="https://yimouz.github.io/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/"/>
     <id>https://yimouz.github.io/2024/12/03/shi-yong-jmeter-zhong-de-prev-dui-xiang/</id>
     <published>2024-12-03T11:10:30.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -200,7 +221,7 @@
     <link href="https://yimouz.github.io/2021/06/10/jmeter-post-qing-qiu-que-shi-header-de-jie-jue-fang-an/"/>
     <id>https://yimouz.github.io/2021/06/10/jmeter-post-qing-qiu-que-shi-header-de-jie-jue-fang-an/</id>
     <published>2021-06-10T00:00:00.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -227,7 +248,7 @@
     <link href="https://yimouz.github.io/2021/06/08/jmeter-xiang-ying-zhong-wen-luan-ma-jie-jue-fang-an/"/>
     <id>https://yimouz.github.io/2021/06/08/jmeter-xiang-ying-zhong-wen-luan-ma-jie-jue-fang-an/</id>
     <published>2021-06-08T00:00:00.000Z</published>
-    <updated>2026-02-25T02:04:08.758Z</updated>
+    <updated>2026-02-26T01:30:19.506Z</updated>
     
     
       
@@ -256,7 +277,7 @@
     <link href="https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/"/>
     <id>https://yimouz.github.io/2020/05/26/xing-neng-bi-ji-ji-ge-ping-jing/</id>
     <published>2020-05-26T16:12:36.000Z</published>
-    <updated>2026-02-25T02:04:08.759Z</updated>
+    <updated>2026-02-26T01:30:19.507Z</updated>
     
     
       
@@ -281,7 +302,7 @@
     <link href="https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/"/>
     <id>https://yimouz.github.io/2020/05/22/shi-yong-git-yuan-cheng-cang-guan-li-hexo-wen-dang/</id>
     <published>2020-05-22T08:58:27.000Z</published>
-    <updated>2026-02-25T02:04:08.759Z</updated>
+    <updated>2026-02-26T01:30:19.507Z</updated>
     
     
       
