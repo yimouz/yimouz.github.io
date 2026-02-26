@@ -1,3 +1,12 @@
+---
+title: Linux 性能瓶颈诊断
+date: 2026-02-25
+tags:
+  - linux
+  - 性能笔记
+categories: 性能笔记
+summary: 初步性能瓶颈分析
+---
 # Linux 性能瓶颈诊断
 
 ## 概述
