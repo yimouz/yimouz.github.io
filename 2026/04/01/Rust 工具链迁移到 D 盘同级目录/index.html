@@ -481,7 +481,7 @@
 </ul>
 <h2 id="默认安装位置"><a href="#默认安装位置" class="headerlink" title="默认安装位置"></a>默认安装位置</h2><p>在 Windows 10 上，Rust 相关文件默认装在：</p>
 <pre class="line-numbers language-none"><code class="language-none">C:\Users\cyz\.rustup\      # Rustup 和工具链
-C:\Users\cyz\.cargo\       # Cargo 缓存和注册表</code></pre>
+C:\Users\cyz\.cargo\       # Cargo 缓存和注册表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><ol>
 <li><p><strong>关闭所有 Rust 相关程序</strong></p>
@@ -492,47 +492,47 @@ C:\Users\cyz\.cargo\       # Cargo 缓存和注册表</code></pre>
 </ul>
 </li>
 <li><p><strong>检查当前 Rust 安装状态</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustc --version
-cargo --version
-rustup show</code></pre></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustc <span class="token operator">--</span>version
+cargo <span class="token operator">--</span>version
+rustup show<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>记一下当前安装的工具链</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustup show</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustup show<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>把当前安装的工具链和默认工具链记下来，方便迁移后检查。</p>
 </li>
 </ol>
 <h3 id="2-创建目标目录"><a href="#2-创建目标目录" class="headerlink" title="2. 创建目标目录"></a>2. 创建目标目录</h3><p>先在 D 盘创建好 Rust 相关的目录：</p>
 <p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 创建 rustup 目录
-New-Item -ItemType Directory -Path "D:\.rustup" -Force
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 创建 rustup 目录</span>
+<span class="token function">New-Item</span> <span class="token operator">-</span>ItemType Directory <span class="token operator">-</span>Path <span class="token string">"D:\.rustup"</span> <span class="token operator">-</span>Force
 
-# 创建 cargo 目录
-New-Item -ItemType Directory -Path "D:\.cargo" -Force</code></pre>
+<span class="token comment"># 创建 cargo 目录</span>
+<span class="token function">New-Item</span> <span class="token operator">-</span>ItemType Directory <span class="token operator">-</span>Path <span class="token string">"D:\.cargo"</span> <span class="token operator">-</span>Force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 创建 rustup 目录
 mkdir "D:\.rustup"
 
 :: 创建 cargo 目录
-mkdir "D:\.cargo"</code></pre>
+mkdir "D:\.cargo"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-停止-Rustup-服务"><a href="#3-停止-Rustup-服务" class="headerlink" title="3. 停止 Rustup 服务"></a>3. 停止 Rustup 服务</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 如果有 Rustup 服务在运行，先停了它
-# 一般情况下不需要，但如果遇到问题可以执行：
-# taskkill /F /IM rustup.exe</code></pre>
+<h3 id="3-停止-Rustup-服务"><a href="#3-停止-Rustup-服务" class="headerlink" title="3. 停止 Rustup 服务"></a>3. 停止 Rustup 服务</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 如果有 Rustup 服务在运行，先停了它</span>
+<span class="token comment"># 一般情况下不需要，但如果遇到问题可以执行：</span>
+<span class="token comment"># taskkill /F /IM rustup.exe</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="4-迁移文件"><a href="#4-迁移文件" class="headerlink" title="4. 迁移文件"></a>4. 迁移文件</h3><p>用 PowerShell 或 CMD 把文件移过去（会保留文件权限和属性）：</p>
 <p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 迁移 .rustup 目录
-robocopy "C:\Users\cyz\.rustup" "D:\.rustup" /E /COPYALL /R:0 /W:0
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 迁移 .rustup 目录</span>
+robocopy <span class="token string">"C:\Users\cyz\.rustup"</span> <span class="token string">"D:\.rustup"</span> <span class="token operator">/</span>E <span class="token operator">/</span>COPYALL <span class="token operator">/</span>R:0 <span class="token operator">/</span>W:0
 
-# 迁移 .cargo 目录
-robocopy "C:\Users\cyz\.cargo" "D:\.cargo" /E /COPYALL /R:0 /W:0</code></pre>
+<span class="token comment"># 迁移 .cargo 目录</span>
+robocopy <span class="token string">"C:\Users\cyz\.cargo"</span> <span class="token string">"D:\.cargo"</span> <span class="token operator">/</span>E <span class="token operator">/</span>COPYALL <span class="token operator">/</span>R:0 <span class="token operator">/</span>W:0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 迁移 .rustup 目录
 robocopy "C:\Users\cyz\.rustup" "D:\.rustup" /E /COPYALL /R:0 /W:0
 
 :: 迁移 .cargo 目录
-robocopy "C:\Users\cyz\.cargo" "D:\.cargo" /E /COPYALL /R:0 /W:0</code></pre>
+robocopy "C:\Users\cyz\.cargo" "D:\.cargo" /E /COPYALL /R:0 /W:0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>参数说明：</strong></p>
 <ul>
@@ -543,28 +543,28 @@ robocopy "C:\Users\cyz\.cargo" "D:\.cargo" /E /COPYALL /R:0 /W:0</code></pre>
 </ul>
 <h3 id="5-验证迁移"><a href="#5-验证迁移" class="headerlink" title="5. 验证迁移"></a>5. 验证迁移</h3><p>检查一下文件是不是完整移过去了：</p>
 <p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 检查目录大小
-Get-ChildItem "D:\.rustup" -Recurse | Measure-Object -Property Length -Sum
-Get-ChildItem "D:\.cargo" -Recurse | Measure-Object -Property Length -Sum
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 检查目录大小</span>
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.rustup"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.cargo"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum
 
-# 检查关键文件是否存在
-Test-Path "D:\.rustup\settings.toml"
-Test-Path "D:\.cargo\bin\rustc.exe"</code></pre>
+<span class="token comment"># 检查关键文件是否存在</span>
+<span class="token function">Test-Path</span> <span class="token string">"D:\.rustup\settings.toml"</span>
+<span class="token function">Test-Path</span> <span class="token string">"D:\.cargo\bin\rustc.exe"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 检查关键文件是否存在
 dir "D:\.rustup\settings.toml"
-dir "D:\.cargo\bin\rustc.exe"</code></pre>
+dir "D:\.cargo\bin\rustc.exe"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="6-删除原目录（可选）"><a href="#6-删除原目录（可选）" class="headerlink" title="6. 删除原目录（可选）"></a>6. 删除原目录（可选）</h3><p>确认迁移成功后，就可以把原目录删掉了：</p>
 <p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 先备份一下（建议先重命名）
-Rename-Item "C:\Users\cyz\.rustup" "C:\Users\cyz\.rustup.backup"
-Rename-Item "C:\Users\cyz\.cargo" "C:\Users\cyz\.cargo.backup"
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 先备份一下（建议先重命名）</span>
+<span class="token function">Rename-Item</span> <span class="token string">"C:\Users\cyz\.rustup"</span> <span class="token string">"C:\Users\cyz\.rustup.backup"</span>
+<span class="token function">Rename-Item</span> <span class="token string">"C:\Users\cyz\.cargo"</span> <span class="token string">"C:\Users\cyz\.cargo.backup"</span>
 
-# 确认没问题后删除
-Remove-Item "C:\Users\cyz\.rustup.backup" -Recurse -Force
-Remove-Item "C:\Users\cyz\.cargo.backup" -Recurse -Force</code></pre>
+<span class="token comment"># 确认没问题后删除</span>
+<span class="token function">Remove-Item</span> <span class="token string">"C:\Users\cyz\.rustup.backup"</span> <span class="token operator">-</span>Recurse <span class="token operator">-</span>Force
+<span class="token function">Remove-Item</span> <span class="token string">"C:\Users\cyz\.cargo.backup"</span> <span class="token operator">-</span>Recurse <span class="token operator">-</span>Force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 先备份一下（建议先重命名）
@@ -573,7 +573,7 @@ ren "C:\Users\cyz\.cargo" ".cargo.backup"
 
 :: 确认没问题后删除
 rmdir /s /q "C:\Users\cyz\.rustup.backup"
-rmdir /s /q "C:\Users\cyz\.cargo.backup"</code></pre>
+rmdir /s /q "C:\Users\cyz\.cargo.backup"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="创建软链接"><a href="#创建软链接" class="headerlink" title="创建软链接"></a>创建软链接</h2><h3 id="方法：用-mklink-命令（需要管理员权限）"><a href="#方法：用-mklink-命令（需要管理员权限）" class="headerlink" title="方法：用 mklink 命令（需要管理员权限）"></a>方法：用 mklink 命令（需要管理员权限）</h3><ol>
 <li><p><strong>以管理员身份打开命令提示符</strong></p>
@@ -589,7 +589,7 @@ rd /s /q "C:\Users\cyz\.cargo" 2&gt;nul
 
 :: 创建软链接
 mklink /D "C:\Users\cyz\.rustup" "D:\.rustup"
-mklink /D "C:\Users\cyz\.cargo" "D:\.cargo"</code></pre></li>
+mklink /D "C:\Users\cyz\.cargo" "D:\.cargo"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="方法二：用-PowerShell-命令"><a href="#方法二：用-PowerShell-命令" class="headerlink" title="方法二：用 PowerShell 命令"></a>方法二：用 PowerShell 命令</h3><ol>
 <li><p><strong>以管理员身份打开 PowerShell</strong></p>
@@ -599,13 +599,13 @@ mklink /D "C:\Users\cyz\.cargo" "D:\.cargo"</code></pre></li>
 </ul>
 </li>
 <li><p><strong>创建软链接</strong><br><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 删除原目录（如果还存在）
-Remove-Item "C:\Users\cyz\.rustup" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item "C:\Users\cyz\.cargo" -Recurse -Force -ErrorAction SilentlyContinue
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 删除原目录（如果还存在）</span>
+<span class="token function">Remove-Item</span> <span class="token string">"C:\Users\cyz\.rustup"</span> <span class="token operator">-</span>Recurse <span class="token operator">-</span>Force <span class="token operator">-</span>ErrorAction SilentlyContinue
+<span class="token function">Remove-Item</span> <span class="token string">"C:\Users\cyz\.cargo"</span> <span class="token operator">-</span>Recurse <span class="token operator">-</span>Force <span class="token operator">-</span>ErrorAction SilentlyContinue
 
-# 创建符号链接
-New-Item -ItemType SymbolicLink -Path "C:\Users\cyz\.rustup" -Target "D:\.rustup"
-New-Item -ItemType SymbolicLink -Path "C:\Users\cyz\.cargo" -Target "D:\.cargo"</code></pre></li>
+<span class="token comment"># 创建符号链接</span>
+<span class="token function">New-Item</span> <span class="token operator">-</span>ItemType SymbolicLink <span class="token operator">-</span>Path <span class="token string">"C:\Users\cyz\.rustup"</span> <span class="token operator">-</span>Target <span class="token string">"D:\.rustup"</span>
+<span class="token function">New-Item</span> <span class="token operator">-</span>ItemType SymbolicLink <span class="token operator">-</span>Path <span class="token string">"C:\Users\cyz\.cargo"</span> <span class="token operator">-</span>Target <span class="token string">"D:\.cargo"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <p><strong>注意：</strong> 在 Windows 10 上创建符号链接通常需要开发者模式或管理员权限。</p>
 <h2 id="配置环境变量（可选）"><a href="#配置环境变量（可选）" class="headerlink" title="配置环境变量（可选）"></a>配置环境变量（可选）</h2><p>如果 Rustup 没能正确识别新位置，可以手动设置环境变量：</p>
@@ -619,7 +619,7 @@ New-Item -ItemType SymbolicLink -Path "C:\Users\cyz\.cargo" -Target "D:\.cargo"<
 </li>
 <li><p><strong>添加或修改以下环境变量</strong>（在用户变量里）：</p>
 <pre class="line-numbers language-none"><code class="language-none">RUSTUP_HOME = D:\.rustup
-CARGO_HOME = D:\.cargo</code></pre></li>
+CARGO_HOME = D:\.cargo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p><strong>更新 PATH 环境变量</strong></p>
 <ul>
 <li>把 <code>C:\Users\cyz\.cargo\bin</code> 改成 <code>D:\.cargo\bin</code></li>
@@ -627,34 +627,34 @@ CARGO_HOME = D:\.cargo</code></pre></li>
 </li>
 </ol>
 <h2 id="验证迁移结果"><a href="#验证迁移结果" class="headerlink" title="验证迁移结果"></a>验证迁移结果</h2><h3 id="1-验证软链接"><a href="#1-验证软链接" class="headerlink" title="1. 验证软链接"></a>1. 验证软链接</h3><p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 检查软链接是否创建成功
-Get-Item "C:\Users\cyz\.rustup" | Select-Object LinkType, Target
-Get-Item "C:\Users\cyz\.cargo" | Select-Object LinkType, Target</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 检查软链接是否创建成功</span>
+<span class="token function">Get-Item</span> <span class="token string">"C:\Users\cyz\.rustup"</span> <span class="token punctuation">|</span> <span class="token function">Select-Object</span> LinkType<span class="token punctuation">,</span> Target
+<span class="token function">Get-Item</span> <span class="token string">"C:\Users\cyz\.cargo"</span> <span class="token punctuation">|</span> <span class="token function">Select-Object</span> LinkType<span class="token punctuation">,</span> Target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 检查软链接是否创建成功
-dir "C:\Users\cyz" | findstr "rustup cargo"</code></pre>
+dir "C:\Users\cyz" | findstr "rustup cargo"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>应该显示类似这样的结果：</p>
 <pre class="line-numbers language-none"><code class="language-none">LinkType  Target
 -------  ------
-SymbolicLink D:\.rustup</code></pre>
+SymbolicLink D:\.rustup<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="2-验证-Rust-功能"><a href="#2-验证-Rust-功能" class="headerlink" title="2. 验证 Rust 功能"></a>2. 验证 Rust 功能</h3><p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 检查 Rust 版本
-rustc --version
-cargo --version
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 检查 Rust 版本</span>
+rustc <span class="token operator">--</span>version
+cargo <span class="token operator">--</span>version
 
-# 检查工具链
+<span class="token comment"># 检查工具链</span>
 rustup show
 
-# 检查 Rustup 主目录
+<span class="token comment"># 检查 Rustup 主目录</span>
 rustup which rustc
 
-# 测试编译一个简单项目
+<span class="token comment"># 测试编译一个简单项目</span>
 cargo new test_project
 cd test_project
-cargo build</code></pre>
+cargo build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 检查 Rust 版本
@@ -670,22 +670,22 @@ rustup which rustc
 :: 测试编译一个简单项目
 cargo new test_project
 cd test_project
-cargo build</code></pre>
+cargo build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-检查磁盘空间"><a href="#3-检查磁盘空间" class="headerlink" title="3. 检查磁盘空间"></a>3. 检查磁盘空间</h3><p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 检查 C 盘空间
-Get-PSDrive C
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 检查 C 盘空间</span>
+<span class="token function">Get-PSDrive</span> C
 
-# 检查 D 盘 Rust 目录大小
-Get-ChildItem "D:\.rustup" -Recurse | Measure-Object -Property Length -Sum
-Get-ChildItem "D:\.cargo" -Recurse | Measure-Object -Property Length -Sum</code></pre>
+<span class="token comment"># 检查 D 盘 Rust 目录大小</span>
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.rustup"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.cargo"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 检查 C 盘空间
 fsutil volume diskfree C:
 
 :: 检查 D 盘空间
-fsutil volume diskfree D:</code></pre>
+fsutil volume diskfree D:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Q1-权限不足，没法创建软链接"><a href="#Q1-权限不足，没法创建软链接" class="headerlink" title="Q1: 权限不足，没法创建软链接"></a>Q1: 权限不足，没法创建软链接</h3><p><strong>解决办法：</strong></p>
 <ul>
@@ -696,38 +696,38 @@ fsutil volume diskfree D:</code></pre>
 <ol>
 <li>检查 PATH 环境变量里有没有 <code>D:\.cargo\bin</code></li>
 <li>重新打开终端</li>
-<li>如果还是不行，重新安装 Rustup：<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 卸载 Rustup
+<li>如果还是不行，重新安装 Rustup：<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 卸载 Rustup</span>
 rustup self uninstall
 
-# 重新安装（指定安装目录）
-$env:RUSTUP_HOME="D:\.rustup"
-$env:CARGO_HOME="D:\.cargo"
-Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
-.\rustup-init.exe</code></pre></li>
+<span class="token comment"># 重新安装（指定安装目录）</span>
+<span class="token variable">$env</span>:RUSTUP_HOME=<span class="token string">"D:\.rustup"</span>
+<span class="token variable">$env</span>:CARGO_HOME=<span class="token string">"D:\.cargo"</span>
+<span class="token function">Invoke-WebRequest</span> <span class="token operator">-</span>Uri https:<span class="token operator">/</span><span class="token operator">/</span>win<span class="token punctuation">.</span>rustup<span class="token punctuation">.</span>rs/x86_64 <span class="token operator">-</span>OutFile rustup-init<span class="token punctuation">.</span>exe
+<span class="token punctuation">.</span>\rustup-init<span class="token punctuation">.</span>exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="Q3-Cargo-缓存还是占了很多空间"><a href="#Q3-Cargo-缓存还是占了很多空间" class="headerlink" title="Q3: Cargo 缓存还是占了很多空间"></a>Q3: Cargo 缓存还是占了很多空间</h3><p><strong>解决办法：</strong><br>清理 Cargo 缓存：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cargo cache --autoclean</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cargo cache <span class="token operator">--</span>autoclean<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>或者手动清理：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Remove-Item "D:\.cargo\registry\cache" -Recurse -Force</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">Remove-Item</span> <span class="token string">"D:\.cargo\registry\cache"</span> <span class="token operator">-</span>Recurse <span class="token operator">-</span>Force<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="Q4-迁移后编译失败"><a href="#Q4-迁移后编译失败" class="headerlink" title="Q4: 迁移后编译失败"></a>Q4: 迁移后编译失败</h3><p><strong>解决办法：</strong></p>
 <ol>
 <li><p>清理项目构建缓存：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cargo clean</code></pre></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cargo clean<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>重新构建项目：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cargo build</code></pre></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cargo build<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>如果还是有问题，检查工具链是否完整：</p>
 <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustup update
-rustup component add rust-src</code></pre></li>
+rustup component add rust-src<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="维护建议"><a href="#维护建议" class="headerlink" title="维护建议"></a>维护建议</h2><h3 id="定期清理"><a href="#定期清理" class="headerlink" title="定期清理"></a>定期清理</h3><p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 清理 Cargo 缓存
-cargo cache --autoclean
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 清理 Cargo 缓存</span>
+cargo cache <span class="token operator">--</span>autoclean
 
-# 清理旧的工具链
+<span class="token comment"># 清理旧的工具链</span>
 rustup self uninstall
-rustup update</code></pre>
+rustup update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 清理 Cargo 缓存
@@ -735,15 +735,15 @@ cargo cache --autoclean
 
 :: 清理旧的工具链
 rustup self uninstall
-rustup update</code></pre>
+rustup update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="监控空间使用"><a href="#监控空间使用" class="headerlink" title="监控空间使用"></a>监控空间使用</h3><p><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 查看 Rust 相关目录大小
-Get-ChildItem "D:\.rustup" -Recurse | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::Round($_.Sum / 1GB, 2)}}
-Get-ChildItem "D:\.cargo" -Recurse | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::Round($_.Sum / 1GB, 2)}}
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 查看 Rust 相关目录大小</span>
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.rustup"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum <span class="token punctuation">|</span> <span class="token function">Select-Object</span> @<span class="token punctuation">{</span>Name=<span class="token string">"Size(GB)"</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Sum <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.cargo"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum <span class="token punctuation">|</span> <span class="token function">Select-Object</span> @<span class="token punctuation">{</span>Name=<span class="token string">"Size(GB)"</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Sum <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
 
-# 查看 Cargo 缓存大小
-Get-ChildItem "D:\.cargo\registry" -Recurse | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::Round($_.Sum / 1GB, 2)}}</code></pre>
+<span class="token comment"># 查看 Cargo 缓存大小</span>
+<span class="token function">Get-ChildItem</span> <span class="token string">"D:\.cargo\registry"</span> <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">Measure-Object</span> <span class="token operator">-</span>Property Length <span class="token operator">-</span>Sum <span class="token punctuation">|</span> <span class="token function">Select-Object</span> @<span class="token punctuation">{</span>Name=<span class="token string">"Size(GB)"</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Sum <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 查看目录大小（用 dir 命令）
@@ -751,34 +751,34 @@ dir "D:\.rustup" /s
 
 dir "D:\.cargo" /s
 
-dir "D:\.cargo\registry" /s</code></pre>
+dir "D:\.cargo\registry" /s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="回滚步骤"><a href="#回滚步骤" class="headerlink" title="回滚步骤"></a>回滚步骤</h2><p>如果迁移后出问题了，可以按下面的步骤回滚：</p>
 <ol>
 <li><p><strong>删除软链接</strong><br><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Remove-Item "C:\Users\cyz\.rustup" -Force
-Remove-Item "C:\Users\cyz\.cargo" -Force</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">Remove-Item</span> <span class="token string">"C:\Users\cyz\.rustup"</span> <span class="token operator">-</span>Force
+<span class="token function">Remove-Item</span> <span class="token string">"C:\Users\cyz\.cargo"</span> <span class="token operator">-</span>Force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 删除软链接
 rd "C:\Users\cyz\.rustup"
-rd "C:\Users\cyz\.cargo"</code></pre></li>
+rd "C:\Users\cyz\.cargo"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>恢复备份</strong><br><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Move-Item "C:\Users\cyz\.rustup.backup" "C:\Users\cyz\.rustup"
-Move-Item "C:\Users\cyz\.cargo.backup" "C:\Users\cyz\.cargo"</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">Move-Item</span> <span class="token string">"C:\Users\cyz\.rustup.backup"</span> <span class="token string">"C:\Users\cyz\.rustup"</span>
+<span class="token function">Move-Item</span> <span class="token string">"C:\Users\cyz\.cargo.backup"</span> <span class="token string">"C:\Users\cyz\.cargo"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 恢复备份
 ren "C:\Users\cyz\.rustup.backup" ".rustup"
-ren "C:\Users\cyz\.cargo.backup" ".cargo"</code></pre></li>
+ren "C:\Users\cyz\.cargo.backup" ".cargo"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>验证</strong><br><strong>PowerShell 命令：</strong></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustc --version
-cargo --version</code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">rustc <span class="token operator">--</span>version
+cargo <span class="token operator">--</span>version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>CMD 命令：</strong></p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">:: 验证
 rustc --version
-cargo --version</code></pre></li>
+cargo --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>按照上面的步骤，你就能成功把 Rust 工具链从用户目录迁移到 D 盘，然后通过软链接保持原来的路径，这样既节省了 C 盘空间，又不影响 Rust 的正常使用。</p>
 <p>迁移完成后，建议：</p>

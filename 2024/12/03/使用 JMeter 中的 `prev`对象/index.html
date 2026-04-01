@@ -475,79 +475,79 @@
 <ol>
 <li><p><strong>getTime()</strong></p>
 <ul>
-<li>返回采样器的响应时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java">long responseTime = prev.getTime();</code></pre></li>
+<li>返回采样器的响应时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> responseTime <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getResponseCode()</strong></p>
 <ul>
-<li>返回采样器的响应代码（通常是 HTTP 状态码）。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String responseCode = prev.getResponseCode();</code></pre></li>
+<li>返回采样器的响应代码（通常是 HTTP 状态码）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseCode <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getResponseMessage()</strong></p>
 <ul>
-<li>返回采样器的响应消息。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String responseMessage = prev.getResponseMessage();</code></pre></li>
+<li>返回采样器的响应消息。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseMessage <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getResponseDataAsString()</strong></p>
 <ul>
-<li>以字符串形式返回响应数据。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String responseData = prev.getResponseDataAsString();</code></pre></li>
+<li>以字符串形式返回响应数据。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseData <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseDataAsString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getResponseHeaders()</strong></p>
 <ul>
-<li>返回响应头信息。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String responseHeaders = prev.getResponseHeaders();</code></pre></li>
+<li>返回响应头信息。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> responseHeaders <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getRequestHeaders()</strong></p>
 <ul>
-<li>返回请求头信息。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String requestHeaders = prev.getRequestHeaders();</code></pre></li>
+<li>返回请求头信息。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> requestHeaders <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getRequestHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getSamplerData()</strong></p>
 <ul>
-<li>返回采样器的请求数据。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String samplerData = prev.getSamplerData();</code></pre></li>
+<li>返回采样器的请求数据。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> samplerData <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getSamplerData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getSampleLabel()</strong></p>
 <ul>
-<li>返回采样器的标签。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String sampleLabel = prev.getSampleLabel();</code></pre></li>
+<li>返回采样器的标签。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> sampleLabel <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getSampleLabel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>isSuccessful()</strong></p>
 <ul>
-<li>返回采样器的执行结果是否成功。<pre class="line-numbers language-java" data-language="java"><code class="language-java">boolean isSuccess = prev.isSuccessful();</code></pre></li>
+<li>返回采样器的执行结果是否成功。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">boolean</span> isSuccess <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">isSuccessful</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getURL()</strong></p>
 <ul>
-<li>返回采样器的请求 URL。<pre class="line-numbers language-java" data-language="java"><code class="language-java">String url = prev.getURL();</code></pre></li>
+<li>返回采样器的请求 URL。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> url <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getStartTime()</strong></p>
 <ul>
-<li>返回采样器开始时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java">long startTime = prev.getStartTime();</code></pre></li>
+<li>返回采样器开始时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> startTime <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getStartTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p><strong>getEndTime()</strong></p>
 <ul>
-<li>返回采样器结束时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java">long endTime = prev.getEndTime();</code></pre></li>
+<li>返回采样器结束时间（以毫秒为单位）。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> endTime <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getEndTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 </ol>
 <h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>假设我们在测试一个 RESTful API，并且需要在每个请求之后检查响应数据是否包含特定的字符串。我们可以使用 JSR223 Sampler 来实现这个功能。以下是一个示例脚本：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">// 获取上一个采样器的响应数据
-String responseData = prev.getResponseDataAsString();
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 获取上一个采样器的响应数据</span>
+<span class="token class-name">String</span> responseData <span class="token operator">=</span> prev<span class="token punctuation">.</span><span class="token function">getResponseDataAsString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// 检查响应数据是否包含特定字符串
-if (responseData.contains("code")) {
-    // 如果包含，记录日志并继续
-    log.info("Response contains the expected string.");
-} else {
-    // 如果不包含，记录日志并标记测试失败
-    log.error("Response does not contain the expected string.");
-    AssertionResult.setFailure(true);
-    AssertionResult.setFailureMessage("Response does not contain the expected string.");
-}</code></pre>
+<span class="token comment">// 检查响应数据是否包含特定字符串</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>responseData<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 如果包含，记录日志并继续</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Response contains the expected string."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 如果不包含，记录日志并标记测试失败</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Response does not contain the expected string."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">AssertionResult</span><span class="token punctuation">.</span><span class="token function">setFailure</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">AssertionResult</span><span class="token punctuation">.</span><span class="token function">setFailureMessage</span><span class="token punctuation">(</span><span class="token string">"Response does not contain the expected string."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>就算是随便记录也希望能够帮助我们更好理解，不要健忘。</p>

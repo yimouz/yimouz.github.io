@@ -528,39 +528,39 @@
 </tbody></table>
 <hr>
 <h2 id="3-脚本执行流程解析"><a href="#3-脚本执行流程解析" class="headerlink" title="3. 脚本执行流程解析"></a>3. 脚本执行流程解析</h2><h3 id="3-1-初始化与路径探测"><a href="#3-1-初始化与路径探测" class="headerlink" title="3.1 初始化与路径探测"></a>3.1 初始化与路径探测</h3><p>脚本首先尝试自动定位安装目录：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">if not "%JMETER_HOME%" == "" goto gotHome
-set "JMETER_HOME=%CURRENT_DIR%"
-if exist "%JMETER_HOME%\bin\jmeter.bat" goto okHome
-...</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">if</span> not <span class="token string">"%JMETER_HOME%"</span> == <span class="token string">""</span> goto gotHome</span>
+<span class="token command"><span class="token keyword">set</span> <span class="token string">"JMETER_HOME=%CURRENT_DIR%"</span></span>
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">exist</span> <span class="token string">"%JMETER_HOME%\bin\jmeter.bat"</span></span> <span class="token command"><span class="token keyword">goto</span> okHome</span>
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-2-加载用户自定义配置-关键"><a href="#3-2-加载用户自定义配置-关键" class="headerlink" title="3.2 加载用户自定义配置 (关键)"></a>3.2 加载用户自定义配置 (关键)</h3><p>这是配置 JMeter 的<strong>入口</strong>。脚本会检查是否存在 <code>setenv.bat</code> 并调用它：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">rem 获取标准环境变量
-if exist "%JMETER_HOME%\bin\setenv.bat" call "%JMETER_HOME%\bin\setenv.bat"</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token comment">rem 获取标准环境变量</span>
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">exist</span> <span class="token string">"%JMETER_HOME%\bin\setenv.bat"</span></span> <span class="token command"><span class="token keyword">call</span> <span class="token string">"%JMETER_HOME%\bin\setenv.bat"</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>提示</strong>：不要直接修改 <code>jmeter.bat</code>，而是创建 <code>setenv.bat</code> 来覆盖变量。这样升级 JMeter 时配置不会丢失。</p>
 </blockquote>
 <h3 id="3-3-语言设置"><a href="#3-3-语言设置" class="headerlink" title="3.3 语言设置"></a>3.3 语言设置</h3><p>如果未定义 <code>JMETER_LANGUAGE</code>，默认强制为英文环境：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">if not defined JMETER_LANGUAGE (
-    set JMETER_LANGUAGE=-Duser.language="en" -Duser.region="EN"
-)</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> JMETER_LANGUAGE</span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">JMETER_LANGUAGE</span><span class="token operator">=</span><span class="token operator">-</span>Duser.<span class="token variable">language</span><span class="token operator">=</span><span class="token string">"en"</span> <span class="token operator">-</span>Duser.<span class="token variable">region</span><span class="token operator">=</span><span class="token string">"EN"</span></span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><em>在 <code>setenv.bat</code> 中设置 <code>JVM_ARGS</code> 可覆盖此行为。</em></p>
 <h3 id="3-4-Java-版本检查"><a href="#3-4-Java-版本检查" class="headerlink" title="3.4 Java 版本检查"></a>3.4 Java 版本检查</h3><p>脚本包含复杂的逻辑来解析 <code>java -version</code> 输出，确保 Java 版本符合要求（最低 1.8.0）：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">for /f "tokens=3" %%g in ('java -version 2^&gt;^&amp;1 ^| findstr /i "version"') do (
-    set JAVAVER=%%g
-)</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">for</span> <span class="token parameter attr-name">/f</span> <span class="token string">"tokens=3"</span> <span class="token variable">%%g</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token punctuation">'</span>java -version <span class="token number">2</span>^&gt;^&amp;<span class="token number">1</span> ^| findstr <span class="token parameter attr-name">/i</span> <span class="token string">"version"</span><span class="token punctuation">'</span><span class="token punctuation">)</span> <span class="token keyword">do</span></span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">JAVAVER</span><span class="token operator">=</span><span class="token variable">%%g</span></span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-5-内存与-GC-配置"><a href="#3-5-内存与-GC-配置" class="headerlink" title="3.5 内存与 GC 配置"></a>3.5 内存与 GC 配置</h3><p>如果用户未在 <code>setenv.bat</code> 中定义，脚本将使用默认值：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">if not defined HEAP (
-    set HEAP=-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m
-)
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> HEAP</span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">HEAP</span><span class="token operator">=</span><span class="token operator">-</span>Xms1g <span class="token operator">-</span>Xmx1g <span class="token operator">-</span>XX:<span class="token variable">MaxMetaspaceSize</span><span class="token operator">=</span>256m</span>
+<span class="token punctuation">)</span>
 
-if not defined GC_ALGO (
-    set GC_ALGO=-XX:+UseG1GC ...
-)</code></pre>
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> GC_ALGO</span> <span class="token punctuation">(</span>
+    <span class="token command"><span class="token keyword">set</span> <span class="token variable">GC_ALGO</span><span class="token operator">=</span><span class="token operator">-</span>XX:<span class="token operator">+</span>UseG1GC ...</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <h2 id="4-最终启动命令"><a href="#4-最终启动命令" class="headerlink" title="4. 最终启动命令"></a>4. 最终启动命令</h2><p>脚本最后构建完整的启动命令：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">%JM_START% "%JM_LAUNCH%" %ARGS% %JVM_ARGS% -jar "%JMETER_BIN%ApacheJMeter.jar" %JMETER_CMD_LINE_ARGS%</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">%JM_START% "%JM_LAUNCH%" %ARGS% %JVM_ARGS% -jar "%JMETER_BIN%ApacheJMeter.jar" %JMETER_CMD_LINE_ARGS%<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>  <code>%ARGS%</code>：包含 <code>HEAP</code> + <code>GC_ALGO</code> + <code>DDRAW</code> 等核心参数。</li>
 <li>  <code>%JVM_ARGS%</code>：包含用户自定义的额外 Java 参数。</li>
@@ -568,20 +568,20 @@ if not defined GC_ALGO (
 </ul>
 <hr>
 <h2 id="5-常见配置场景"><a href="#5-常见配置场景" class="headerlink" title="5. 常见配置场景"></a>5. 常见配置场景</h2><h3 id="场景一：增加内存防止-OOM"><a href="#场景一：增加内存防止-OOM" class="headerlink" title="场景一：增加内存防止 OOM"></a>场景一：增加内存防止 OOM</h3><p>在 <code>setenv.bat</code> 中添加：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">set HEAP=-Xms2g -Xmx4g -XX:MaxMetaspaceSize=512m</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">set</span> <span class="token variable">HEAP</span><span class="token operator">=</span><span class="token operator">-</span>Xms2g <span class="token operator">-</span>Xmx4g <span class="token operator">-</span>XX:<span class="token variable">MaxMetaspaceSize</span><span class="token operator">=</span>512m</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="场景二：设置中文界面"><a href="#场景二：设置中文界面" class="headerlink" title="场景二：设置中文界面"></a>场景二：设置中文界面</h3><p>在 <code>setenv.bat</code> 中添加：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">set JVM_ARGS=%JVM_ARGS% -Duser.language=zh -Duser.region=CN</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">set</span> <span class="token variable">JVM_ARGS</span><span class="token operator">=</span><span class="token variable">%JVM_ARGS%</span> <span class="token operator">-</span>Duser.<span class="token variable">language</span><span class="token operator">=</span>zh <span class="token operator">-</span>Duser.<span class="token variable">region</span><span class="token operator">=</span>CN</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="场景三：配置-HTTP-代理"><a href="#场景三：配置-HTTP-代理" class="headerlink" title="场景三：配置 HTTP 代理"></a>场景三：配置 HTTP 代理</h3><p>在 <code>setenv.bat</code> 中添加：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">set JVM_ARGS=%JVM_ARGS% -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8888</code></pre>
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token command"><span class="token keyword">set</span> <span class="token variable">JVM_ARGS</span><span class="token operator">=</span><span class="token variable">%JVM_ARGS%</span> <span class="token operator">-</span>Dhttp.<span class="token variable">proxyHost</span><span class="token operator">=</span><span class="token number">127</span>.<span class="token number">0</span>.<span class="token number">0</span>.<span class="token number">1</span> <span class="token operator">-</span>Dhttp.<span class="token variable">proxyPort</span><span class="token operator">=</span><span class="token number">8888</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="场景四：指定特定-JDK-版本"><a href="#场景四：指定特定-JDK-版本" class="headerlink" title="场景四：指定特定 JDK 版本"></a>场景四：指定特定 JDK 版本</h3><p>如果需要使用特定版本的 JDK 运行 JMeter（而非系统默认的 <code>JAVA_HOME</code>），可以在 <code>setenv.bat</code> 中临时修改环境变量：</p>
-<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch">rem 设置特定的 JDK 路径
-set JAVA_HOME=C:\Program Files\Java\jdk-17
+<pre class="line-numbers language-batch" data-language="batch"><code class="language-batch"><span class="token comment">rem 设置特定的 JDK 路径</span>
+<span class="token command"><span class="token keyword">set</span> <span class="token variable">JAVA_HOME</span><span class="token operator">=</span>C:\Program Files\Java\jdk<span class="token number">-17</span></span>
 
-rem 将该 JDK 的 bin 目录添加到 PATH 最前面，确保优先使用
-set PATH=%JAVA_HOME%\bin;%PATH%</code></pre>
+<span class="token comment">rem 将该 JDK 的 bin 目录添加到 PATH 最前面，确保优先使用</span>
+<span class="token command"><span class="token keyword">set</span> <span class="token variable">PATH</span><span class="token operator">=</span><span class="token variable">%JAVA_HOME%</span>\bin;<span class="token variable">%PATH%</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><em>(注：这种修改仅对当前 JMeter 启动过程生效，不会影响系统的全局环境变量。)</em></p>
 <hr>
 <h2 id="6-附录：Linux-macOS-配置指南-setenv-sh"><a href="#6-附录：Linux-macOS-配置指南-setenv-sh" class="headerlink" title="6. 附录：Linux/macOS 配置指南 (setenv.sh)"></a>6. 附录：Linux/macOS 配置指南 (setenv.sh)</h2><p>在 Linux 或 macOS 环境下，对应的启动脚本是 <code>jmeter</code> (Shell 脚本)，且配套的配置文件为 <code>bin/setenv.sh</code>。</p>
@@ -615,17 +615,17 @@ set PATH=%JAVA_HOME%\bin;%PATH%</code></pre>
 </tr>
 </tbody></table>
 <h3 id="6-2-常用配置示例-Linux"><a href="#6-2-常用配置示例-Linux" class="headerlink" title="6.2 常用配置示例 (Linux)"></a>6.2 常用配置示例 (Linux)</h3><p><strong>1. 增加内存</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">export HEAP="-Xms4g -Xmx4g -XX:MaxMetaspaceSize=512m"</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">HEAP</span><span class="token operator">=</span><span class="token string">"-Xms4g -Xmx4g -XX:MaxMetaspaceSize=512m"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>2. 设置中文界面</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">export JVM_ARGS="$JVM_ARGS -Duser.language=zh -Duser.region=CN"</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">JVM_ARGS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$JVM_ARGS</span> -Duser.language=zh -Duser.region=CN"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>3. 指定特定 JDK 版本</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 设置特定的 JDK 路径
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置特定的 JDK 路径</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/lib/jvm/java-17-openjdk-amd64
 
-# 将该 JDK 的 bin 目录添加到 PATH 最前面
-export PATH=$JAVA_HOME/bin:$PATH</code></pre>
+<span class="token comment"># 将该 JDK 的 bin 目录添加到 PATH 最前面</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

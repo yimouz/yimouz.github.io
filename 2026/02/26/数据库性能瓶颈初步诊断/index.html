@@ -480,78 +480,78 @@
 <li><strong>内存不足</strong> - 缓存命中率低</li>
 </ol>
 <p>本章涵盖 MySQL、PostgreSQL、Redis、MongoDB 等主流数据库。</p>
-<h2 id="一、MySQL-性能诊断"><a href="#一、MySQL-性能诊断" class="headerlink" title="一、MySQL 性能诊断"></a>一、MySQL 性能诊断</h2><h3 id="1-1-快速诊断-查看数据库状态"><a href="#1-1-快速诊断-查看数据库状态" class="headerlink" title="1.1 快速诊断 - 查看数据库状态"></a>1.1 快速诊断 - 查看数据库状态</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看数据库运行状态
-SHOW STATUS;
+<h2 id="一、MySQL-性能诊断"><a href="#一、MySQL-性能诊断" class="headerlink" title="一、MySQL 性能诊断"></a>一、MySQL 性能诊断</h2><h3 id="1-1-快速诊断-查看数据库状态"><a href="#1-1-快速诊断-查看数据库状态" class="headerlink" title="1.1 快速诊断 - 查看数据库状态"></a>1.1 快速诊断 - 查看数据库状态</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看数据库运行状态</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span><span class="token punctuation">;</span>
 
--- 查看当前连接数
-SHOW STATUS LIKE 'Threads_connected';
-SHOW STATUS LIKE 'Max_used_connections';
+<span class="token comment">-- 查看当前连接数</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Threads_connected'</span><span class="token punctuation">;</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Max_used_connections'</span><span class="token punctuation">;</span>
 
--- 查看慢查询数量
-SHOW STATUS LIKE 'Slow_queries';
+<span class="token comment">-- 查看慢查询数量</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Slow_queries'</span><span class="token punctuation">;</span>
 
--- 查看 QPS (每秒查询数)
-SHOW GLOBAL STATUS LIKE 'Questions';
-SHOW GLOBAL STATUS LIKE 'Uptime';
--- QPS = Questions / Uptime
+<span class="token comment">-- 查看 QPS (每秒查询数)</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">GLOBAL</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Questions'</span><span class="token punctuation">;</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">GLOBAL</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Uptime'</span><span class="token punctuation">;</span>
+<span class="token comment">-- QPS = Questions / Uptime</span>
 
--- 查看 TPS (每秒事务数)
-SHOW GLOBAL STATUS LIKE 'Com_commit';
-SHOW GLOBAL STATUS LIKE 'Com_rollback';</code></pre>
+<span class="token comment">-- 查看 TPS (每秒事务数)</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">GLOBAL</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Com_commit'</span><span class="token punctuation">;</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">GLOBAL</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Com_rollback'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="1-2-慢查询诊断"><a href="#1-2-慢查询诊断" class="headerlink" title="1.2 慢查询诊断"></a>1.2 慢查询诊断</h3><p><strong>开启慢查询日志</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看慢查询配置
-SHOW VARIABLES LIKE 'slow_query%';
-SHOW VARIABLES LIKE 'long_query_time';
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看慢查询配置</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'slow_query%'</span><span class="token punctuation">;</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'long_query_time'</span><span class="token punctuation">;</span>
 
--- 开启慢查询日志（临时生效）
-SET GLOBAL slow_query_log = 'ON';
-SET GLOBAL long_query_time = 2;  -- 超过2秒的查询记录
-SET GLOBAL log_queries_not_using_indexes = 'ON';  -- 记录未使用索引的查询</code></pre>
+<span class="token comment">-- 开启慢查询日志（临时生效）</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> slow_query_log <span class="token operator">=</span> <span class="token string">'ON'</span><span class="token punctuation">;</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> long_query_time <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment">-- 超过2秒的查询记录</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> log_queries_not_using_indexes <span class="token operator">=</span> <span class="token string">'ON'</span><span class="token punctuation">;</span>  <span class="token comment">-- 记录未使用索引的查询</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>永久配置（my.cnf）</strong>：</p>
-<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini">[mysqld]
-slow_query_log = 1
-slow_query_log_file = /var/log/mysql/slow.log
-long_query_time = 2
-log_queries_not_using_indexes = 1</code></pre>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">mysqld</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">slow_query_log</span> <span class="token punctuation">=</span> <span class="token value attr-value">1</span>
+<span class="token key attr-name">slow_query_log_file</span> <span class="token punctuation">=</span> <span class="token value attr-value">/var/log/mysql/slow.log</span>
+<span class="token key attr-name">long_query_time</span> <span class="token punctuation">=</span> <span class="token value attr-value">2</span>
+<span class="token key attr-name">log_queries_not_using_indexes</span> <span class="token punctuation">=</span> <span class="token value attr-value">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>分析慢查询日志</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 使用 mysqldumpslow 分析
-mysqldumpslow -s t -t 10 /var/log/mysql/slow.log
-# -s t: 按查询时间排序
-# -t 10: 显示前10条
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 mysqldumpslow 分析</span>
+mysqldumpslow <span class="token parameter variable">-s</span> t <span class="token parameter variable">-t</span> <span class="token number">10</span> /var/log/mysql/slow.log
+<span class="token comment"># -s t: 按查询时间排序</span>
+<span class="token comment"># -t 10: 显示前10条</span>
 
-# 按查询次数排序
-mysqldumpslow -s c -t 10 /var/log/mysql/slow.log
+<span class="token comment"># 按查询次数排序</span>
+mysqldumpslow <span class="token parameter variable">-s</span> c <span class="token parameter variable">-t</span> <span class="token number">10</span> /var/log/mysql/slow.log
 
-# 使用 pt-query-digest（更强大）
-pt-query-digest /var/log/mysql/slow.log &gt; slow_report.txt</code></pre>
+<span class="token comment"># 使用 pt-query-digest（更强大）</span>
+pt-query-digest /var/log/mysql/slow.log <span class="token operator">&gt;</span> slow_report.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h3 id="1-3-实时查看正在执行的查询"><a href="#1-3-实时查看正在执行的查询" class="headerlink" title="1.3 实时查看正在执行的查询"></a>1.3 实时查看正在执行的查询</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看当前所有连接和正在执行的查询
-SHOW PROCESSLIST;
+<h3 id="1-3-实时查看正在执行的查询"><a href="#1-3-实时查看正在执行的查询" class="headerlink" title="1.3 实时查看正在执行的查询"></a>1.3 实时查看正在执行的查询</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看当前所有连接和正在执行的查询</span>
+<span class="token keyword">SHOW</span> PROCESSLIST<span class="token punctuation">;</span>
 
--- 查看完整 SQL（不截断）
-SHOW FULL PROCESSLIST;
+<span class="token comment">-- 查看完整 SQL（不截断）</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">FULL</span> PROCESSLIST<span class="token punctuation">;</span>
 
--- 查看执行时间超过2秒的查询
-SELECT * FROM information_schema.PROCESSLIST 
-WHERE COMMAND != 'Sleep' AND TIME &gt; 2 
-ORDER BY TIME DESC;
+<span class="token comment">-- 查看执行时间超过2秒的查询</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span>PROCESSLIST 
+<span class="token keyword">WHERE</span> COMMAND <span class="token operator">!=</span> <span class="token string">'Sleep'</span> <span class="token operator">AND</span> <span class="token keyword">TIME</span> <span class="token operator">&gt;</span> <span class="token number">2</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">TIME</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span>
 
--- 杀死慢查询
-KILL &lt;process_id&gt;;</code></pre>
+<span class="token comment">-- 杀死慢查询</span>
+<span class="token keyword">KILL</span> <span class="token operator">&lt;</span>process_id<span class="token operator">&gt;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="1-4-SQL-执行计划分析"><a href="#1-4-SQL-执行计划分析" class="headerlink" title="1.4 SQL 执行计划分析"></a>1.4 SQL 执行计划分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 使用 EXPLAIN 分析查询
-EXPLAIN SELECT * FROM users WHERE email = 'test@example.com';
+<h3 id="1-4-SQL-执行计划分析"><a href="#1-4-SQL-执行计划分析" class="headerlink" title="1.4 SQL 执行计划分析"></a>1.4 SQL 执行计划分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 使用 EXPLAIN 分析查询</span>
+<span class="token keyword">EXPLAIN</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> email <span class="token operator">=</span> <span class="token string">'test@example.com'</span><span class="token punctuation">;</span>
 
--- 更详细的分析
-EXPLAIN FORMAT=JSON SELECT * FROM users WHERE email = 'test@example.com';
+<span class="token comment">-- 更详细的分析</span>
+<span class="token keyword">EXPLAIN</span> FORMAT<span class="token operator">=</span>JSON <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> email <span class="token operator">=</span> <span class="token string">'test@example.com'</span><span class="token punctuation">;</span>
 
--- 查看实际执行统计（MySQL 8.0+）
-EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'test@example.com';</code></pre>
+<span class="token comment">-- 查看实际执行统计（MySQL 8.0+）</span>
+<span class="token keyword">EXPLAIN</span> <span class="token keyword">ANALYZE</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> email <span class="token operator">=</span> <span class="token string">'test@example.com'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>EXPLAIN 关键字段解读</strong>：</p>
 <table>
@@ -589,412 +589,412 @@ EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'test@example.com';</code></pr
 </tr>
 </tbody></table>
 <p><strong>type 类型从好到坏</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="1-5-索引分析"><a href="#1-5-索引分析" class="headerlink" title="1.5 索引分析"></a>1.5 索引分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看表的索引
-SHOW INDEX FROM table_name;
+<h3 id="1-5-索引分析"><a href="#1-5-索引分析" class="headerlink" title="1.5 索引分析"></a>1.5 索引分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看表的索引</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">INDEX</span> <span class="token keyword">FROM</span> table_name<span class="token punctuation">;</span>
 
--- 查看索引使用情况
-SELECT * FROM sys.schema_unused_indexes;
+<span class="token comment">-- 查看索引使用情况</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> sys<span class="token punctuation">.</span>schema_unused_indexes<span class="token punctuation">;</span>
 
--- 查看冗余索引
-SELECT * FROM sys.schema_redundant_indexes;
+<span class="token comment">-- 查看冗余索引</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> sys<span class="token punctuation">.</span>schema_redundant_indexes<span class="token punctuation">;</span>
 
--- 查看索引统计信息
-SHOW TABLE STATUS LIKE 'table_name';
+<span class="token comment">-- 查看索引统计信息</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">TABLE</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'table_name'</span><span class="token punctuation">;</span>
 
--- 分析表（更新索引统计信息）
-ANALYZE TABLE table_name;</code></pre>
+<span class="token comment">-- 分析表（更新索引统计信息）</span>
+<span class="token keyword">ANALYZE</span> <span class="token keyword">TABLE</span> table_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="1-6-锁等待诊断"><a href="#1-6-锁等待诊断" class="headerlink" title="1.6 锁等待诊断"></a>1.6 锁等待诊断</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看当前锁等待情况（MySQL 5.7+）
-SELECT * FROM performance_schema.data_locks;
-SELECT * FROM performance_schema.data_lock_waits;
+<h3 id="1-6-锁等待诊断"><a href="#1-6-锁等待诊断" class="headerlink" title="1.6 锁等待诊断"></a>1.6 锁等待诊断</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看当前锁等待情况（MySQL 5.7+）</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> performance_schema<span class="token punctuation">.</span>data_locks<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> performance_schema<span class="token punctuation">.</span>data_lock_waits<span class="token punctuation">;</span>
 
--- 查看 InnoDB 锁等待
-SHOW ENGINE INNODB STATUS\G
+<span class="token comment">-- 查看 InnoDB 锁等待</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">ENGINE</span> <span class="token keyword">INNODB</span> <span class="token keyword">STATUS</span>\G
 
--- 查看事务信息
-SELECT * FROM information_schema.INNODB_TRX;
+<span class="token comment">-- 查看事务信息</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span>INNODB_TRX<span class="token punctuation">;</span>
 
--- 查看锁等待超时设置
-SHOW VARIABLES LIKE 'innodb_lock_wait_timeout';</code></pre>
+<span class="token comment">-- 查看锁等待超时设置</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'innodb_lock_wait_timeout'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="1-7-连接数诊断"><a href="#1-7-连接数诊断" class="headerlink" title="1.7 连接数诊断"></a>1.7 连接数诊断</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看最大连接数配置
-SHOW VARIABLES LIKE 'max_connections';
+<h3 id="1-7-连接数诊断"><a href="#1-7-连接数诊断" class="headerlink" title="1.7 连接数诊断"></a>1.7 连接数诊断</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看最大连接数配置</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'max_connections'</span><span class="token punctuation">;</span>
 
--- 查看当前连接数
-SHOW STATUS LIKE 'Threads_connected';
+<span class="token comment">-- 查看当前连接数</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Threads_connected'</span><span class="token punctuation">;</span>
 
--- 查看历史最大连接数
-SHOW STATUS LIKE 'Max_used_connections';
+<span class="token comment">-- 查看历史最大连接数</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Max_used_connections'</span><span class="token punctuation">;</span>
 
--- 查看连接来源
-SELECT USER, HOST, COUNT(*) 
-FROM information_schema.PROCESSLIST 
-GROUP BY USER, HOST;
+<span class="token comment">-- 查看连接来源</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">USER</span><span class="token punctuation">,</span> HOST<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span>PROCESSLIST 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">USER</span><span class="token punctuation">,</span> HOST<span class="token punctuation">;</span>
 
--- 调整最大连接数（临时）
-SET GLOBAL max_connections = 500;</code></pre>
+<span class="token comment">-- 调整最大连接数（临时）</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> max_connections <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="1-8-缓冲池（Buffer-Pool）分析"><a href="#1-8-缓冲池（Buffer-Pool）分析" class="headerlink" title="1.8 缓冲池（Buffer Pool）分析"></a>1.8 缓冲池（Buffer Pool）分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看缓冲池大小
-SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
+<h3 id="1-8-缓冲池（Buffer-Pool）分析"><a href="#1-8-缓冲池（Buffer-Pool）分析" class="headerlink" title="1.8 缓冲池（Buffer Pool）分析"></a>1.8 缓冲池（Buffer Pool）分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看缓冲池大小</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'innodb_buffer_pool_size'</span><span class="token punctuation">;</span>
 
--- 查看缓冲池使用情况
-SHOW STATUS LIKE 'Innodb_buffer_pool%';
+<span class="token comment">-- 查看缓冲池使用情况</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Innodb_buffer_pool%'</span><span class="token punctuation">;</span>
 
--- 计算缓冲池命中率
--- 命中率 = (1 - Innodb_buffer_pool_reads / Innodb_buffer_pool_read_requests) * 100
--- 正常应该 &gt; 99%
+<span class="token comment">-- 计算缓冲池命中率</span>
+<span class="token comment">-- 命中率 = (1 - Innodb_buffer_pool_reads / Innodb_buffer_pool_read_requests) * 100</span>
+<span class="token comment">-- 正常应该 &gt; 99%</span>
 
--- 查看缓冲池详细信息
-SELECT * FROM information_schema.INNODB_BUFFER_POOL_STATS;</code></pre>
+<span class="token comment">-- 查看缓冲池详细信息</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span>INNODB_BUFFER_POOL_STATS<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="1-9-MySQL-性能监控工具"><a href="#1-9-MySQL-性能监控工具" class="headerlink" title="1.9 MySQL 性能监控工具"></a>1.9 MySQL 性能监控工具</h3><p><strong>使用 mysqladmin</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 查看状态
-mysqladmin -u root -p status
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看状态</span>
+mysqladmin <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> status
 
-# 持续监控
-mysqladmin -u root -p -i 1 extended-status | grep -E "Threads_connected|Questions|Slow_queries"
+<span class="token comment"># 持续监控</span>
+mysqladmin <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> <span class="token parameter variable">-i</span> <span class="token number">1</span> extended-status <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-E</span> <span class="token string">"Threads_connected|Questions|Slow_queries"</span>
 
-# 查看变量
-mysqladmin -u root -p variables</code></pre>
+<span class="token comment"># 查看变量</span>
+mysqladmin <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> variables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>使用 mytop</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 安装
-yum install mytop  # CentOS
-apt install mytop  # Ubuntu
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装</span>
+yum <span class="token function">install</span> mytop  <span class="token comment"># CentOS</span>
+<span class="token function">apt</span> <span class="token function">install</span> mytop  <span class="token comment"># Ubuntu</span>
 
-# 运行（类似 top 的界面）
-mytop -u root -p password</code></pre>
+<span class="token comment"># 运行（类似 top 的界面）</span>
+mytop <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>使用 Percona Toolkit</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 安装
-yum install percona-toolkit
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装</span>
+yum <span class="token function">install</span> percona-toolkit
 
-# 分析慢查询
+<span class="token comment"># 分析慢查询</span>
 pt-query-digest /var/log/mysql/slow.log
 
-# 查找重复索引
+<span class="token comment"># 查找重复索引</span>
 pt-duplicate-key-checker
 
-# 在线修改表结构（不锁表）
-pt-online-schema-change --alter "ADD INDEX idx_name (name)" D=db,t=table --execute</code></pre>
+<span class="token comment"># 在线修改表结构（不锁表）</span>
+pt-online-schema-change <span class="token parameter variable">--alter</span> <span class="token string">"ADD INDEX idx_name (name)"</span> <span class="token assign-left variable">D</span><span class="token operator">=</span>db,t<span class="token operator">=</span>table <span class="token parameter variable">--execute</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="二、PostgreSQL-性能诊断"><a href="#二、PostgreSQL-性能诊断" class="headerlink" title="二、PostgreSQL 性能诊断"></a>二、PostgreSQL 性能诊断</h2><h3 id="2-1-查看数据库状态"><a href="#2-1-查看数据库状态" class="headerlink" title="2.1 查看数据库状态"></a>2.1 查看数据库状态</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看当前连接数
-SELECT count(*) FROM pg_stat_activity;
+<h2 id="二、PostgreSQL-性能诊断"><a href="#二、PostgreSQL-性能诊断" class="headerlink" title="二、PostgreSQL 性能诊断"></a>二、PostgreSQL 性能诊断</h2><h3 id="2-1-查看数据库状态"><a href="#2-1-查看数据库状态" class="headerlink" title="2.1 查看数据库状态"></a>2.1 查看数据库状态</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看当前连接数</span>
+<span class="token keyword">SELECT</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> pg_stat_activity<span class="token punctuation">;</span>
 
--- 查看最大连接数
-SHOW max_connections;
+<span class="token comment">-- 查看最大连接数</span>
+<span class="token keyword">SHOW</span> max_connections<span class="token punctuation">;</span>
 
--- 查看数据库大小
-SELECT pg_database.datname, 
-       pg_size_pretty(pg_database_size(pg_database.datname)) AS size
-FROM pg_database;
+<span class="token comment">-- 查看数据库大小</span>
+<span class="token keyword">SELECT</span> pg_database<span class="token punctuation">.</span>datname<span class="token punctuation">,</span> 
+       pg_size_pretty<span class="token punctuation">(</span>pg_database_size<span class="token punctuation">(</span>pg_database<span class="token punctuation">.</span>datname<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> size
+<span class="token keyword">FROM</span> pg_database<span class="token punctuation">;</span>
 
--- 查看表大小
-SELECT schemaname, tablename,
-       pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) AS size
-FROM pg_tables
-ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC
-LIMIT 10;</code></pre>
+<span class="token comment">-- 查看表大小</span>
+<span class="token keyword">SELECT</span> schemaname<span class="token punctuation">,</span> tablename<span class="token punctuation">,</span>
+       pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span>schemaname<span class="token operator">||</span><span class="token string">'.'</span><span class="token operator">||</span>tablename<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> size
+<span class="token keyword">FROM</span> pg_tables
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> pg_total_relation_size<span class="token punctuation">(</span>schemaname<span class="token operator">||</span><span class="token string">'.'</span><span class="token operator">||</span>tablename<span class="token punctuation">)</span> <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="2-2-慢查询诊断"><a href="#2-2-慢查询诊断" class="headerlink" title="2.2 慢查询诊断"></a>2.2 慢查询诊断</h3><p><strong>开启慢查询日志（postgresql.conf）</strong>：</p>
-<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini">log_min_duration_statement = 1000  # 记录超过1秒的查询
-log_line_prefix = '%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h '
-log_statement = 'all'  # 记录所有SQL</code></pre>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token key attr-name">log_min_duration_statement</span> <span class="token punctuation">=</span> <span class="token value attr-value">1000  # 记录超过1秒的查询</span>
+<span class="token key attr-name">log_line_prefix</span> <span class="token punctuation">=</span> <span class="token value attr-value">'<span class="token inner-value">%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h </span>'</span>
+<span class="token key attr-name">log_statement</span> <span class="token punctuation">=</span> <span class="token value attr-value">'all'  # 记录所有SQL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>查看正在执行的查询</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看当前活动查询
-SELECT pid, usename, datname, state, query, 
-       now() - query_start AS duration
-FROM pg_stat_activity
-WHERE state != 'idle'
-ORDER BY duration DESC;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看当前活动查询</span>
+<span class="token keyword">SELECT</span> pid<span class="token punctuation">,</span> usename<span class="token punctuation">,</span> datname<span class="token punctuation">,</span> state<span class="token punctuation">,</span> query<span class="token punctuation">,</span> 
+       <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> query_start <span class="token keyword">AS</span> duration
+<span class="token keyword">FROM</span> pg_stat_activity
+<span class="token keyword">WHERE</span> state <span class="token operator">!=</span> <span class="token string">'idle'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> duration <span class="token keyword">DESC</span><span class="token punctuation">;</span>
 
--- 终止慢查询
-SELECT pg_terminate_backend(pid);
+<span class="token comment">-- 终止慢查询</span>
+<span class="token keyword">SELECT</span> pg_terminate_backend<span class="token punctuation">(</span>pid<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 查看长时间运行的事务
-SELECT pid, usename, datname, state, 
-       now() - xact_start AS duration
-FROM pg_stat_activity
-WHERE xact_start IS NOT NULL
-ORDER BY duration DESC;</code></pre>
+<span class="token comment">-- 查看长时间运行的事务</span>
+<span class="token keyword">SELECT</span> pid<span class="token punctuation">,</span> usename<span class="token punctuation">,</span> datname<span class="token punctuation">,</span> state<span class="token punctuation">,</span> 
+       <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> xact_start <span class="token keyword">AS</span> duration
+<span class="token keyword">FROM</span> pg_stat_activity
+<span class="token keyword">WHERE</span> xact_start <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> duration <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-3-执行计划分析"><a href="#2-3-执行计划分析" class="headerlink" title="2.3 执行计划分析"></a>2.3 执行计划分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看执行计划
-EXPLAIN SELECT * FROM users WHERE email = 'test@example.com';
+<h3 id="2-3-执行计划分析"><a href="#2-3-执行计划分析" class="headerlink" title="2.3 执行计划分析"></a>2.3 执行计划分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看执行计划</span>
+<span class="token keyword">EXPLAIN</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> email <span class="token operator">=</span> <span class="token string">'test@example.com'</span><span class="token punctuation">;</span>
 
--- 查看详细执行计划
-EXPLAIN (ANALYZE, BUFFERS, VERBOSE) 
-SELECT * FROM users WHERE email = 'test@example.com';
+<span class="token comment">-- 查看详细执行计划</span>
+<span class="token keyword">EXPLAIN</span> <span class="token punctuation">(</span><span class="token keyword">ANALYZE</span><span class="token punctuation">,</span> BUFFERS<span class="token punctuation">,</span> VERBOSE<span class="token punctuation">)</span> 
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> email <span class="token operator">=</span> <span class="token string">'test@example.com'</span><span class="token punctuation">;</span>
 
--- 查看 JSON 格式
-EXPLAIN (FORMAT JSON) SELECT * FROM users WHERE email = 'test@example.com';</code></pre>
+<span class="token comment">-- 查看 JSON 格式</span>
+<span class="token keyword">EXPLAIN</span> <span class="token punctuation">(</span>FORMAT JSON<span class="token punctuation">)</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> email <span class="token operator">=</span> <span class="token string">'test@example.com'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-4-索引分析"><a href="#2-4-索引分析" class="headerlink" title="2.4 索引分析"></a>2.4 索引分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看表的索引
-SELECT * FROM pg_indexes WHERE tablename = 'users';
+<h3 id="2-4-索引分析"><a href="#2-4-索引分析" class="headerlink" title="2.4 索引分析"></a>2.4 索引分析</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看表的索引</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> pg_indexes <span class="token keyword">WHERE</span> tablename <span class="token operator">=</span> <span class="token string">'users'</span><span class="token punctuation">;</span>
 
--- 查看索引使用情况
-SELECT schemaname, tablename, indexname, idx_scan, idx_tup_read, idx_tup_fetch
-FROM pg_stat_user_indexes
-ORDER BY idx_scan ASC;
+<span class="token comment">-- 查看索引使用情况</span>
+<span class="token keyword">SELECT</span> schemaname<span class="token punctuation">,</span> tablename<span class="token punctuation">,</span> indexname<span class="token punctuation">,</span> idx_scan<span class="token punctuation">,</span> idx_tup_read<span class="token punctuation">,</span> idx_tup_fetch
+<span class="token keyword">FROM</span> pg_stat_user_indexes
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> idx_scan <span class="token keyword">ASC</span><span class="token punctuation">;</span>
 
--- 查看未使用的索引
-SELECT schemaname, tablename, indexname
-FROM pg_stat_user_indexes
-WHERE idx_scan = 0 AND indexrelname NOT LIKE '%_pkey';
+<span class="token comment">-- 查看未使用的索引</span>
+<span class="token keyword">SELECT</span> schemaname<span class="token punctuation">,</span> tablename<span class="token punctuation">,</span> indexname
+<span class="token keyword">FROM</span> pg_stat_user_indexes
+<span class="token keyword">WHERE</span> idx_scan <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> indexrelname <span class="token operator">NOT</span> <span class="token operator">LIKE</span> <span class="token string">'%_pkey'</span><span class="token punctuation">;</span>
 
--- 查看索引大小
-SELECT schemaname, tablename, indexname,
-       pg_size_pretty(pg_relation_size(indexrelid)) AS size
-FROM pg_stat_user_indexes
-ORDER BY pg_relation_size(indexrelid) DESC;</code></pre>
+<span class="token comment">-- 查看索引大小</span>
+<span class="token keyword">SELECT</span> schemaname<span class="token punctuation">,</span> tablename<span class="token punctuation">,</span> indexname<span class="token punctuation">,</span>
+       pg_size_pretty<span class="token punctuation">(</span>pg_relation_size<span class="token punctuation">(</span>indexrelid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> size
+<span class="token keyword">FROM</span> pg_stat_user_indexes
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> pg_relation_size<span class="token punctuation">(</span>indexrelid<span class="token punctuation">)</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-5-锁等待诊断"><a href="#2-5-锁等待诊断" class="headerlink" title="2.5 锁等待诊断"></a>2.5 锁等待诊断</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看锁等待
-SELECT blocked_locks.pid AS blocked_pid,
-       blocked_activity.usename AS blocked_user,
-       blocking_locks.pid AS blocking_pid,
-       blocking_activity.usename AS blocking_user,
-       blocked_activity.query AS blocked_statement,
-       blocking_activity.query AS blocking_statement
-FROM pg_catalog.pg_locks blocked_locks
-JOIN pg_catalog.pg_stat_activity blocked_activity ON blocked_activity.pid = blocked_locks.pid
-JOIN pg_catalog.pg_locks blocking_locks 
-    ON blocking_locks.locktype = blocked_locks.locktype
-    AND blocking_locks.database IS NOT DISTINCT FROM blocked_locks.database
-    AND blocking_locks.relation IS NOT DISTINCT FROM blocked_locks.relation
-    AND blocking_locks.page IS NOT DISTINCT FROM blocked_locks.page
-    AND blocking_locks.tuple IS NOT DISTINCT FROM blocked_locks.tuple
-    AND blocking_locks.virtualxid IS NOT DISTINCT FROM blocked_locks.virtualxid
-    AND blocking_locks.transactionid IS NOT DISTINCT FROM blocked_locks.transactionid
-    AND blocking_locks.classid IS NOT DISTINCT FROM blocked_locks.classid
-    AND blocking_locks.objid IS NOT DISTINCT FROM blocked_locks.objid
-    AND blocking_locks.objsubid IS NOT DISTINCT FROM blocked_locks.objsubid
-    AND blocking_locks.pid != blocked_locks.pid
-JOIN pg_catalog.pg_stat_activity blocking_activity ON blocking_activity.pid = blocking_locks.pid
-WHERE NOT blocked_locks.granted;</code></pre>
+<h3 id="2-5-锁等待诊断"><a href="#2-5-锁等待诊断" class="headerlink" title="2.5 锁等待诊断"></a>2.5 锁等待诊断</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看锁等待</span>
+<span class="token keyword">SELECT</span> blocked_locks<span class="token punctuation">.</span>pid <span class="token keyword">AS</span> blocked_pid<span class="token punctuation">,</span>
+       blocked_activity<span class="token punctuation">.</span>usename <span class="token keyword">AS</span> blocked_user<span class="token punctuation">,</span>
+       blocking_locks<span class="token punctuation">.</span>pid <span class="token keyword">AS</span> blocking_pid<span class="token punctuation">,</span>
+       blocking_activity<span class="token punctuation">.</span>usename <span class="token keyword">AS</span> blocking_user<span class="token punctuation">,</span>
+       blocked_activity<span class="token punctuation">.</span>query <span class="token keyword">AS</span> blocked_statement<span class="token punctuation">,</span>
+       blocking_activity<span class="token punctuation">.</span>query <span class="token keyword">AS</span> blocking_statement
+<span class="token keyword">FROM</span> pg_catalog<span class="token punctuation">.</span>pg_locks blocked_locks
+<span class="token keyword">JOIN</span> pg_catalog<span class="token punctuation">.</span>pg_stat_activity blocked_activity <span class="token keyword">ON</span> blocked_activity<span class="token punctuation">.</span>pid <span class="token operator">=</span> blocked_locks<span class="token punctuation">.</span>pid
+<span class="token keyword">JOIN</span> pg_catalog<span class="token punctuation">.</span>pg_locks blocking_locks 
+    <span class="token keyword">ON</span> blocking_locks<span class="token punctuation">.</span>locktype <span class="token operator">=</span> blocked_locks<span class="token punctuation">.</span>locktype
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span><span class="token keyword">database</span> <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span><span class="token keyword">database</span>
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>relation <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>relation
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>page <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>page
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>tuple <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>tuple
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>virtualxid <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>virtualxid
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>transactionid <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>transactionid
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>classid <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>classid
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>objid <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>objid
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>objsubid <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> blocked_locks<span class="token punctuation">.</span>objsubid
+    <span class="token operator">AND</span> blocking_locks<span class="token punctuation">.</span>pid <span class="token operator">!=</span> blocked_locks<span class="token punctuation">.</span>pid
+<span class="token keyword">JOIN</span> pg_catalog<span class="token punctuation">.</span>pg_stat_activity blocking_activity <span class="token keyword">ON</span> blocking_activity<span class="token punctuation">.</span>pid <span class="token operator">=</span> blocking_locks<span class="token punctuation">.</span>pid
+<span class="token keyword">WHERE</span> <span class="token operator">NOT</span> blocked_locks<span class="token punctuation">.</span>granted<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-6-缓存命中率"><a href="#2-6-缓存命中率" class="headerlink" title="2.6 缓存命中率"></a>2.6 缓存命中率</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看缓存命中率
-SELECT 
-    sum(heap_blks_read) as heap_read,
-    sum(heap_blks_hit) as heap_hit,
-    sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio
-FROM pg_statio_user_tables;
--- 命中率应该 &gt; 0.99
+<h3 id="2-6-缓存命中率"><a href="#2-6-缓存命中率" class="headerlink" title="2.6 缓存命中率"></a>2.6 缓存命中率</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看缓存命中率</span>
+<span class="token keyword">SELECT</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>heap_blks_read<span class="token punctuation">)</span> <span class="token keyword">as</span> heap_read<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>heap_blks_hit<span class="token punctuation">)</span> <span class="token keyword">as</span> heap_hit<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>heap_blks_hit<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>heap_blks_hit<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">sum</span><span class="token punctuation">(</span>heap_blks_read<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ratio
+<span class="token keyword">FROM</span> pg_statio_user_tables<span class="token punctuation">;</span>
+<span class="token comment">-- 命中率应该 &gt; 0.99</span>
 
--- 查看索引缓存命中率
-SELECT 
-    sum(idx_blks_read) as idx_read,
-    sum(idx_blks_hit) as idx_hit,
-    sum(idx_blks_hit) / (sum(idx_blks_hit) + sum(idx_blks_read)) as ratio
-FROM pg_statio_user_indexes;</code></pre>
+<span class="token comment">-- 查看索引缓存命中率</span>
+<span class="token keyword">SELECT</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>idx_blks_read<span class="token punctuation">)</span> <span class="token keyword">as</span> idx_read<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>idx_blks_hit<span class="token punctuation">)</span> <span class="token keyword">as</span> idx_hit<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>idx_blks_hit<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>idx_blks_hit<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">sum</span><span class="token punctuation">(</span>idx_blks_read<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ratio
+<span class="token keyword">FROM</span> pg_statio_user_indexes<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-7-VACUUM-和-ANALYZE"><a href="#2-7-VACUUM-和-ANALYZE" class="headerlink" title="2.7 VACUUM 和 ANALYZE"></a>2.7 VACUUM 和 ANALYZE</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看表的膨胀情况
-SELECT schemaname, tablename, 
-       pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) AS size,
-       n_dead_tup, n_live_tup,
-       round(n_dead_tup * 100.0 / NULLIF(n_live_tup + n_dead_tup, 0), 2) AS dead_ratio
-FROM pg_stat_user_tables
-WHERE n_dead_tup &gt; 1000
-ORDER BY n_dead_tup DESC;
+<h3 id="2-7-VACUUM-和-ANALYZE"><a href="#2-7-VACUUM-和-ANALYZE" class="headerlink" title="2.7 VACUUM 和 ANALYZE"></a>2.7 VACUUM 和 ANALYZE</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看表的膨胀情况</span>
+<span class="token keyword">SELECT</span> schemaname<span class="token punctuation">,</span> tablename<span class="token punctuation">,</span> 
+       pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span>schemaname<span class="token operator">||</span><span class="token string">'.'</span><span class="token operator">||</span>tablename<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> size<span class="token punctuation">,</span>
+       n_dead_tup<span class="token punctuation">,</span> n_live_tup<span class="token punctuation">,</span>
+       <span class="token function">round</span><span class="token punctuation">(</span>n_dead_tup <span class="token operator">*</span> <span class="token number">100.0</span> <span class="token operator">/</span> <span class="token keyword">NULLIF</span><span class="token punctuation">(</span>n_live_tup <span class="token operator">+</span> n_dead_tup<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> dead_ratio
+<span class="token keyword">FROM</span> pg_stat_user_tables
+<span class="token keyword">WHERE</span> n_dead_tup <span class="token operator">&gt;</span> <span class="token number">1000</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> n_dead_tup <span class="token keyword">DESC</span><span class="token punctuation">;</span>
 
--- 手动 VACUUM
-VACUUM ANALYZE table_name;
+<span class="token comment">-- 手动 VACUUM</span>
+VACUUM <span class="token keyword">ANALYZE</span> table_name<span class="token punctuation">;</span>
 
--- 查看自动 VACUUM 配置
-SHOW autovacuum;
-SHOW autovacuum_naptime;</code></pre>
+<span class="token comment">-- 查看自动 VACUUM 配置</span>
+<span class="token keyword">SHOW</span> autovacuum<span class="token punctuation">;</span>
+<span class="token keyword">SHOW</span> autovacuum_naptime<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="三、Redis-性能诊断"><a href="#三、Redis-性能诊断" class="headerlink" title="三、Redis 性能诊断"></a>三、Redis 性能诊断</h2><h3 id="3-1-查看-Redis-状态"><a href="#3-1-查看-Redis-状态" class="headerlink" title="3.1 查看 Redis 状态"></a>3.1 查看 Redis 状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 连接 Redis
+<h2 id="三、Redis-性能诊断"><a href="#三、Redis-性能诊断" class="headerlink" title="三、Redis 性能诊断"></a>三、Redis 性能诊断</h2><h3 id="3-1-查看-Redis-状态"><a href="#3-1-查看-Redis-状态" class="headerlink" title="3.1 查看 Redis 状态"></a>3.1 查看 Redis 状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 连接 Redis</span>
 redis-cli
 
-# 查看服务器信息
+<span class="token comment"># 查看服务器信息</span>
 INFO
 
-# 查看特定部分
-INFO stats        # 统计信息
-INFO memory       # 内存信息
-INFO replication  # 复制信息
-INFO cpu          # CPU信息
-INFO clients      # 客户端信息</code></pre>
+<span class="token comment"># 查看特定部分</span>
+INFO stats        <span class="token comment"># 统计信息</span>
+INFO memory       <span class="token comment"># 内存信息</span>
+INFO replication  <span class="token comment"># 复制信息</span>
+INFO cpu          <span class="token comment"># CPU信息</span>
+INFO clients      <span class="token comment"># 客户端信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-2-慢查询诊断"><a href="#3-2-慢查询诊断" class="headerlink" title="3.2 慢查询诊断"></a>3.2 慢查询诊断</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 查看慢查询配置
-CONFIG GET slowlog-log-slower-than  # 微秒，默认10000（10ms）
-CONFIG GET slowlog-max-len          # 慢查询日志长度
+<h3 id="3-2-慢查询诊断"><a href="#3-2-慢查询诊断" class="headerlink" title="3.2 慢查询诊断"></a>3.2 慢查询诊断</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看慢查询配置</span>
+CONFIG GET slowlog-log-slower-than  <span class="token comment"># 微秒，默认10000（10ms）</span>
+CONFIG GET slowlog-max-len          <span class="token comment"># 慢查询日志长度</span>
 
-# 设置慢查询阈值（临时）
-CONFIG SET slowlog-log-slower-than 1000  # 1ms
+<span class="token comment"># 设置慢查询阈值（临时）</span>
+CONFIG SET slowlog-log-slower-than <span class="token number">1000</span>  <span class="token comment"># 1ms</span>
 
-# 查看慢查询日志
-SLOWLOG GET 10  # 获取最近10条慢查询
+<span class="token comment"># 查看慢查询日志</span>
+SLOWLOG GET <span class="token number">10</span>  <span class="token comment"># 获取最近10条慢查询</span>
 
-# 查看慢查询日志长度
+<span class="token comment"># 查看慢查询日志长度</span>
 SLOWLOG LEN
 
-# 清空慢查询日志
-SLOWLOG RESET</code></pre>
+<span class="token comment"># 清空慢查询日志</span>
+SLOWLOG RESET<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-3-实时监控命令"><a href="#3-3-实时监控命令" class="headerlink" title="3.3 实时监控命令"></a>3.3 实时监控命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 实时监控所有命令
+<h3 id="3-3-实时监控命令"><a href="#3-3-实时监控命令" class="headerlink" title="3.3 实时监控命令"></a>3.3 实时监控命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 实时监控所有命令</span>
 MONITOR
 
-# 查看客户端连接
+<span class="token comment"># 查看客户端连接</span>
 CLIENT LIST
 
-# 查看当前连接数
-INFO clients | grep connected_clients
+<span class="token comment"># 查看当前连接数</span>
+INFO clients <span class="token operator">|</span> <span class="token function">grep</span> connected_clients
 
-# 查看阻塞的客户端
-CLIENT LIST | grep blocked</code></pre>
+<span class="token comment"># 查看阻塞的客户端</span>
+CLIENT LIST <span class="token operator">|</span> <span class="token function">grep</span> blocked<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-4-内存分析"><a href="#3-4-内存分析" class="headerlink" title="3.4 内存分析"></a>3.4 内存分析</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 查看内存使用
+<h3 id="3-4-内存分析"><a href="#3-4-内存分析" class="headerlink" title="3.4 内存分析"></a>3.4 内存分析</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看内存使用</span>
 INFO memory
 
-# 查看大 key
-redis-cli --bigkeys
+<span class="token comment"># 查看大 key</span>
+redis-cli <span class="token parameter variable">--bigkeys</span>
 
-# 查看内存使用详情（Redis 4.0+）
+<span class="token comment"># 查看内存使用详情（Redis 4.0+）</span>
 MEMORY STATS
 
-# 查看某个 key 的内存占用
+<span class="token comment"># 查看某个 key 的内存占用</span>
 MEMORY USAGE key_name
 
-# 查看内存碎片率
-INFO memory | grep mem_fragmentation_ratio
-# 正常值：1.0 - 1.5
-# &gt; 1.5：内存碎片较多
-# &lt; 1.0：可能发生了 swap</code></pre>
+<span class="token comment"># 查看内存碎片率</span>
+INFO memory <span class="token operator">|</span> <span class="token function">grep</span> mem_fragmentation_ratio
+<span class="token comment"># 正常值：1.0 - 1.5</span>
+<span class="token comment"># &gt; 1.5：内存碎片较多</span>
+<span class="token comment"># &lt; 1.0：可能发生了 swap</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-5-性能测试"><a href="#3-5-性能测试" class="headerlink" title="3.5 性能测试"></a>3.5 性能测试</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 使用 redis-benchmark 测试
-redis-benchmark -h 127.0.0.1 -p 6379 -c 100 -n 100000
-# -c: 并发连接数
-# -n: 请求总数
+<h3 id="3-5-性能测试"><a href="#3-5-性能测试" class="headerlink" title="3.5 性能测试"></a>3.5 性能测试</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 redis-benchmark 测试</span>
+redis-benchmark <span class="token parameter variable">-h</span> <span class="token number">127.0</span>.0.1 <span class="token parameter variable">-p</span> <span class="token number">6379</span> <span class="token parameter variable">-c</span> <span class="token number">100</span> <span class="token parameter variable">-n</span> <span class="token number">100000</span>
+<span class="token comment"># -c: 并发连接数</span>
+<span class="token comment"># -n: 请求总数</span>
 
-# 测试特定命令
-redis-benchmark -t set,get -n 100000 -q
+<span class="token comment"># 测试特定命令</span>
+redis-benchmark <span class="token parameter variable">-t</span> set,get <span class="token parameter variable">-n</span> <span class="token number">100000</span> <span class="token parameter variable">-q</span>
 
-# 测试 pipeline
-redis-benchmark -n 100000 -P 16</code></pre>
+<span class="token comment"># 测试 pipeline</span>
+redis-benchmark <span class="token parameter variable">-n</span> <span class="token number">100000</span> <span class="token parameter variable">-P</span> <span class="token number">16</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-6-持久化影响"><a href="#3-6-持久化影响" class="headerlink" title="3.6 持久化影响"></a>3.6 持久化影响</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 查看 RDB 配置
+<h3 id="3-6-持久化影响"><a href="#3-6-持久化影响" class="headerlink" title="3.6 持久化影响"></a>3.6 持久化影响</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 RDB 配置</span>
 CONFIG GET save
 
-# 查看 AOF 配置
+<span class="token comment"># 查看 AOF 配置</span>
 CONFIG GET appendonly
 CONFIG GET appendfsync
 
-# 查看最后一次 save 时间
-INFO persistence | grep rdb_last_save_time
+<span class="token comment"># 查看最后一次 save 时间</span>
+INFO persistence <span class="token operator">|</span> <span class="token function">grep</span> rdb_last_save_time
 
-# 手动触发 save（会阻塞）
+<span class="token comment"># 手动触发 save（会阻塞）</span>
 SAVE
 
-# 后台 save（不阻塞）
-BGSAVE</code></pre>
+<span class="token comment"># 后台 save（不阻塞）</span>
+BGSAVE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="四、MongoDB-性能诊断"><a href="#四、MongoDB-性能诊断" class="headerlink" title="四、MongoDB 性能诊断"></a>四、MongoDB 性能诊断</h2><h3 id="4-1-查看数据库状态"><a href="#4-1-查看数据库状态" class="headerlink" title="4.1 查看数据库状态"></a>4.1 查看数据库状态</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">// 查看服务器状态
-db.serverStatus()
+<h2 id="四、MongoDB-性能诊断"><a href="#四、MongoDB-性能诊断" class="headerlink" title="四、MongoDB 性能诊断"></a>四、MongoDB 性能诊断</h2><h3 id="4-1-查看数据库状态"><a href="#4-1-查看数据库状态" class="headerlink" title="4.1 查看数据库状态"></a>4.1 查看数据库状态</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 查看服务器状态</span>
+db<span class="token punctuation">.</span><span class="token function">serverStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看数据库统计
-db.stats()
+<span class="token comment">// 查看数据库统计</span>
+db<span class="token punctuation">.</span><span class="token function">stats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看集合统计
-db.collection_name.stats()
+<span class="token comment">// 查看集合统计</span>
+db<span class="token punctuation">.</span>collection_name<span class="token punctuation">.</span><span class="token function">stats</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看当前操作
-db.currentOp()
+<span class="token comment">// 查看当前操作</span>
+db<span class="token punctuation">.</span><span class="token function">currentOp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看连接数
-db.serverStatus().connections</code></pre>
+<span class="token comment">// 查看连接数</span>
+db<span class="token punctuation">.</span><span class="token function">serverStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>connections<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="4-2-慢查询诊断"><a href="#4-2-慢查询诊断" class="headerlink" title="4.2 慢查询诊断"></a>4.2 慢查询诊断</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">// 开启 profiling（级别0-2）
-// 0: 关闭
-// 1: 记录慢查询
-// 2: 记录所有查询
-db.setProfilingLevel(1, { slowms: 100 })  // 记录超过100ms的查询
+<h3 id="4-2-慢查询诊断"><a href="#4-2-慢查询诊断" class="headerlink" title="4.2 慢查询诊断"></a>4.2 慢查询诊断</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 开启 profiling（级别0-2）</span>
+<span class="token comment">// 0: 关闭</span>
+<span class="token comment">// 1: 记录慢查询</span>
+<span class="token comment">// 2: 记录所有查询</span>
+db<span class="token punctuation">.</span><span class="token function">setProfilingLevel</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">slowms</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token comment">// 记录超过100ms的查询</span>
 
-// 查看 profiling 状态
-db.getProfilingStatus()
+<span class="token comment">// 查看 profiling 状态</span>
+db<span class="token punctuation">.</span><span class="token function">getProfilingStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看慢查询
-db.system.profile.find().limit(10).sort({ ts: -1 }).pretty()
+<span class="token comment">// 查看慢查询</span>
+db<span class="token punctuation">.</span>system<span class="token punctuation">.</span>profile<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">ts</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pretty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看最慢的查询
-db.system.profile.find({ millis: { $gt: 100 } }).sort({ millis: -1 }).limit(10)</code></pre>
+<span class="token comment">// 查看最慢的查询</span>
+db<span class="token punctuation">.</span>system<span class="token punctuation">.</span>profile<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">millis</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">$gt</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">millis</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="4-3-执行计划分析"><a href="#4-3-执行计划分析" class="headerlink" title="4.3 执行计划分析"></a>4.3 执行计划分析</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">// 查看执行计划
-db.collection.find({ field: value }).explain("executionStats")
+<h3 id="4-3-执行计划分析"><a href="#4-3-执行计划分析" class="headerlink" title="4.3 执行计划分析"></a>4.3 执行计划分析</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 查看执行计划</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">field</span><span class="token operator">:</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">explain</span><span class="token punctuation">(</span><span class="token string">"executionStats"</span><span class="token punctuation">)</span>
 
-// 查看详细执行计划
-db.collection.find({ field: value }).explain("allPlansExecution")
+<span class="token comment">// 查看详细执行计划</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">field</span><span class="token operator">:</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">explain</span><span class="token punctuation">(</span><span class="token string">"allPlansExecution"</span><span class="token punctuation">)</span>
 
-// 关键指标：
-// - executionTimeMillis: 执行时间
-// - totalDocsExamined: 扫描的文档数
-// - totalKeysExamined: 扫描的索引键数
-// - stage: COLLSCAN（全表扫描）需要优化</code></pre>
+<span class="token comment">// 关键指标：</span>
+<span class="token comment">// - executionTimeMillis: 执行时间</span>
+<span class="token comment">// - totalDocsExamined: 扫描的文档数</span>
+<span class="token comment">// - totalKeysExamined: 扫描的索引键数</span>
+<span class="token comment">// - stage: COLLSCAN（全表扫描）需要优化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="4-4-索引分析"><a href="#4-4-索引分析" class="headerlink" title="4.4 索引分析"></a>4.4 索引分析</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">// 查看集合的索引
-db.collection.getIndexes()
+<h3 id="4-4-索引分析"><a href="#4-4-索引分析" class="headerlink" title="4.4 索引分析"></a>4.4 索引分析</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 查看集合的索引</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">getIndexes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-// 查看索引使用情况
-db.collection.aggregate([{ $indexStats: {} }])
+<span class="token comment">// 查看索引使用情况</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">aggregate</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">$indexStats</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-// 创建索引
-db.collection.createIndex({ field: 1 })
+<span class="token comment">// 创建索引</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">createIndex</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">field</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-// 删除索引
-db.collection.dropIndex("index_name")
+<span class="token comment">// 删除索引</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">dropIndex</span><span class="token punctuation">(</span><span class="token string">"index_name"</span><span class="token punctuation">)</span>
 
-// 重建索引
-db.collection.reIndex()</code></pre>
+<span class="token comment">// 重建索引</span>
+db<span class="token punctuation">.</span>collection<span class="token punctuation">.</span><span class="token function">reIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="4-5-锁等待诊断"><a href="#4-5-锁等待诊断" class="headerlink" title="4.5 锁等待诊断"></a>4.5 锁等待诊断</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">// 查看当前锁
-db.currentOp({ $or: [{ waitingForLock: true }, { lockStats: { $exists: true } }] })
+<h3 id="4-5-锁等待诊断"><a href="#4-5-锁等待诊断" class="headerlink" title="4.5 锁等待诊断"></a>4.5 锁等待诊断</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 查看当前锁</span>
+db<span class="token punctuation">.</span><span class="token function">currentOp</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">$or</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">waitingForLock</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">lockStats</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">$exists</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-// 杀死慢操作
-db.killOp(opid)
+<span class="token comment">// 杀死慢操作</span>
+db<span class="token punctuation">.</span><span class="token function">killOp</span><span class="token punctuation">(</span>opid<span class="token punctuation">)</span>
 
-// 查看锁统计
-db.serverStatus().locks</code></pre>
+<span class="token comment">// 查看锁统计</span>
+db<span class="token punctuation">.</span><span class="token function">serverStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>locks<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="五、数据库性能优化通用策略"><a href="#五、数据库性能优化通用策略" class="headerlink" title="五、数据库性能优化通用策略"></a>五、数据库性能优化通用策略</h2><h3 id="5-1-SQL-优化"><a href="#5-1-SQL-优化" class="headerlink" title="5.1 SQL 优化"></a>5.1 SQL 优化</h3><p><strong>避免全表扫描</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 不好：全表扫描
-SELECT * FROM users WHERE YEAR(created_at) = 2024;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 不好：全表扫描</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> <span class="token keyword">YEAR</span><span class="token punctuation">(</span>created_at<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2024</span><span class="token punctuation">;</span>
 
--- 好：使用索引
-SELECT * FROM users WHERE created_at &gt;= '2024-01-01' AND created_at &lt; '2025-01-01';</code></pre>
+<span class="token comment">-- 好：使用索引</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> created_at <span class="token operator">&gt;=</span> <span class="token string">'2024-01-01'</span> <span class="token operator">AND</span> created_at <span class="token operator">&lt;</span> <span class="token string">'2025-01-01'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>**避免 SELECT ***：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 不好：查询所有字段
-SELECT * FROM users WHERE id = 1;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 不好：查询所有字段</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
--- 好：只查询需要的字段
-SELECT id, name, email FROM users WHERE id = 1;</code></pre>
+<span class="token comment">-- 好：只查询需要的字段</span>
+<span class="token keyword">SELECT</span> id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> email <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>使用 LIMIT</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 不好：返回所有结果
-SELECT * FROM users WHERE status = 'active';
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 不好：返回所有结果</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'active'</span><span class="token punctuation">;</span>
 
--- 好：限制返回数量
-SELECT * FROM users WHERE status = 'active' LIMIT 100;</code></pre>
+<span class="token comment">-- 好：限制返回数量</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'active'</span> <span class="token keyword">LIMIT</span> <span class="token number">100</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>批量操作</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 不好：逐条插入
-INSERT INTO users (name) VALUES ('user1');
-INSERT INTO users (name) VALUES ('user2');
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 不好：逐条插入</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'user1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'user2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 好：批量插入
-INSERT INTO users (name) VALUES ('user1'), ('user2'), ('user3');</code></pre>
+<span class="token comment">-- 好：批量插入</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'user1'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'user2'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'user3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="5-2-索引优化"><a href="#5-2-索引优化" class="headerlink" title="5.2 索引优化"></a>5.2 索引优化</h3><p><strong>创建合适的索引</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 单列索引
-CREATE INDEX idx_email ON users(email);
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 单列索引</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_email <span class="token keyword">ON</span> users<span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 复合索引（注意顺序）
-CREATE INDEX idx_status_created ON users(status, created_at);
+<span class="token comment">-- 复合索引（注意顺序）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_status_created <span class="token keyword">ON</span> users<span class="token punctuation">(</span><span class="token keyword">status</span><span class="token punctuation">,</span> created_at<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 覆盖索引（包含查询所需的所有字段）
-CREATE INDEX idx_cover ON users(status, id, name);</code></pre>
+<span class="token comment">-- 覆盖索引（包含查询所需的所有字段）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_cover <span class="token keyword">ON</span> users<span class="token punctuation">(</span><span class="token keyword">status</span><span class="token punctuation">,</span> id<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>索引使用原则</strong>：</p>
 <ul>
@@ -1005,20 +1005,20 @@ CREATE INDEX idx_cover ON users(status, id, name);</code></pre>
 <li>定期删除未使用的索引</li>
 </ul>
 <h3 id="5-3-连接池优化"><a href="#5-3-连接池优化" class="headerlink" title="5.3 连接池优化"></a>5.3 连接池优化</h3><p><strong>连接池配置建议</strong>：</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"># 最小连接数
-minPoolSize=10
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 最小连接数</span>
+<span class="token key attr-name">minPoolSize</span><span class="token punctuation">=</span><span class="token value attr-value">10</span>
 
-# 最大连接数（根据数据库 max_connections 设置）
-maxPoolSize=50
+<span class="token comment"># 最大连接数（根据数据库 max_connections 设置）</span>
+<span class="token key attr-name">maxPoolSize</span><span class="token punctuation">=</span><span class="token value attr-value">50</span>
 
-# 连接超时时间
-connectionTimeout=30000
+<span class="token comment"># 连接超时时间</span>
+<span class="token key attr-name">connectionTimeout</span><span class="token punctuation">=</span><span class="token value attr-value">30000</span>
 
-# 空闲连接超时时间
-idleTimeout=600000
+<span class="token comment"># 空闲连接超时时间</span>
+<span class="token key attr-name">idleTimeout</span><span class="token punctuation">=</span><span class="token value attr-value">600000</span>
 
-# 最大生命周期
-maxLifetime=1800000</code></pre>
+<span class="token comment"># 最大生命周期</span>
+<span class="token key attr-name">maxLifetime</span><span class="token punctuation">=</span><span class="token value attr-value">1800000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="5-4-缓存策略"><a href="#5-4-缓存策略" class="headerlink" title="5.4 缓存策略"></a>5.4 缓存策略</h3><p><strong>多级缓存架构</strong>：</p>
 <pre class="line-numbers language-none"><code class="language-none">应用层
@@ -1027,7 +1027,7 @@ maxLifetime=1800000</code></pre>
   ↓
 分布式缓存（Redis）
   ↓
-数据库</code></pre>
+数据库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>缓存更新策略</strong>：</p>
 <ul>
@@ -1050,7 +1050,7 @@ maxLifetime=1800000</code></pre>
   ↓
 写操作 → 主库（Master）
            ↓ 复制
-读操作 → 从库（Slave1, Slave2, Slave3）</code></pre>
+读操作 → 从库（Slave1, Slave2, Slave3）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>注意事项</strong>：</p>
 <ul>
@@ -1059,34 +1059,34 @@ maxLifetime=1800000</code></pre>
 <li>使用中间件（如 MyCat、ShardingSphere）</li>
 </ul>
 <h2 id="六、数据库监控工具"><a href="#六、数据库监控工具" class="headerlink" title="六、数据库监控工具"></a>六、数据库监控工具</h2><h3 id="6-1-MySQL-监控工具"><a href="#6-1-MySQL-监控工具" class="headerlink" title="6.1 MySQL 监控工具"></a>6.1 MySQL 监控工具</h3><p>**Percona Monitoring and Management (PMM)**：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 安装 PMM Server
-docker run -d -p 80:80 --name pmm-server percona/pmm-server:2
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 PMM Server</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token parameter variable">--name</span> pmm-server percona/pmm-server:2
 
-# 安装 PMM Client
-wget https://www.percona.com/downloads/pmm2/pmm-client-2.x.x.tar.gz
-tar -xzf pmm-client-2.x.x.tar.gz
-./pmm-admin config --server-url=http://pmm-server:80
-./pmm-admin add mysql --username=root --password=password</code></pre>
+<span class="token comment"># 安装 PMM Client</span>
+<span class="token function">wget</span> https://www.percona.com/downloads/pmm2/pmm-client-2.x.x.tar.gz
+<span class="token function">tar</span> <span class="token parameter variable">-xzf</span> pmm-client-2.x.x.tar.gz
+./pmm-admin config --server-url<span class="token operator">=</span>http://pmm-server:80
+./pmm-admin <span class="token function">add</span> mysql <span class="token parameter variable">--username</span><span class="token operator">=</span>root <span class="token parameter variable">--password</span><span class="token operator">=</span>password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>Prometheus + Grafana</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 使用 mysqld_exporter
-docker run -d -p 9104:9104 \
-  -e DATA_SOURCE_NAME="user:password@(hostname:3306)/" \
-  prom/mysqld-exporter</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 mysqld_exporter</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">9104</span>:9104 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">DATA_SOURCE_NAME</span><span class="token operator">=</span><span class="token string">"user:password@(hostname:3306)/"</span> <span class="token punctuation">\</span>
+  prom/mysqld-exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="6-2-PostgreSQL-监控工具"><a href="#6-2-PostgreSQL-监控工具" class="headerlink" title="6.2 PostgreSQL 监控工具"></a>6.2 PostgreSQL 监控工具</h3><p><strong>pg_stat_statements</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 安装扩展
-CREATE EXTENSION pg_stat_statements;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 安装扩展</span>
+<span class="token keyword">CREATE</span> EXTENSION pg_stat_statements<span class="token punctuation">;</span>
 
--- 查看 SQL 统计
-SELECT query, calls, total_time, mean_time, rows
-FROM pg_stat_statements
-ORDER BY total_time DESC
-LIMIT 10;</code></pre>
+<span class="token comment">-- 查看 SQL 统计</span>
+<span class="token keyword">SELECT</span> query<span class="token punctuation">,</span> calls<span class="token punctuation">,</span> total_time<span class="token punctuation">,</span> mean_time<span class="token punctuation">,</span> <span class="token keyword">rows</span>
+<span class="token keyword">FROM</span> pg_stat_statements
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> total_time <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>pgBadger</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 分析 PostgreSQL 日志
-pgbadger /var/log/postgresql/postgresql.log -o report.html</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 分析 PostgreSQL 日志</span>
+pgbadger /var/log/postgresql/postgresql.log <span class="token parameter variable">-o</span> report.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="6-3-Redis-监控工具"><a href="#6-3-Redis-监控工具" class="headerlink" title="6.3 Redis 监控工具"></a>6.3 Redis 监控工具</h3><p><strong>RedisInsight</strong>：</p>
 <ul>
@@ -1094,11 +1094,11 @@ pgbadger /var/log/postgresql/postgresql.log -o report.html</code></pre>
 <li>支持实时监控、慢查询分析、内存分析</li>
 </ul>
 <p><strong>redis-stat</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 安装
-gem install redis-stat
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装</span>
+gem <span class="token function">install</span> redis-stat
 
-# 运行
-redis-stat --server</code></pre>
+<span class="token comment"># 运行</span>
+redis-stat <span class="token parameter variable">--server</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="七、数据库性能诊断检查清单"><a href="#七、数据库性能诊断检查清单" class="headerlink" title="七、数据库性能诊断检查清单"></a>七、数据库性能诊断检查清单</h2><h3 id="快速检查（5分钟）"><a href="#快速检查（5分钟）" class="headerlink" title="快速检查（5分钟）"></a>快速检查（5分钟）</h3><ul>
 <li><input disabled="" type="checkbox"> 查看当前连接数是否接近上限</li>
@@ -1133,17 +1133,17 @@ redis-stat --server</code></pre>
 <li>缓存失效</li>
 </ul>
 <p><strong>排查步骤</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 1. 查看执行计划
-EXPLAIN SELECT ...;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 1. 查看执行计划</span>
+<span class="token keyword">EXPLAIN</span> <span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
 
--- 2. 更新统计信息
-ANALYZE TABLE table_name;
+<span class="token comment">-- 2. 更新统计信息</span>
+<span class="token keyword">ANALYZE</span> <span class="token keyword">TABLE</span> table_name<span class="token punctuation">;</span>
 
--- 3. 查看锁等待
-SHOW ENGINE INNODB STATUS;
+<span class="token comment">-- 3. 查看锁等待</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">ENGINE</span> <span class="token keyword">INNODB</span> <span class="token keyword">STATUS</span><span class="token punctuation">;</span>
 
--- 4. 查看缓存命中率
-SHOW STATUS LIKE 'Innodb_buffer_pool%';</code></pre>
+<span class="token comment">-- 4. 查看缓存命中率</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">STATUS</span> <span class="token operator">LIKE</span> <span class="token string">'Innodb_buffer_pool%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="问题2：连接数耗尽"><a href="#问题2：连接数耗尽" class="headerlink" title="问题2：连接数耗尽"></a>问题2：连接数耗尽</h3><p><strong>可能原因</strong>：</p>
 <ul>
@@ -1152,21 +1152,21 @@ SHOW STATUS LIKE 'Innodb_buffer_pool%';</code></pre>
 <li>慢查询占用连接</li>
 </ul>
 <p><strong>解决方案</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看连接来源
-SELECT USER, HOST, COUNT(*) FROM information_schema.PROCESSLIST GROUP BY USER, HOST;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看连接来源</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">USER</span><span class="token punctuation">,</span> HOST<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span>PROCESSLIST <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">USER</span><span class="token punctuation">,</span> HOST<span class="token punctuation">;</span>
 
--- 杀死空闲连接
-KILL &lt;process_id&gt;;
+<span class="token comment">-- 杀死空闲连接</span>
+<span class="token keyword">KILL</span> <span class="token operator">&lt;</span>process_id<span class="token operator">&gt;</span><span class="token punctuation">;</span>
 
--- 调整最大连接数
-SET GLOBAL max_connections = 500;</code></pre>
+<span class="token comment">-- 调整最大连接数</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> max_connections <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="问题3：死锁"><a href="#问题3：死锁" class="headerlink" title="问题3：死锁"></a>问题3：死锁</h3><p><strong>排查</strong>：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">-- 查看最近的死锁信息
-SHOW ENGINE INNODB STATUS;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查看最近的死锁信息</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">ENGINE</span> <span class="token keyword">INNODB</span> <span class="token keyword">STATUS</span><span class="token punctuation">;</span>
 
--- 开启死锁日志
-SET GLOBAL innodb_print_all_deadlocks = ON;</code></pre>
+<span class="token comment">-- 开启死锁日志</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> innodb_print_all_deadlocks <span class="token operator">=</span> <span class="token keyword">ON</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>预防</strong>：</p>
 <ul>
