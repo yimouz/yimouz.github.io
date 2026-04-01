@@ -906,47 +906,47 @@ perf <span class="token function">top</span><span aria-hidden="true" class="line
 <span class="token comment"># n: 网络</span>
 <span class="token comment"># t: 进程</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="六、性能瓶颈诊断流程图"><a href="#六、性能瓶颈诊断流程图" class="headerlink" title="六、性能瓶颈诊断流程图"></a>六、性能瓶颈诊断流程图</h2><pre class="mermaid">flowchart TD
-    Start([开始性能诊断]) --&gt; Step1[运行 top/htop<br>查看整体负载]
-    Step1 --&gt; Step2[运行 vmstat 1 5<br>判断瓶颈类型]
+<h2 id="六、性能瓶颈诊断流程图"><a href="#六、性能瓶颈诊断流程图" class="headerlink" title="六、性能瓶颈诊断流程图"></a>六、性能瓶颈诊断流程图</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">flowchart</span> TD
+    Start<span class="token text string">([开始性能诊断])</span> <span class="token arrow operator">--&gt;</span> Step1<span class="token text string">[运行 top/htop&lt;br/&gt;查看整体负载]</span>
+    Step1 <span class="token arrow operator">--&gt;</span> Step2<span class="token text string">[运行 vmstat 1 5&lt;br/&gt;判断瓶颈类型]</span>
     
-    Step2 --&gt; Decision{判断瓶颈类型}
+    Step2 <span class="token arrow operator">--&gt;</span> Decision<span class="token text string">{判断瓶颈类型}</span>
     
-    Decision --&gt;|us+sy高, id低| CPU[CPU瓶颈]
-    Decision --&gt;|free低, swap高| Memory[内存瓶颈]
-    Decision --&gt;|wa高, %util高| Disk[磁盘I/O瓶颈]
-    Decision --&gt;|网络流量高| Network[网络I/O瓶颈]
+    Decision <span class="token arrow operator">--&gt;</span><span class="token label property">|us+sy高, id低|</span> CPU<span class="token text string">[CPU瓶颈]</span>
+    Decision <span class="token arrow operator">--&gt;</span><span class="token label property">|free低, swap高|</span> Memory<span class="token text string">[内存瓶颈]</span>
+    Decision <span class="token arrow operator">--&gt;</span><span class="token label property">|wa高, %util高|</span> Disk<span class="token text string">[磁盘I/O瓶颈]</span>
+    Decision <span class="token arrow operator">--&gt;</span><span class="token label property">|网络流量高|</span> Network<span class="token text string">[网络I/O瓶颈]</span>
     
-    CPU --&gt; CPU1[top -H<br>查找CPU密集进程]
-    CPU1 --&gt; CPU2[perf top<br>分析热点函数]
-    CPU2 --&gt; CPU3[优化代码或扩容]
-    CPU3 --&gt; End1([完成])
+    CPU <span class="token arrow operator">--&gt;</span> CPU1<span class="token text string">[top -H&lt;br/&gt;查找CPU密集进程]</span>
+    CPU1 <span class="token arrow operator">--&gt;</span> CPU2<span class="token text string">[perf top&lt;br/&gt;分析热点函数]</span>
+    CPU2 <span class="token arrow operator">--&gt;</span> CPU3<span class="token text string">[优化代码或扩容]</span>
+    CPU3 <span class="token arrow operator">--&gt;</span> End1<span class="token text string">([完成])</span>
     
-    Memory --&gt; Mem1[ps aux --sort=-%mem<br>查找内存占用高的进程]
-    Mem1 --&gt; Mem2[pmap/valgrind<br>检查内存泄漏]
-    Mem2 --&gt; Mem3[优化内存使用<br>或增加内存]
-    Mem3 --&gt; End2([完成])
+    Memory <span class="token arrow operator">--&gt;</span> Mem1[ps aux <span class="token arrow operator">--</span>sort=-%mem&lt;br/&gt;查找内存占用高的进程]
+    Mem1 <span class="token arrow operator">--&gt;</span> Mem2<span class="token text string">[pmap/valgrind&lt;br/&gt;检查内存泄漏]</span>
+    Mem2 <span class="token arrow operator">--&gt;</span> Mem3<span class="token text string">[优化内存使用&lt;br/&gt;或增加内存]</span>
+    Mem3 <span class="token arrow operator">--&gt;</span> End2<span class="token text string">([完成])</span>
     
-    Disk --&gt; Disk1[iostat -x<br>查看磁盘负载]
-    Disk1 --&gt; Disk2[iotop<br>查找I/O密集进程]
-    Disk2 --&gt; Disk3[优化I/O<br>或使用SSD]
-    Disk3 --&gt; End3([完成])
+    Disk <span class="token arrow operator">--&gt;</span> Disk1<span class="token text string">[iostat -x&lt;br/&gt;查看磁盘负载]</span>
+    Disk1 <span class="token arrow operator">--&gt;</span> Disk2<span class="token text string">[iotop&lt;br/&gt;查找I/O密集进程]</span>
+    Disk2 <span class="token arrow operator">--&gt;</span> Disk3<span class="token text string">[优化I/O&lt;br/&gt;或使用SSD]</span>
+    Disk3 <span class="token arrow operator">--&gt;</span> End3<span class="token text string">([完成])</span>
     
-    Network --&gt; Net1[iftop/nethogs<br>查看网络流量]
-    Net1 --&gt; Net2[ss -s<br>查看连接状态]
-    Net2 --&gt; Net3[优化网络<br>或增加带宽]
-    Net3 --&gt; End4([完成])
+    Network <span class="token arrow operator">--&gt;</span> Net1<span class="token text string">[iftop/nethogs&lt;br/&gt;查看网络流量]</span>
+    Net1 <span class="token arrow operator">--&gt;</span> Net2<span class="token text string">[ss -s&lt;br/&gt;查看连接状态]</span>
+    Net2 <span class="token arrow operator">--&gt;</span> Net3<span class="token text string">[优化网络&lt;br/&gt;或增加带宽]</span>
+    Net3 <span class="token arrow operator">--&gt;</span> End4<span class="token text string">([完成])</span>
     
-    style Start fill:#e1f5e1
-    style End1 fill:#e1f5e1
-    style End2 fill:#e1f5e1
-    style End3 fill:#e1f5e1
-    style End4 fill:#e1f5e1
-    style Decision fill:#fff4e1
-    style CPU fill:#ffe1e1
-    style Memory fill:#e1e1ff
-    style Disk fill:#ffe1ff
-    style Network fill:#e1ffff</pre>
+    <span class="token keyword">style</span> Start <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1f5e1</span>
+    <span class="token keyword">style</span> End1 <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1f5e1</span>
+    <span class="token keyword">style</span> End2 <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1f5e1</span>
+    <span class="token keyword">style</span> End3 <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1f5e1</span>
+    <span class="token keyword">style</span> End4 <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1f5e1</span>
+    <span class="token keyword">style</span> Decision <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#fff4e1</span>
+    <span class="token keyword">style</span> CPU <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#ffe1e1</span>
+    <span class="token keyword">style</span> Memory <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1e1ff</span>
+    <span class="token keyword">style</span> Disk <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#ffe1ff</span>
+    <span class="token keyword">style</span> Network <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e1ffff</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="七、常见性能问题和解决方案"><a href="#七、常见性能问题和解决方案" class="headerlink" title="七、常见性能问题和解决方案"></a>七、常见性能问题和解决方案</h2><h3 id="7-1-CPU-100-问题"><a href="#7-1-CPU-100-问题" class="headerlink" title="7.1 CPU 100% 问题"></a>7.1 CPU 100% 问题</h3><p><strong>诊断</strong>：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">top</span>  <span class="token comment"># 找到CPU占用高的进程</span>
