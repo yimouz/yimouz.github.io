@@ -508,12 +508,12 @@
 </tr>
 </tbody></table>
 <h3 id="2-2-基本命令示例"><a href="#2-2-基本命令示例" class="headerlink" title="2.2 基本命令示例"></a>2.2 基本命令示例</h3><p><strong>Windows 系统</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 基础运行命令</span>
-jmeter.bat <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 基础运行命令
+jmeter.bat -n -t test.jmx -l result.jtl</code></pre>
 
 <p><strong>Linux/Mac 系统</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 基础运行命令（需先赋予执行权限：chmod +x jmeter.sh）</span>
-./jmeter.sh <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 基础运行命令（需先赋予执行权限：chmod +x jmeter.sh）
+./jmeter.sh -n -t test.jmx -l result.jtl</code></pre>
 
 
 <h2 id="3-服务器与代理设置"><a href="#3-服务器与代理设置" class="headerlink" title="3. 服务器与代理设置"></a>3. 服务器与代理设置</h2><h3 id="3-1-分布式测试参数"><a href="#3-1-分布式测试参数" class="headerlink" title="3.1 分布式测试参数"></a>3.1 分布式测试参数</h3><table>
@@ -612,8 +612,8 @@ jmeter.bat <span class="token parameter variable">-n</span> <span class="token p
 </ul>
 </li>
 <li><p><strong>命令行传参</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置线程数为 200，循环次数为 50</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-JthreadNum</span><span class="token operator">=</span><span class="token number">200</span> <span class="token parameter variable">-JloopNum</span><span class="token operator">=</span><span class="token number">50</span> <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 设置线程数为 200，循环次数为 50
+jmeter -n -t test.jmx -JthreadNum=200 -JloopNum=50 -l result.jtl</code></pre></li>
 </ol>
 <h2 id="5-日志与报告"><a href="#5-日志与报告" class="headerlink" title="5. 日志与报告"></a>5. 日志与报告</h2><h3 id="5-1-日志参数"><a href="#5-1-日志参数" class="headerlink" title="5.1 日志参数"></a>5.1 日志参数</h3><table>
 <thead>
@@ -659,14 +659,14 @@ jmeter <span class="token parameter variable">-n</span> <span class="token param
 </tr>
 </tbody></table>
 <h3 id="5-3-报告生成示例"><a href="#5-3-报告生成示例" class="headerlink" title="5.3 报告生成示例"></a>5.3 报告生成示例</h3><p><strong>示例 1</strong>：运行脚本并生成报告</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Windows</span>
-jmeter.bat <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl <span class="token parameter variable">-e</span> <span class="token parameter variable">-o</span> report
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># Windows
+jmeter.bat -n -t test.jmx -l result.jtl -e -o report
 
-<span class="token comment"># Linux</span>
-./jmeter.sh <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl <span class="token parameter variable">-e</span> <span class="token parameter variable">-o</span> report<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# Linux
+./jmeter.sh -n -t test.jmx -l result.jtl -e -o report</code></pre>
 
 <p><strong>示例 2</strong>：从已有结果文件生成报告</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter <span class="token parameter variable">-g</span> result.jtl <span class="token parameter variable">-o</span> report<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter -g result.jtl -o report</code></pre>
 
 
 <h2 id="6-其他参数"><a href="#6-其他参数" class="headerlink" title="6. 其他参数"></a>6. 其他参数</h2><table>
@@ -688,23 +688,23 @@ jmeter.bat <span class="token parameter variable">-n</span> <span class="token p
 <td><code>jmeter -h</code></td>
 </tr>
 </tbody></table>
-<h2 id="7-常用命令组合"><a href="#7-常用命令组合" class="headerlink" title="7. 常用命令组合"></a>7. 常用命令组合</h2><h3 id="7-1-基础压测"><a href="#7-1-基础压测" class="headerlink" title="7.1 基础压测"></a>7.1 基础压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 基础运行，仅生成结果文件</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="7-常用命令组合"><a href="#7-常用命令组合" class="headerlink" title="7. 常用命令组合"></a>7. 常用命令组合</h2><h3 id="7-1-基础压测"><a href="#7-1-基础压测" class="headerlink" title="7.1 基础压测"></a>7.1 基础压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 基础运行，仅生成结果文件
+jmeter -n -t test.jmx -l result.jtl</code></pre>
 
-<h3 id="7-2-压测并生成报告"><a href="#7-2-压测并生成报告" class="headerlink" title="7.2 压测并生成报告"></a>7.2 压测并生成报告</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 运行脚本并生成 HTML 报告</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl <span class="token parameter variable">-e</span> <span class="token parameter variable">-o</span> report<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="7-2-压测并生成报告"><a href="#7-2-压测并生成报告" class="headerlink" title="7.2 压测并生成报告"></a>7.2 压测并生成报告</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 运行脚本并生成 HTML 报告
+jmeter -n -t test.jmx -l result.jtl -e -o report</code></pre>
 
-<h3 id="7-3-分布式压测"><a href="#7-3-分布式压测" class="headerlink" title="7.3 分布式压测"></a>7.3 分布式压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动所有远程服务器执行测试</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-r</span> <span class="token parameter variable">-l</span> result.jtl
+<h3 id="7-3-分布式压测"><a href="#7-3-分布式压测" class="headerlink" title="7.3 分布式压测"></a>7.3 分布式压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 启动所有远程服务器执行测试
+jmeter -n -t test.jmx -r -l result.jtl
 
-<span class="token comment"># 启动指定远程服务器执行测试</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-R</span> <span class="token number">192.168</span>.1.101,192.168.1.102 <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 启动指定远程服务器执行测试
+jmeter -n -t test.jmx -R 192.168.1.101,192.168.1.102 -l result.jtl</code></pre>
 
-<h3 id="7-4-带参数的压测"><a href="#7-4-带参数的压测" class="headerlink" title="7.4 带参数的压测"></a>7.4 带参数的压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 带线程数、循环次数和环境参数的压测</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-JthreadNum</span><span class="token operator">=</span><span class="token number">100</span> <span class="token parameter variable">-JloopNum</span><span class="token operator">=</span><span class="token number">50</span> <span class="token parameter variable">-Jenv</span><span class="token operator">=</span>staging <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="7-4-带参数的压测"><a href="#7-4-带参数的压测" class="headerlink" title="7.4 带参数的压测"></a>7.4 带参数的压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 带线程数、循环次数和环境参数的压测
+jmeter -n -t test.jmx -JthreadNum=100 -JloopNum=50 -Jenv=staging -l result.jtl</code></pre>
 
-<h3 id="7-5-带代理的压测"><a href="#7-5-带代理的压测" class="headerlink" title="7.5 带代理的压测"></a>7.5 带代理的压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 通过代理服务器执行测试</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-H</span> <span class="token number">127.0</span>.0.1 <span class="token parameter variable">-P</span> <span class="token number">8080</span> <span class="token parameter variable">-u</span> username <span class="token parameter variable">-a</span> password <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="7-5-带代理的压测"><a href="#7-5-带代理的压测" class="headerlink" title="7.5 带代理的压测"></a>7.5 带代理的压测</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 通过代理服务器执行测试
+jmeter -n -t test.jmx -H 127.0.0.1 -P 8080 -u username -a password -l result.jtl</code></pre>
 
 
 <h2 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h2><h3 id="8-1-文件和目录要求"><a href="#8-1-文件和目录要求" class="headerlink" title="8.1 文件和目录要求"></a>8.1 文件和目录要求</h3><blockquote>
@@ -722,28 +722,28 @@ jmeter <span class="token parameter variable">-n</span> <span class="token param
 </ul>
 <h3 id="8-3-性能优化"><a href="#8-3-性能优化" class="headerlink" title="8.3 性能优化"></a>8.3 性能优化</h3><ul>
 <li><p><strong>内存设置</strong>：推荐使用 <code>setenv</code> 文件（而非直接修改 <code>jmeter.bat</code>/<code>jmeter.sh</code>）来配置内存分配</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在 JMeter 安装目录的 bin 文件夹中创建 setenv.sh（Linux/Mac）或 setenv.bat（Windows）</span>
-<span class="token comment"># setenv.sh 示例：设置初始堆内存为 1G，最大堆内存为 4G</span>
-<span class="token assign-left variable">HEAP</span><span class="token operator">=</span><span class="token string">"-Xms1g -Xmx4g"</span>
-<span class="token builtin class-name">export</span> HEAP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 在 JMeter 安装目录的 bin 文件夹中创建 setenv.sh（Linux/Mac）或 setenv.bat（Windows）
+# setenv.sh 示例：设置初始堆内存为 1G，最大堆内存为 4G
+HEAP="-Xms1g -Xmx4g"
+export HEAP</code></pre></li>
 <li><p><strong>GC 配置</strong>：在 <code>setenv</code> 文件中添加垃圾回收器配置，提高内存使用效率</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># setenv.sh 示例：使用 G1 垃圾回收器</span>
-<span class="token assign-left variable">HEAP</span><span class="token operator">=</span><span class="token string">"-Xms1g -Xmx4g"</span>
-<span class="token assign-left variable">GC</span><span class="token operator">=</span><span class="token string">"-XX:+UseG1GC -XX:MaxGCPauseMillis=200"</span>
-<span class="token builtin class-name">export</span> HEAP
-<span class="token builtin class-name">export</span> GC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># setenv.sh 示例：使用 G1 垃圾回收器
+HEAP="-Xms1g -Xmx4g"
+GC="-XX:+UseG1GC -XX:MaxGCPauseMillis=200"
+export HEAP
+export GC</code></pre></li>
 </ul>
 <blockquote>
 <p>**tags: [最佳实践]**：使用 <code>setenv</code> 文件可以避免直接修改 JMeter 原始脚本，便于版本升级和维护。</p>
 </blockquote>
 <h3 id="8-4-命令行差异"><a href="#8-4-命令行差异" class="headerlink" title="8.4 命令行差异"></a>8.4 命令行差异</h3><ul>
 <li><p><strong>Windows CMD</strong>：<code>-D</code> 等参数后不需要加空格</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">jmeter.bat -n -t test.jmx -DthreadNum=100 -l result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">jmeter.bat -n -t test.jmx -DthreadNum=100 -l result.jtl</code></pre></li>
 <li><p><strong>Windows PowerShell</strong>：<code>-D</code> 等参数后需要加空格</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">jmeter<span class="token punctuation">.</span>bat <span class="token operator">-</span>n <span class="token operator">-</span>t test<span class="token punctuation">.</span>jmx <span class="token operator">-</span>D threadNum=100 <span class="token operator">-</span>l result<span class="token punctuation">.</span>jtl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">jmeter.bat -n -t test.jmx -D threadNum=100 -l result.jtl</code></pre></li>
 <li><p><strong>Linux/Mac</strong>：使用 <code>./jmeter.sh</code> 执行，需赋予执行权限</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +x jmeter.sh
-./jmeter.sh <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">chmod +x jmeter.sh
+./jmeter.sh -n -t test.jmx -l result.jtl</code></pre></li>
 </ul>
 <h2 id="9-故障排查"><a href="#9-故障排查" class="headerlink" title="9. 故障排查"></a>9. 故障排查</h2><h3 id="9-1-常见错误及解决方案"><a href="#9-1-常见错误及解决方案" class="headerlink" title="9.1 常见错误及解决方案"></a>9.1 常见错误及解决方案</h3><table>
 <thead>
@@ -781,40 +781,40 @@ jmeter <span class="token parameter variable">-n</span> <span class="token param
 </tbody></table>
 <h3 id="9-2-调试技巧"><a href="#9-2-调试技巧" class="headerlink" title="9.2 调试技巧"></a>9.2 调试技巧</h3><ul>
 <li><p><strong>查看帮助</strong>：使用 <code>-h</code> 参数查看完整的命令行帮助</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter <span class="token parameter variable">-h</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter -h</code></pre></li>
 <li><p><strong>生成详细日志</strong>：使用 <code>-j</code> 参数生成运行日志，便于排查问题</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-j</span> jmeter.log <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter -n -t test.jmx -j jmeter.log -l result.jtl</code></pre></li>
 <li><p><strong>测试模式</strong>：先在本地小规模测试，确认脚本和参数正确后再进行大规模压测</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 小规模测试：10 线程，1 循环</span>
-jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-JthreadNum</span><span class="token operator">=</span><span class="token number">10</span> <span class="token parameter variable">-JloopNum</span><span class="token operator">=</span><span class="token number">1</span> <span class="token parameter variable">-l</span> result.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 小规模测试：10 线程，1 循环
+jmeter -n -t test.jmx -JthreadNum=10 -JloopNum=1 -l result.jtl</code></pre></li>
 </ul>
 <h2 id="10-高级用法"><a href="#10-高级用法" class="headerlink" title="10. 高级用法"></a>10. 高级用法</h2><h3 id="10-1-批量执行脚本"><a href="#10-1-批量执行脚本" class="headerlink" title="10.1 批量执行脚本"></a>10.1 批量执行脚本</h3><p><strong>示例</strong>：使用 Shell 脚本批量执行多个 JMeter 脚本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#!/bin/bash
 
-<span class="token comment"># 脚本目录</span>
-<span class="token assign-left variable">SCRIPT_DIR</span><span class="token operator">=</span><span class="token string">"./scripts"</span>
-<span class="token comment"># 结果目录</span>
-<span class="token assign-left variable">RESULT_DIR</span><span class="token operator">=</span><span class="token string">"./results"</span>
-<span class="token comment"># 报告目录</span>
-<span class="token assign-left variable">REPORT_DIR</span><span class="token operator">=</span><span class="token string">"./reports"</span>
+# 脚本目录
+SCRIPT_DIR="./scripts"
+# 结果目录
+RESULT_DIR="./results"
+# 报告目录
+REPORT_DIR="./reports"
 
-<span class="token comment"># 创建目录</span>
-<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token variable">$RESULT_DIR</span> <span class="token variable">$REPORT_DIR</span>
+# 创建目录
+mkdir -p $RESULT_DIR $REPORT_DIR
 
-<span class="token comment"># 批量执行脚本</span>
-<span class="token keyword">for</span> <span class="token for-or-select variable">script</span> <span class="token keyword">in</span> <span class="token string">"<span class="token variable">$SCRIPT_DIR</span>"</span>/*.jmx<span class="token punctuation">;</span> <span class="token keyword">do</span>
-    <span class="token comment"># 获取脚本名称（不含路径和扩展名）</span>
-    <span class="token assign-left variable">script_name</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> <span class="token string">"<span class="token variable">$script</span>"</span> .jmx<span class="token variable">)</span></span>
+# 批量执行脚本
+for script in "$SCRIPT_DIR"/*.jmx; do
+    # 获取脚本名称（不含路径和扩展名）
+    script_name=$(basename "$script" .jmx)
     
-    <span class="token comment"># 执行脚本</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"Running script: <span class="token variable">$script_name</span>"</span>
-    jmeter <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> <span class="token string">"<span class="token variable">$script</span>"</span> <span class="token parameter variable">-l</span> <span class="token string">"<span class="token variable">$RESULT_DIR</span>/<span class="token variable">${script_name}</span>.jtl"</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">-o</span> <span class="token string">"<span class="token variable">$REPORT_DIR</span>/<span class="token variable">${script_name}</span>"</span>
+    # 执行脚本
+    echo "Running script: $script_name"
+    jmeter -n -t "$script" -l "$RESULT_DIR/${script_name}.jtl" -e -o "$REPORT_DIR/${script_name}"
     
-    <span class="token builtin class-name">echo</span> <span class="token string">"Script <span class="token variable">$script_name</span> completed"</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"----------------------------------"</span>
-<span class="token keyword">done</span>
+    echo "Script $script_name completed"
+    echo "----------------------------------"
+done
 
-<span class="token builtin class-name">echo</span> <span class="token string">"All scripts completed!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+echo "All scripts completed!"</code></pre>
 
 <h3 id="10-2-集成到-CI-CD-流程"><a href="#10-2-集成到-CI-CD-流程" class="headerlink" title="10.2 集成到 CI/CD 流程"></a>10.2 集成到 CI/CD 流程</h3><p><strong>示例</strong>：在 Jenkins 中执行 JMeter 压测</p>
 <ol>
@@ -825,13 +825,13 @@ jmeter <span class="token parameter variable">-n</span> <span class="token param
 </ul>
 </li>
 <li><p><strong>构建脚本</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 JMeter（如果需要）</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 安装 JMeter（如果需要）
 
-<span class="token comment"># 执行压测</span>
-./apache-jmeter-5.5/bin/jmeter.sh <span class="token parameter variable">-n</span> <span class="token parameter variable">-t</span> test.jmx <span class="token parameter variable">-l</span> result.jtl <span class="token parameter variable">-e</span> <span class="token parameter variable">-o</span> report
+# 执行压测
+./apache-jmeter-5.5/bin/jmeter.sh -n -t test.jmx -l result.jtl -e -o report
 
-<span class="token comment"># 归档报告</span>
-<span class="token function">zip</span> <span class="token parameter variable">-r</span> jmeter-report.zip report/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+# 归档报告
+zip -r jmeter-report.zip report/</code></pre></li>
 <li><p><strong>构建后操作</strong>：</p>
 <ul>
 <li>归档制品：<code>jmeter-report.zip</code></li>

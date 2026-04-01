@@ -472,25 +472,25 @@
                 <h1 id="线程包括哪些状态，状态之间是如何变化"><a href="#线程包括哪些状态，状态之间是如何变化" class="headerlink" title="线程包括哪些状态，状态之间是如何变化?"></a>线程包括哪些状态，状态之间是如何变化?</h1><h2 id="1-线程状态-六种状态"><a href="#1-线程状态-六种状态" class="headerlink" title="1. 线程状态-六种状态"></a>1. 线程状态-六种状态</h2><blockquote>
 <p>线程的状态可以参考JDK中的Thread类中的枚举State,存在<strong>六种状态</strong></p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">  <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
-<span class="token comment">//尚未启动的线程的线程状态</span>
-  <span class="token constant">NEW</span><span class="token punctuation">,</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">  public enum State {
+//尚未启动的线程的线程状态
+  NEW,
 
-  <span class="token comment">//可运行线程的线程状态</span>
-  <span class="token constant">RUNNABLE</span><span class="token punctuation">,</span>
+  //可运行线程的线程状态
+  RUNNABLE,
 
-<span class="token comment">//线程阻塞等待监视器锁的线程状态</span>
-  <span class="token constant">BLOCKED</span><span class="token punctuation">,</span>
+//线程阻塞等待监视器锁的线程状态
+  BLOCKED,
 
-<span class="token comment">//等待线程的线程状态</span>
-  <span class="token constant">WAITING</span><span class="token punctuation">,</span>
+//等待线程的线程状态
+  WAITING,
 
-<span class="token comment">//具有指定等待时间的等待线程的线程状态（有限等待）</span>
-  <span class="token constant">TIMED_WAITING</span><span class="token punctuation">,</span>
+//具有指定等待时间的等待线程的线程状态（有限等待）
+  TIMED_WAITING,
 
- <span class="token comment">//已终止线程的线程状态。线程已完成执行</span>
-  <span class="token constant">TERMINATED</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ //已终止线程的线程状态。线程已完成执行
+  TERMINATED;
+}</code></pre>
 
 <p><img src="https://r2.022032.xyz/yimouz/2026/01/2fdb8ef77376eb11c1cce6076e62efc7.png" alt="线程状态转换图"></p>
 <p><strong>六种状态介绍:</strong></p>

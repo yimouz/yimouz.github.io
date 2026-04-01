@@ -485,120 +485,120 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Groovy-JSR223-的字符串语法-⭐⭐⭐⭐⭐"><a href="#Groovy-JSR223-的字符串语法-⭐⭐⭐⭐⭐" class="headerlink" title="Groovy (JSR223) 的字符串语法 ⭐⭐⭐⭐⭐"></a>Groovy (JSR223) 的字符串语法 ⭐⭐⭐⭐⭐</h1><h2 id="1-单引号字符串（不支持插值）"><a href="#1-单引号字符串（不支持插值）" class="headerlink" title="1. 单引号字符串（不支持插值）"></a>1. 单引号字符串（不支持插值）</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> str <span class="token operator">=</span> <span class="token string">'Hello World'</span>
-<span class="token keyword">def</span> name <span class="token operator">=</span> <span class="token string">'Tom'</span>
-<span class="token keyword">def</span> str2 <span class="token operator">=</span> <span class="token string">'Hello ${name}'</span>  <span class="token comment">// 输出: Hello ${name} (不会插值)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Groovy-JSR223-的字符串语法-⭐⭐⭐⭐⭐"><a href="#Groovy-JSR223-的字符串语法-⭐⭐⭐⭐⭐" class="headerlink" title="Groovy (JSR223) 的字符串语法 ⭐⭐⭐⭐⭐"></a>Groovy (JSR223) 的字符串语法 ⭐⭐⭐⭐⭐</h1><h2 id="1-单引号字符串（不支持插值）"><a href="#1-单引号字符串（不支持插值）" class="headerlink" title="1. 单引号字符串（不支持插值）"></a>1. 单引号字符串（不支持插值）</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def str = 'Hello World'
+def name = 'Tom'
+def str2 = 'Hello ${name}'  // 输出: Hello ${name} (不会插值)</code></pre>
 
-<h2 id="2-双引号字符串（支持插值）"><a href="#2-双引号字符串（支持插值）" class="headerlink" title="2. 双引号字符串（支持插值）"></a>2. 双引号字符串（支持插值）</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> name <span class="token operator">=</span> <span class="token string">'Tom'</span>
-<span class="token keyword">def</span> str <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>  <span class="token comment">// 输出: Hello Tom</span>
-<span class="token keyword">def</span> str2 <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"Line1\nLine2"</span></span>  <span class="token comment">// 支持转义</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-双引号字符串（支持插值）"><a href="#2-双引号字符串（支持插值）" class="headerlink" title="2. 双引号字符串（支持插值）"></a>2. 双引号字符串（支持插值）</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def name = 'Tom'
+def str = "Hello ${name}"  // 输出: Hello Tom
+def str2 = "Line1\nLine2"  // 支持转义</code></pre>
 
-<h2 id="3-三单引号（多行字符串，不转义，不插值）⭐⭐⭐"><a href="#3-三单引号（多行字符串，不转义，不插值）⭐⭐⭐" class="headerlink" title="3. 三单引号（多行字符串，不转义，不插值）⭐⭐⭐"></a>3. 三单引号（多行字符串，不转义，不插值）⭐⭐⭐</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> json <span class="token operator">=</span> <span class="token string">'''
+<h2 id="3-三单引号（多行字符串，不转义，不插值）⭐⭐⭐"><a href="#3-三单引号（多行字符串，不转义，不插值）⭐⭐⭐" class="headerlink" title="3. 三单引号（多行字符串，不转义，不插值）⭐⭐⭐"></a>3. 三单引号（多行字符串，不转义，不插值）⭐⭐⭐</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def json = '''
 {
   "name": "张三",
   "path": "C:\\Users\\test\\file.txt",
   "regex": "\\d+\\.\\d+",
   "quote": "He said 'hello'"
 }
-'''</span>
-<span class="token comment">// 所有字符都按原样输出，无需转义</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+'''
+// 所有字符都按原样输出，无需转义</code></pre>
 
-<h2 id="4-三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐"><a href="#4-三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐" class="headerlink" title="4. 三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐"></a>4. 三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> name <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"张三"</span></span>
-<span class="token keyword">def</span> userId <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"10001"</span></span>
+<h2 id="4-三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐"><a href="#4-三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐" class="headerlink" title="4. 三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐"></a>4. 三双引号（多行字符串，不转义，支持插值）⭐⭐⭐⭐⭐</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def name = "张三"
+def userId = "10001"
 
-<span class="token keyword">def</span> json <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"""
+def json = """
 {
-  "name": "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">",
-  "userId": "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">userId</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">",
+  "name": "${name}",
+  "userId": "${userId}",
   "path": "C:\\Users\\test\\file.txt",
   "regex": "\\d+\\.\\d+",
   "message": "He said 'hello' and \"goodbye\""
 }
-"""</span></span>
-<span class="token comment">// 支持变量插值，且无需转义反斜杠和引号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+"""
+// 支持变量插值，且无需转义反斜杠和引号</code></pre>
 
-<h2 id="5-斜杠字符串（正则表达式专用）"><a href="#5-斜杠字符串（正则表达式专用）" class="headerlink" title="5. 斜杠字符串（正则表达式专用）"></a>5. 斜杠字符串（正则表达式专用）</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> pattern <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">/\d+\.\d+/</span></span>  <span class="token comment">// 无需转义反斜杠</span>
-<span class="token keyword">def</span> path <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">/C:\Users\test\file.txt/</span></span>  <span class="token comment">// 路径也很方便</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="5-斜杠字符串（正则表达式专用）"><a href="#5-斜杠字符串（正则表达式专用）" class="headerlink" title="5. 斜杠字符串（正则表达式专用）"></a>5. 斜杠字符串（正则表达式专用）</h2><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def pattern = /\d+\.\d+/  // 无需转义反斜杠
+def path = /C:\Users\test\file.txt/  // 路径也很方便</code></pre>
 
-<h1 id="二、BeanShell-的字符串语法（受限）"><a href="#二、BeanShell-的字符串语法（受限）" class="headerlink" title="二、BeanShell 的字符串语法（受限）"></a>二、BeanShell 的字符串语法（受限）</h1><h2 id="1-只支持双引号字符串"><a href="#1-只支持双引号字符串" class="headerlink" title="1. 只支持双引号字符串"></a>1. 只支持双引号字符串</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"Tom"</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> str2 <span class="token operator">=</span> <span class="token string">"Hello "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>  <span class="token comment">// 必须用 + 拼接</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="二、BeanShell-的字符串语法（受限）"><a href="#二、BeanShell-的字符串语法（受限）" class="headerlink" title="二、BeanShell 的字符串语法（受限）"></a>二、BeanShell 的字符串语法（受限）</h1><h2 id="1-只支持双引号字符串"><a href="#1-只支持双引号字符串" class="headerlink" title="1. 只支持双引号字符串"></a>1. 只支持双引号字符串</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">String str = "Hello World";
+String name = "Tom";
+String str2 = "Hello " + name;  // 必须用 + 拼接</code></pre>
 
-<h2 id="2-必须转义特殊字符"><a href="#2-必须转义特殊字符" class="headerlink" title="2. 必须转义特殊字符"></a>2. 必须转义特殊字符</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// ❌ BeanShell 不支持三引号</span>
-<span class="token class-name">String</span> json <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+<h2 id="2-必须转义特殊字符"><a href="#2-必须转义特殊字符" class="headerlink" title="2. 必须转义特殊字符"></a>2. 必须转义特殊字符</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">// ❌ BeanShell 不支持三引号
+String json = """
 {
   "name": "test"
 }
-"""</span><span class="token punctuation">;</span>  <span class="token comment">// 语法错误！</span>
+""";  // 语法错误！
 
-<span class="token comment">// ✅ 必须这样写（痛苦）</span>
-<span class="token class-name">String</span> json <span class="token operator">=</span> <span class="token string">"{\n"</span> <span class="token operator">+</span>
-              <span class="token string">"  \"name\": \"test\",\n"</span> <span class="token operator">+</span>
-              <span class="token string">"  \"path\": \"C:\\\\Users\\\\test\\\\file.txt\"\n"</span> <span class="token operator">+</span>
-              <span class="token string">"}"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+// ✅ 必须这样写（痛苦）
+String json = "{\n" +
+              "  \"name\": \"test\",\n" +
+              "  \"path\": \"C:\\\\Users\\\\test\\\\file.txt\"\n" +
+              "}";</code></pre>
 
-<h2 id="3-BeanShell-的多行字符串解决方案"><a href="#3-BeanShell-的多行字符串解决方案" class="headerlink" title="3. BeanShell 的多行字符串解决方案"></a>3. BeanShell 的多行字符串解决方案</h2><h3 id="方案A-字符串拼接（传统方式）"><a href="#方案A-字符串拼接（传统方式）" class="headerlink" title="方案A: 字符串拼接（传统方式）"></a>方案A: 字符串拼接（传统方式）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> json <span class="token operator">=</span> <span class="token string">"{"</span> <span class="token operator">+</span>
-    <span class="token string">"\"code\": 0,"</span> <span class="token operator">+</span>
-    <span class="token string">"\"message\": \"success\","</span> <span class="token operator">+</span>
-    <span class="token string">"\"data\": {"</span> <span class="token operator">+</span>
-        <span class="token string">"\"userId\": \"10001\","</span> <span class="token operator">+</span>
-        <span class="token string">"\"name\": \"张三\","</span> <span class="token operator">+</span>
-        <span class="token string">"\"path\": \"C:\\\\Users\\\\test\\\\file.txt\""</span> <span class="token operator">+</span>
-    <span class="token string">"}"</span> <span class="token operator">+</span>
-<span class="token string">"}"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-BeanShell-的多行字符串解决方案"><a href="#3-BeanShell-的多行字符串解决方案" class="headerlink" title="3. BeanShell 的多行字符串解决方案"></a>3. BeanShell 的多行字符串解决方案</h2><h3 id="方案A-字符串拼接（传统方式）"><a href="#方案A-字符串拼接（传统方式）" class="headerlink" title="方案A: 字符串拼接（传统方式）"></a>方案A: 字符串拼接（传统方式）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">String json = "{" +
+    "\"code\": 0," +
+    "\"message\": \"success\"," +
+    "\"data\": {" +
+        "\"userId\": \"10001\"," +
+        "\"name\": \"张三\"," +
+        "\"path\": \"C:\\\\Users\\\\test\\\\file.txt\"" +
+    "}" +
+"}";</code></pre>
 
-<h3 id="方案B-StringBuilder（稍好一点）"><a href="#方案B-StringBuilder（稍好一点）" class="headerlink" title="方案B: StringBuilder（稍好一点）"></a>方案B: StringBuilder（稍好一点）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"{\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"  \"code\": 0,\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"  \"message\": \"success\",\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"  \"data\": {\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"    \"userId\": \"10001\",\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"    \"name\": \"张三\",\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"    \"path\": \"C:\\\\Users\\\\test\\\\file.txt\"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"  \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="方案B-StringBuilder（稍好一点）"><a href="#方案B-StringBuilder（稍好一点）" class="headerlink" title="方案B: StringBuilder（稍好一点）"></a>方案B: StringBuilder（稍好一点）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">StringBuilder sb = new StringBuilder();
+sb.append("{\n");
+sb.append("  \"code\": 0,\n");
+sb.append("  \"message\": \"success\",\n");
+sb.append("  \"data\": {\n");
+sb.append("    \"userId\": \"10001\",\n");
+sb.append("    \"name\": \"张三\",\n");
+sb.append("    \"path\": \"C:\\\\Users\\\\test\\\\file.txt\"\n");
+sb.append("  \n");
+sb.append("}");
 
-<span class="token class-name">String</span> json <span class="token operator">=</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+String json = sb.toString();</code></pre>
 
-<h3 id="方案C-使用-JSON-库（推荐）⭐⭐⭐"><a href="#方案C-使用-JSON-库（推荐）⭐⭐⭐" class="headerlink" title="方案C: 使用 JSON 库（推荐）⭐⭐⭐"></a>方案C: 使用 JSON 库（推荐）⭐⭐⭐</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>json<span class="token punctuation">.</span></span><span class="token class-name">JSONObject</span></span><span class="token punctuation">;</span>
+<h3 id="方案C-使用-JSON-库（推荐）⭐⭐⭐"><a href="#方案C-使用-JSON-库（推荐）⭐⭐⭐" class="headerlink" title="方案C: 使用 JSON 库（推荐）⭐⭐⭐"></a>方案C: 使用 JSON 库（推荐）⭐⭐⭐</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">import org.json.JSONObject;
 
-<span class="token class-name">JSONObject</span> json <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-json<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-json<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token string">"success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+JSONObject json = new JSONObject();
+json.put("code", 0);
+json.put("message", "success");
 
-<span class="token class-name">JSONObject</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">,</span> <span class="token string">"10001"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">,</span> <span class="token string">"C:\Users\test\file.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 只需转义一次</span>
+JSONObject data = new JSONObject();
+data.put("userId", "10001");
+data.put("name", "张三");
+data.put("path", "C:\Users\test\file.txt");  // 只需转义一次
 
-json<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+json.put("data", data);
 
-<span class="token class-name">String</span> jsonStr <span class="token operator">=</span> json<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2 表示缩进</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+String jsonStr = json.toString(2);  // 2 表示缩进</code></pre>
 
-<h1 id="三、实际对比示例"><a href="#三、实际对比示例" class="headerlink" title="三、实际对比示例"></a>三、实际对比示例</h1><h2 id="场景：返回包含特殊字符的-JSON"><a href="#场景：返回包含特殊字符的-JSON" class="headerlink" title="场景：返回包含特殊字符的 JSON"></a>场景：返回包含特殊字符的 JSON</h2><h3 id="Groovy-JSR223-优雅-⭐⭐⭐⭐⭐"><a href="#Groovy-JSR223-优雅-⭐⭐⭐⭐⭐" class="headerlink" title="Groovy (JSR223) - 优雅 ⭐⭐⭐⭐⭐"></a>Groovy (JSR223) - 优雅 ⭐⭐⭐⭐⭐</h3><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> userId <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">"userId"</span></span><span class="token punctuation">)</span> <span class="token operator">?:</span> <span class="token interpolation-string"><span class="token string">"10001"</span></span>
-<span class="token keyword">def</span> filePath <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"C:\Users\test\data.txt"</span></span>
+<h1 id="三、实际对比示例"><a href="#三、实际对比示例" class="headerlink" title="三、实际对比示例"></a>三、实际对比示例</h1><h2 id="场景：返回包含特殊字符的-JSON"><a href="#场景：返回包含特殊字符的-JSON" class="headerlink" title="场景：返回包含特殊字符的 JSON"></a>场景：返回包含特殊字符的 JSON</h2><h3 id="Groovy-JSR223-优雅-⭐⭐⭐⭐⭐"><a href="#Groovy-JSR223-优雅-⭐⭐⭐⭐⭐" class="headerlink" title="Groovy (JSR223) - 优雅 ⭐⭐⭐⭐⭐"></a>Groovy (JSR223) - 优雅 ⭐⭐⭐⭐⭐</h3><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def userId = vars.get("userId") ?: "10001"
+def filePath = "C:\Users\test\data.txt"
 
-<span class="token comment">// 方式1: 三双引号（最推荐）</span>
-<span class="token keyword">def</span> json <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"""
+// 方式1: 三双引号（最推荐）
+def json = """
 {
   "code": 0,
   "message": "success",
   "data": {
-    "userId": "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">userId</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">",
+    "userId": "${userId}",
     "name": "张三",
-    "path": "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">filePath</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">",
+    "path": "${filePath}",
     "regex": "\\d+\\.\\d+",
     "quote": "He said 'hello' and \"goodbye\"",
     "sql": "SELECT * FROM users WHERE name = 'Tom'"
   }
 }
-"""</span></span>
+"""
 
-SampleResult<span class="token punctuation">.</span><span class="token function">setResponseData</span><span class="token punctuation">(</span>json<span class="token punctuation">,</span> <span class="token interpolation-string"><span class="token string">"UTF-8"</span></span><span class="token punctuation">)</span>
-SampleResult<span class="token punctuation">.</span><span class="token function">setSuccessful</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+SampleResult.setResponseData(json, "UTF-8")
+SampleResult.setSuccessful(true)
 
-<span class="token comment">// 方式2: 三单引号（无插值）</span>
-<span class="token keyword">def</span> json <span class="token operator">=</span> <span class="token string">'''
+// 方式2: 三单引号（无插值）
+def json = '''
 {
   "code": 0,
   "message": "success",
@@ -608,45 +608,45 @@ SampleResult<span class="token punctuation">.</span><span class="token function"
     "quote": "He said 'hello'"
   }
 }
-'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+'''</code></pre>
 
-<h3 id="BeanShell-痛苦-⭐"><a href="#BeanShell-痛苦-⭐" class="headerlink" title="BeanShell - 痛苦 ⭐"></a>BeanShell - 痛苦 ⭐</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> userId <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>userId <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> userId <span class="token operator">=</span> <span class="token string">"10001"</span><span class="token punctuation">;</span>
+<h3 id="BeanShell-痛苦-⭐"><a href="#BeanShell-痛苦-⭐" class="headerlink" title="BeanShell - 痛苦 ⭐"></a>BeanShell - 痛苦 ⭐</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">String userId = vars.get("userId");
+if (userId == null) userId = "10001";
 
-<span class="token comment">// 方式1: 字符串拼接（痛苦）</span>
-<span class="token class-name">String</span> json <span class="token operator">=</span> <span class="token string">"{"</span> <span class="token operator">+</span>
-    <span class="token string">"\"code\": 0,"</span> <span class="token operator">+</span>
-    <span class="token string">"\"message\": \"success\","</span> <span class="token operator">+</span>
-    <span class="token string">"\"data\": {"</span> <span class="token operator">+</span>
-        <span class="token string">"\"userId\": \""</span> <span class="token operator">+</span> userId <span class="token operator">+</span> <span class="token string">"\","</span> <span class="token operator">+</span>
-        <span class="token string">"\"name\": \"张三\","</span> <span class="token operator">+</span>
-        <span class="token string">"\"path\": \"C:\\\\Users\\\\test\\\\data.txt\","</span> <span class="token operator">+</span>
-        <span class="token string">"\"regex\": \"\\\\d+\\\\.\\\\d+\","</span> <span class="token operator">+</span>
-        <span class="token string">"\"quote\": \"He said 'hello' and \\\"goodbye\\\"\""</span> <span class="token operator">+</span>
-    <span class="token string">"}"</span> <span class="token operator">+</span>
-<span class="token string">"}"</span><span class="token punctuation">;</span>
+// 方式1: 字符串拼接（痛苦）
+String json = "{" +
+    "\"code\": 0," +
+    "\"message\": \"success\"," +
+    "\"data\": {" +
+        "\"userId\": \"" + userId + "\"," +
+        "\"name\": \"张三\"," +
+        "\"path\": \"C:\\\\Users\\\\test\\\\data.txt\"," +
+        "\"regex\": \"\\\\d+\\\\.\\\\d+\"," +
+        "\"quote\": \"He said 'hello' and \\\"goodbye\\\"\"" +
+    "}" +
+"}";
 
-<span class="token class-name">ResponseData</span> <span class="token operator">=</span> json<span class="token punctuation">;</span>
-<span class="token class-name">IsSuccess</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+ResponseData = json;
+IsSuccess = true;
 
-<span class="token comment">// 方式2: 使用 JSON 库（推荐）</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>json<span class="token punctuation">.</span></span><span class="token class-name">JSONObject</span></span><span class="token punctuation">;</span>
+// 方式2: 使用 JSON 库（推荐）
+import org.json.JSONObject;
 
-<span class="token class-name">JSONObject</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token string">"success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+JSONObject response = new JSONObject();
+response.put("code", 0);
+response.put("message", "success");
 
-<span class="token class-name">JSONObject</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">,</span> <span class="token string">"C:\Users\test\data.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"regex"</span><span class="token punctuation">,</span> <span class="token string">"\\d+\\.\\d+"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"quote"</span><span class="token punctuation">,</span> <span class="token string">"He said 'hello' and \"goodbye\""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+JSONObject data = new JSONObject();
+data.put("userId", userId);
+data.put("name", "张三");
+data.put("path", "C:\Users\test\data.txt");
+data.put("regex", "\\d+\\.\\d+");
+data.put("quote", "He said 'hello' and \"goodbye\"");
 
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+response.put("data", data);
 
-<span class="token class-name">ResponseData</span> <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">IsSuccess</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ResponseData = response.toString(2);
+IsSuccess = true;</code></pre>
 
 <h1 id="四、转义字符对比表"><a href="#四、转义字符对比表" class="headerlink" title="四、转义字符对比表"></a>四、转义字符对比表</h1><table>
 <thead>
@@ -700,16 +700,16 @@ response<span class="token punctuation">.</span><span class="token function">put
 <td>\\d+</td>
 </tr>
 </tbody></table>
-<h1 id="五、完整实战对比"><a href="#五、完整实战对比" class="headerlink" title="五、完整实战对比"></a>五、完整实战对比</h1><h2 id="需求：返回包含-SQL、正则、路径的复杂-JSON"><a href="#需求：返回包含-SQL、正则、路径的复杂-JSON" class="headerlink" title="需求：返回包含 SQL、正则、路径的复杂 JSON"></a>需求：返回包含 SQL、正则、路径的复杂 JSON</h2><h3 id="Groovy-实现（简洁）"><a href="#Groovy-实现（简洁）" class="headerlink" title="Groovy 实现（简洁）"></a>Groovy 实现（简洁）</h3><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy"><span class="token keyword">def</span> userId <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">"userId"</span></span><span class="token punctuation">)</span> <span class="token operator">?:</span> <span class="token interpolation-string"><span class="token string">"10001"</span></span>
-<span class="token keyword">def</span> userName <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">"userName"</span></span><span class="token punctuation">)</span> <span class="token operator">?:</span> <span class="token interpolation-string"><span class="token string">"张三"</span></span>
+<h1 id="五、完整实战对比"><a href="#五、完整实战对比" class="headerlink" title="五、完整实战对比"></a>五、完整实战对比</h1><h2 id="需求：返回包含-SQL、正则、路径的复杂-JSON"><a href="#需求：返回包含-SQL、正则、路径的复杂-JSON" class="headerlink" title="需求：返回包含 SQL、正则、路径的复杂 JSON"></a>需求：返回包含 SQL、正则、路径的复杂 JSON</h2><h3 id="Groovy-实现（简洁）"><a href="#Groovy-实现（简洁）" class="headerlink" title="Groovy 实现（简洁）"></a>Groovy 实现（简洁）</h3><pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">def userId = vars.get("userId") ?: "10001"
+def userName = vars.get("userName") ?: "张三"
 
-<span class="token keyword">def</span> response <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"""
+def response = """
 {
   "code": 0,
   "message": "查询成功",
   "data": {
-    "userId": "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">userId</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">",
-    "userName": "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">userName</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">",
+    "userId": "${userId}",
+    "userName": "${userName}",
     "sql": "SELECT * FROM users WHERE name = 'Tom' AND age &gt; 18",
     "regex": "^\\d{3}-\\d{4}-\\d{4}$",
     "filePath": "C:\Users\test\documents\report.xlsx",
@@ -717,41 +717,41 @@ response<span class="token punctuation">.</span><span class="token function">put
     "xpath": "//div[@class='content']//p[1]",
     "description": "He said: \"Hello, I'm Tom\" and she replied 'Hi!'"
   },
-  "timestamp": </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+  "timestamp": ${System.currentTimeMillis()}
 }
-"""</span></span>
+"""
 
-SampleResult<span class="token punctuation">.</span><span class="token function">setResponseData</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> <span class="token interpolation-string"><span class="token string">"UTF-8"</span></span><span class="token punctuation">)</span>
-SampleResult<span class="token punctuation">.</span><span class="token function">setResponseCode</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">"200"</span></span><span class="token punctuation">)</span>
-SampleResult<span class="token punctuation">.</span><span class="token function">setSuccessful</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+SampleResult.setResponseData(response, "UTF-8")
+SampleResult.setResponseCode("200")
+SampleResult.setSuccessful(true)</code></pre>
 
-<h3 id="BeanShell-实现（复杂）"><a href="#BeanShell-实现（复杂）" class="headerlink" title="BeanShell 实现（复杂）"></a>BeanShell 实现（复杂）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>json<span class="token punctuation">.</span></span><span class="token class-name">JSONObject</span></span><span class="token punctuation">;</span>
+<h3 id="BeanShell-实现（复杂）"><a href="#BeanShell-实现（复杂）" class="headerlink" title="BeanShell 实现（复杂）"></a>BeanShell 实现（复杂）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">import org.json.JSONObject;
 
-<span class="token class-name">String</span> userId <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>userId <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> userId <span class="token operator">=</span> <span class="token string">"10001"</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> userName <span class="token operator">=</span> vars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"userName"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>userName <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> userName <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+String userId = vars.get("userId");
+if (userId == null) userId = "10001";
+String userName = vars.get("userName");
+if (userName == null) userName = "张三";
 
-<span class="token class-name">JSONObject</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token string">"查询成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+JSONObject response = new JSONObject();
+response.put("code", 0);
+response.put("message", "查询成功");
 
-<span class="token class-name">JSONObject</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"userName"</span><span class="token punctuation">,</span> userName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"sql"</span><span class="token punctuation">,</span> <span class="token string">"SELECT * FROM users WHERE name = 'Tom' AND age &gt; 18"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"regex"</span><span class="token punctuation">,</span> <span class="token string">"^\\d{3}-\\d{4}-\\d{4}$"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"filePath"</span><span class="token punctuation">,</span> <span class="token string">"C:\Users\test\documents\report.xlsx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"jsonPath"</span><span class="token punctuation">,</span> <span class="token string">"$..books[?(@.price &lt; 10)]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"xpath"</span><span class="token punctuation">,</span> <span class="token string">"//div[@class='content']//p[1]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"description"</span><span class="token punctuation">,</span> <span class="token string">"He said: \"Hello, I'm Tom\" and she replied 'Hi!'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+JSONObject data = new JSONObject();
+data.put("userId", userId);
+data.put("userName", userName);
+data.put("sql", "SELECT * FROM users WHERE name = 'Tom' AND age &gt; 18");
+data.put("regex", "^\\d{3}-\\d{4}-\\d{4}$");
+data.put("filePath", "C:\Users\test\documents\report.xlsx");
+data.put("jsonPath", "$..books[?(@.price &lt; 10)]");
+data.put("xpath", "//div[@class='content']//p[1]");
+data.put("description", "He said: \"Hello, I'm Tom\" and she replied 'Hi!'");
 
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-response<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"timestamp"</span><span class="token punctuation">,</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+response.put("data", data);
+response.put("timestamp", System.currentTimeMillis());
 
-<span class="token class-name">ResponseData</span> <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">ResponseCode</span> <span class="token operator">=</span> <span class="token string">"200"</span><span class="token punctuation">;</span>
-<span class="token class-name">IsSuccess</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ResponseData = response.toString(2);
+ResponseCode = "200";
+IsSuccess = true;</code></pre>
 
 <h1 id="六、对比"><a href="#六、对比" class="headerlink" title="六、对比"></a>六、对比</h1><table>
 <thead>
