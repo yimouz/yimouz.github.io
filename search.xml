@@ -42,6 +42,19 @@
     
     
     <entry>
+      <title></title>
+      <link href="/2026/04/01/testmermaid/"/>
+      <url>/2026/04/01/testmermaid/</url>
+      
+        <content type="html"><![CDATA[<pre><code class="mermaid">graph TD    A[监控到TPS忽高忽低] --&gt; B{查看GC日志}    B -- 频繁Full GC --&gt; C[优化JVM堆内存/回收器]    B -- GC正常 --&gt; D{检查数据库连接池}    D -- 连接耗尽 --&gt; E[增加连接池大小或优化SQL]    D -- 连接充足 --&gt; F[检查网络丢包/带宽限制]</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Groovy (JSR223) 字符串语法</title>
       <link href="/2026/02/28/Groovy%20(JSR223)%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%AD%E6%B3%95/"/>
       <url>/2026/02/28/Groovy%20(JSR223)%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%AD%E6%B3%95/</url>
