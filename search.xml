@@ -46,7 +46,7 @@
       <link href="/2026/04/01/testmermaid/"/>
       <url>/2026/04/01/testmermaid/</url>
       
-        <content type="html"><![CDATA[<p>这里写你的内容…</p><pre><code class="mermaid">graph TD    A[开始] --&gt; B[结束]</code></pre>]]></content>
+        <content type="html"><![CDATA[<pre><code class="mermaid">graph TD    A[监控到TPS忽高忽低] --&gt; B{查看GC日志}    B -- 频繁Full GC --&gt; C[优化JVM堆内存]    B -- GC正常 --&gt; D[检查数据库连接池]</code></pre>]]></content>
       
       
       
