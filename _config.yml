@@ -111,3 +111,4 @@ feed:
 mermaid:
   enable: true
   version: "10.9.0"
+  theme: 'default' # 可选: 'default', 'forest', 'dark', 'neutral'
