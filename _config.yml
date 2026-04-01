@@ -91,7 +91,7 @@ search:
   path: search.xml
   field: post
 permalink_pinyin:
-  enable: true
+  enable: false
   separator: '-' # default: '-'
 githubEmojis:
   enable: true
@@ -108,3 +108,6 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
+mermaid:
+  enable: true
+  version: "10.9.0"
