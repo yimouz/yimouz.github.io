@@ -6,6 +6,6 @@ mermaid: true
 
 这里写你的内容...
 
-```mermaid
+{% mermaid %}
 graph TD
     A[开始] --> B[结束]
