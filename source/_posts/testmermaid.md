@@ -4,9 +4,8 @@ date: 2026-04-01
 mermaid: true
 ---
 
-这里写你的内容...
-
-{% mermaid %}
+```mermaid
 graph TD
-    A[开始] --> B[结束]
-{% endmermaid %}
+    A[监控到TPS忽高忽低] --> B{查看GC日志}
+    B -- 频繁Full GC --> C[优化JVM堆内存]
+    B -- GC正常 --> D[检查数据库连接池]
